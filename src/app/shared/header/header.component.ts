@@ -1,13 +1,15 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
-import {MenuService} from '../menu.service';
+import {MenuService} from '../../core/menu.service';
 
 @Component({
-    selector: 'app-header',
+    selector: 'cfm-header',
     templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
+    notifications: any;
+    languages: any;
     private sideBarToggle = false;
-    private notifications: any;
+
     @Output() addToggleClass: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     constructor(private menuService: MenuService) {
@@ -15,6 +17,7 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit() {
         this.notifications = this.menuService.getMenuConfig('alerts');
+        this.languages = this.menuService.getMenuConfig('languages');
     }
 
     /**

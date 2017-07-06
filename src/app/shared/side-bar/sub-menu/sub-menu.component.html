@@ -1,0 +1,11 @@
+<ul class="sub-menu">
+    <li class="nav-item" *ngFor="let menu of subMenu ">
+        <a [routerLink]="menu.Route ? menu.Route : null" class="nav-link nav-toggle">
+            <i *ngIf="menu.IconClass != null" class="{{ menu.IconClass }}"></i>
+            <img *ngIf="menu.IconSource != null" alt="" src="{{menu.IconSource}}">
+            <span class="title">{{menu.Name}}</span>
+            <span *ngIf="menu.Children != null && menu.Children.length > 0" class="arrow"></span>
+        </a>
+        <cfm-sub-menu *ngIf="menu.Children != null && menu.Children.length > 0" [subMenu]="menu.Children"></cfm-sub-menu>
+    </li>
+</ul>

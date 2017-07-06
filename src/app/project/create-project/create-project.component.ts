@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {ProjectSettings} from '../projectSettings';
 @Component({
-  selector: 'app-create-project',
+  selector: 'cfm-create-project',
   templateUrl: './create-project.component.html',
   styles: [],
   providers: [ProjectSettings]

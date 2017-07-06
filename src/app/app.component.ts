@@ -1,18 +1,16 @@
 import {Component, ViewContainerRef, OnInit} from '@angular/core';
-import {CoreService} from './core/core.service';
 import {MenuService} from './core/menu.service';
 import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 import {Menu} from './core/menu';
 
 @Component({
-    selector: 'app-root',
+    selector: 'cfm-root',
     templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
     flag: boolean;
 
-    constructor(public core: CoreService,
-                public toastr: ToastsManager,
+    constructor(public toastr: ToastsManager,
                 vcr: ViewContainerRef,
                 private menuService: MenuService) {
         this.toastr.setRootViewContainerRef(vcr);
@@ -20,21 +18,18 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         //@todo: Change this with menu API. Right now it is hardcoded values.
-
-        this.menuService.add('languages',
-            {
-                position: 1,
-                Name: "English",
-                Exec: (selected: Menu) => {
-                    alert('English');
-                },
-                Children: null,
-                IconClass: null,
-                IconSource: "/assets/global/img/flags/us.png",
-                showInMenu: true,
-                Route: ''
-            }
-        );
+        this.menuService.add('languages', {
+            position: 1,
+            Name: "English",
+            Exec: (selected: Menu) => {
+                alert('English');
+            },
+            Children: null,
+            IconClass: null,
+            IconSource: "./assets/global/img/flags/us.png",
+            showInMenu: true,
+            Route: ''
+        });
         this.menuService.add('languages', {
             position: 1,
             Name: "French",
@@ -43,7 +38,7 @@ export class AppComponent implements OnInit {
             },
             Children: null,
             IconClass: null,
-            IconSource: "/assets/global/img/flags/fr.png",
+            IconSource: "./assets/global/img/flags/fr.png",
             showInMenu: true,
             Route: ''
         });
@@ -55,7 +50,7 @@ export class AppComponent implements OnInit {
             },
             Children: null,
             IconClass: null,
-            IconSource: "/assets/global/img/flags/de.png",
+            IconSource: "./assets/global/img/flags/de.png",
             showInMenu: true,
             Route: ''
         });
@@ -67,7 +62,7 @@ export class AppComponent implements OnInit {
             },
             Children: null,
             IconClass: null,
-            IconSource: "/assets/global/img/flags/ru.png",
+            IconSource: "./assets/global/img/flags/ru.png",
             showInMenu: true,
             Route: ''
         });
@@ -93,6 +88,49 @@ export class AppComponent implements OnInit {
             }, Children: null, IconClass: null, IconSource: null, showInMenu: true, Route: ''
         });
 
+        this.menuService.add('left', {
+            position: 1, Name: "Home", Exec: (selected: Menu) => {
+                alert('Russian');
+            }, Children: null, IconClass: "icon-home", IconSource: null, showInMenu: true, Route: '/'
+        });
+        this.menuService.add('left', {
+            position: 1, Name: "Menu 2", Exec: (selected: Menu) => {
+                alert('Russian');
+            }, Children: null, IconClass: "icon-magnifier", IconSource: null, showInMenu: true, Route: '/dashboard'
+        });
+        this.menuService.add('left', {
+            position: 1, Name: "Menu 3", Exec: (selected: Menu) => {
+                alert('Russian');
+            }, IconClass: "icon-home", IconSource: null, showInMenu: true, Route: '', Children: [
+                {
+                    position: 1, Name: "Menu 3.1", Exec: (selected: Menu) => {
+                    alert('Russian');
+                }, Children: null, IconClass: "icon-magnifier", IconSource: null, showInMenu: true, Route: '/projects'
+                },
+                {
+                    position: 1, Name: "Menu 3.2", Exec: (selected: Menu) => {
+                    alert('Russian');
+                }, Children: null, IconClass: "icon-magnifier", IconSource: null, showInMenu: true, Route: '/projects'
+                },
+                {
+                    position: 1, Name: "Menu 3.3", Exec: (selected: Menu) => {
+                    alert('Russian');
+                }, Children: null, IconClass: "icon-magnifier", IconSource: null, showInMenu: true, Route: '/dashboard'
+                }
+            ]
+        });
+
+        this.menuService.add('quick', {
+            position: 1, Name: "Quick Menu 1", Exec: (selected: Menu) => {
+                alert('Quick Menu 1');
+            }, Children: null, IconClass: "icon-magnifier", IconSource: null, showInMenu: true, Route: '/dashboard'
+        });
+        this.menuService.add('quick', {
+            position: 1, Name: "Quick Menu 2", Exec: (selected: Menu) => {
+                alert('Quick Menu 2');
+            }, Children: null, IconClass: "icon-magnifier", IconSource: null, showInMenu: true, Route: '/dashboard'
+        });
+
     }
 
     /**
@@ -101,8 +139,8 @@ export class AppComponent implements OnInit {
      * @param value
      */
     sideMenuToggle(value: boolean): void {
-        this.core.setToggleClass(value);
-        this.flag = this.core.getToggleClass();
+        this.menuService.setToggleClass(value);
+        this.flag = this.menuService.getToggleClass();
     }
 
 }

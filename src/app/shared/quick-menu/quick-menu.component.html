@@ -1,0 +1,16 @@
+<nav [ngClass]="(menuToggle)?'quick-nav nav-is-visible':'quick-nav'" *ngIf="menuItems.length > 0">
+    <a class="quick-nav-trigger" (click)="onClickMenuToggle()">
+        <span aria-hidden="true"></span>
+    </a>
+    <ul>
+        <li *ngFor="let menu of menuItems">
+            <a href="#" target="_blank" class="">
+                <span>{{menu.Name}}</span>
+                <i *ngIf="menu.IconClass != null" class="{{ menu.IconClass }}"></i>
+                <img *ngIf="menu.IconSource != null" alt="" src="{{menu.IconSource}}">
+            </a>
+        </li>
+    </ul>
+    <span aria-hidden="true" class="quick-nav-bg"></span>
+</nav>
+<div class="quick-nav-overlay" (click)="closeMenu()"></div>

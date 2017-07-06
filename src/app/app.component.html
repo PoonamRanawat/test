@@ -1,8 +1,8 @@
 <div class="page-wrapper page-header-fixed page-sidebar-closed-hide-logo page-content-white {{flag ? 'page-sidebar-closed': ''}}">
-    <app-header (addToggleClass)="sideMenuToggle($event)"></app-header>
+    <cfm-header (addToggleClass)="sideMenuToggle($event)"></cfm-header>
     <div class="page-container">
         <div class="page-sidebar-wrapper">
-            <app-side-bar></app-side-bar>
+            <cfm-side-bar></cfm-side-bar>
         </div>
         <div class="page-content-wrapper">
             <div class="page-content">
@@ -10,5 +10,6 @@
             </div>
         </div>
     </div>
-    <app-footer></app-footer>
+    <cfm-footer></cfm-footer>
 </div>
+<cfm-quick-menu></cfm-quick-menu>
