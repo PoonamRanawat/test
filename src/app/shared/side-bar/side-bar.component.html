@@ -15,114 +15,23 @@
                 </div>
             </form>
         </li>
-        <li>
-            <a [routerLink]="['/home']" class="nav-link nav-toggle">
-                <i class="icon-home"></i>
-                <span class="title">Home</span>
-                <span class="selected"></span>
-                <span class="arrow open"></span>
+        <li class="nav-item {{_opened[i] ? 'open': ''}}"
+            *ngFor="let menu of menuItems; let i = index;"
+            (click)="_opened[i]=!_opened[i];">
+            <a *ngIf="menu.Children == null || menu.Children.length == 0" [routerLink]="menu.Route ? menu.Route : null">
+                <i *ngIf="menu.IconClass != null" class="{{ menu.IconClass }}"></i>
+                <img *ngIf="menu.IconSource != null" alt="" src="{{menu.IconSource}}">
+                <span class="title">{{menu.Name}}</span>
             </a>
-        </li>
 
-        <li class="heading">
-            <h3 class="uppercase">Features</h3>
-        </li>
-
-        <li class="nav-item {{_opened[0] ? 'open': ''}}" (click)="_opened[0]=!_opened[0];">
-            <a href="javascript:;" class="nav-link nav-toggle">
-                <i class="icon-puzzle"></i>
-                <span class="title">Components</span>
+            <a *ngIf="!(menu.Children == null || menu.Children.length == 0)" class="nav-link nav-toggle">
+                <i *ngIf="menu.IconClass != null" class="{{ menu.IconClass }}"></i>
+                <img *ngIf="menu.IconSource != null" alt="" src="{{menu.IconSource}}">
+                <span class="title">{{menu.Name}}</span>
                 <span class="arrow"></span>
             </a>
-            <ul class="sub-menu">
-                <li class="nav-item">
-                    <a href="components_date_time_pickers.html" class="nav-link ">
-                        <span class="title">Date & Time Pickers</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="components_select2.html" class="nav-link ">
-                        <span class="title">Select2 Dropdowns</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="components_bootstrap_multiselect_dropdown.html" class="nav-link ">
-                        <span class="title">Bootstrap Multiselect Dropdowns</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-item {{_opened[1] ? 'open': ''}}" (click)="_opened[1]=!_opened[1];">
-            <a href="javascript:;" class="nav-link nav-toggle">
-                <i class="icon-settings"></i>
-                <span class="title">Form Stuff</span>
-                <span class="arrow"></span>
-            </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="form_controls.html" class="nav-link ">
-                                             <span class="title">Bootstrap Form
-                                                 <br>Controls</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="form_controls_md.html" class="nav-link ">
-                                             <span class="title">Material Design
-                                                 <br>Form Controls</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="form_validation.html" class="nav-link ">
-                        <span class="title">Form Validation</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="form_validation_states_md.html" class="nav-link ">
-                                             <span class="title">Material Design
-                                                 <br>Form Validation States</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="form_validation_md.html" class="nav-link ">
-                                             <span class="title">Material Design
-                                                 <br>Form Validation</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-item {{_opened[2] ? 'open': ''}}" (click)="_opened[2]=!_opened[2];">
-            <a href="javascript:;" class="nav-link nav-toggle">
-                <i class="icon-bulb"></i>
-                <span class="title">Elements</span>
-                <span class="arrow"></span>
-            </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="elements_steps.html" class="nav-link ">
-                        <span class="title">Steps</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="elements_lists.html" class="nav-link ">
-                        <span class="title">Lists</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="elements_ribbons.html" class="nav-link ">
-                        <span class="title">Ribbons</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="elements_overlay.html" class="nav-link ">
-                        <span class="title">Overlays</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="elements_cards.html" class="nav-link ">
-                        <span class="title">User Cards</span>
-                    </a>
-                </li>
-            </ul>
+            <cfm-sub-menu *ngIf="menu.Children != null && menu.Children.length > 0"
+                          [subMenu]="menu.Children"></cfm-sub-menu>
         </li>
     </ul>
 </div>

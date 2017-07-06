@@ -6,7 +6,7 @@ import {CreateProjectComponent} from "./project/create-project/create-project.co
 
 const appRoutes: Routes = [
     {path: '', component: ProjectComponent},
-    {path: 'add', component: CreateProjectComponent},
+    {path: 'project/add', component: CreateProjectComponent},
     {path: '**', component: PageNotFoundComponent},
 ];
 

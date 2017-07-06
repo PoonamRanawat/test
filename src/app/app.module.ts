@@ -9,8 +9,10 @@ import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import {HeaderComponent} from './shared/header/header.component';
 import {FooterComponent} from './shared/footer/footer.component';
 import {SideBarComponent} from './shared/side-bar/side-bar.component';
-import {NotificationComponent} from './shared/notification/notification.component';
 import {BrowserModule} from "@angular/platform-browser";
+import {BsDropdownModule} from 'ngx-bootstrap';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import {SubMenuComponent} from "./shared/side-bar/sub-menu/sub-menu.component";
 
 @NgModule({
     declarations: [
@@ -19,7 +21,7 @@ import {BrowserModule} from "@angular/platform-browser";
         HeaderComponent,
         FooterComponent,
         SideBarComponent,
-        NotificationComponent
+        SubMenuComponent
     ],
     imports: [
         BrowserModule,
@@ -27,9 +29,12 @@ import {BrowserModule} from "@angular/platform-browser";
         AppRoutingModule,
         ProjectModule,
         RouterModule,
+        BsDropdownModule.forRoot(),
         ToastModule.forRoot()
     ],
-    providers: [],
+    providers: [
+        {provide: LocationStrategy, useClass: HashLocationStrategy}
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

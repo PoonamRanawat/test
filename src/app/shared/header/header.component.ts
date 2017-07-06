@@ -6,8 +6,9 @@ import {MenuService} from '../../core/menu.service';
     templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
+    notifications: any;
     private sideBarToggle = false;
-    private notifications: any;
+
     @Output() addToggleClass: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     constructor(private menuService: MenuService) {

@@ -8,12 +8,14 @@ import {MenuService} from '../../core/menu.service';
 
 export class SideBarComponent implements OnInit {
     sidebarToggleFlag: boolean;
-    private _opened: Array<boolean> = [];
+    _opened: Array<boolean> = [];
+    menuItems: any;
 
     constructor(public menuService: MenuService) {
     }
 
     ngOnInit() {
+        this.menuItems = this.menuService.getMenuConfig('left');
         this.sidebarToggleFlag = this.menuService.getToggleClass();
     }
 }
