@@ -116,3 +116,7 @@
     top: -20px;
     height: 75px;
 }
+
+.quick-nav-trigger {
+    z-index: 10104;
+}
