@@ -35,6 +35,31 @@
                         </li>
                     </ul>
                 </li>
+                <li class="dropdown dropdown-user " *ngIf="languages.length > 0" dropdown>
+                    <a class="dropdown-toggle" dropdownToggle>
+                        <img *ngIf="menuService.getActive('languages') != null && menuService.getActive('languages').IconSource != null"
+                             alt="" class="img-circle" src="{{ menuService.getActive('languages').IconSource}}"/>
+                        <i *ngIf="menuService.getActive('languages') != null && menuService.getActive('languages').IconClass != null"
+                           class="{{ menuService.getActive('languages').IconClass }}"></i>
+                        <span class="username username-hide-on-mobile"> {{menuService.getActive('languages').Name }}</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-default" *dropdownMenu>
+                        <li *ngFor="let menu of languages "
+                            [ngClass]="{'dropdown-submenu' :(menu.Children && menu.Children.length > 0) }">
+                            <a (click)="menu.Exec(menu)" *ngIf="!(menu.Children && menu.Children.length > 0)">
+                                <i *ngIf="menu.IconClass != null" class="{{ menu.IconClass }}"></i>
+                                <img *ngIf="menu.IconSource != null" alt="" src="{{menu.IconSource}}">
+                                {{ menu.Name}}
+                            </a>
+                            <a href="#" class="" *ngIf="menu.Children && menu.Children.length > 0">
+                                <i *ngIf="menu.IconClass != null" class="{{ menu.IconClass }}"></i>
+                                <img *ngIf="menu.IconSource != null" alt="" src="{{menu.IconSource}}">
+                                {{ menu.Name}}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="dropdown dropdown-user" dropdown>
                     <a href="javascript:;" dropdownToggle class="dropdown-toggle" data-toggle="dropdown"
                        data-hover="dropdown"

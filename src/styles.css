@@ -110,3 +110,9 @@
 .page-footer {
     text-align: center !important;
 }
+
+.page-logo .logo-default {
+    position: relative;
+    top: -20px;
+    height: 75px;
+}

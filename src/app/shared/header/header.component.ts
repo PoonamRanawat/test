@@ -7,6 +7,7 @@ import {MenuService} from '../../core/menu.service';
 })
 export class HeaderComponent implements OnInit {
     notifications: any;
+    languages: any;
     private sideBarToggle = false;
 
     @Output() addToggleClass: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -16,6 +17,7 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit() {
         this.notifications = this.menuService.getMenuConfig('alerts');
+        this.languages = this.menuService.getMenuConfig('languages');
     }
 
     /**

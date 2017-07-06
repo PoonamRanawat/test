@@ -13,6 +13,7 @@ import {BrowserModule} from "@angular/platform-browser";
 import {BsDropdownModule} from 'ngx-bootstrap';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {SubMenuComponent} from "./shared/side-bar/sub-menu/sub-menu.component";
+import {QuickMenuComponent} from "./shared/quick-menu/quick-menu.component";
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import {SubMenuComponent} from "./shared/side-bar/sub-menu/sub-menu.component";
         HeaderComponent,
         FooterComponent,
         SideBarComponent,
-        SubMenuComponent
+        SubMenuComponent,
+        QuickMenuComponent
     ],
     imports: [
         BrowserModule,

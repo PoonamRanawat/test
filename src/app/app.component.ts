@@ -18,6 +18,55 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         //@todo: Change this with menu API. Right now it is hardcoded values.
+        this.menuService.add('languages', {
+            position: 1,
+            Name: "English",
+            Exec: (selected: Menu) => {
+                alert('English');
+            },
+            Children: null,
+            IconClass: null,
+            IconSource: "./assets/global/img/flags/us.png",
+            showInMenu: true,
+            Route: ''
+        });
+        this.menuService.add('languages', {
+            position: 1,
+            Name: "French",
+            Exec: (selected: Menu) => {
+                alert('French');
+            },
+            Children: null,
+            IconClass: null,
+            IconSource: "./assets/global/img/flags/fr.png",
+            showInMenu: true,
+            Route: ''
+        });
+        this.menuService.add('languages', {
+            position: 1,
+            Name: "German",
+            Exec: (selected: Menu) => {
+                alert('German');
+            },
+            Children: null,
+            IconClass: null,
+            IconSource: "./assets/global/img/flags/de.png",
+            showInMenu: true,
+            Route: ''
+        });
+        this.menuService.add('languages', {
+            position: 1,
+            Name: "Russian",
+            Exec: (selected: Menu) => {
+                alert('Russian');
+            },
+            Children: null,
+            IconClass: null,
+            IconSource: "./assets/global/img/flags/ru.png",
+            showInMenu: true,
+            Route: ''
+        });
+
         this.menuService.add('alerts', {
             position: 1, Name: "Alert 1", Exec: (selected: Menu) => {
                 alert('Russian');
