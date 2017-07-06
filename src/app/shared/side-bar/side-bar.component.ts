@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CoreService} from '../core.service';
+import {MenuService} from '../../core/menu.service';
 
 @Component({
     selector: 'app-side-bar',
@@ -10,10 +10,10 @@ export class SideBarComponent implements OnInit {
     sidebarToggleFlag: boolean;
     private _opened: Array<boolean> = [];
 
-    constructor(public core: CoreService) {
+    constructor(public menuService: MenuService) {
     }
 
     ngOnInit() {
-        this.sidebarToggleFlag = this.core.getToggleClass();
+        this.sidebarToggleFlag = this.menuService.getToggleClass();
     }
 }

@@ -6,6 +6,7 @@ import {Menu} from './menu';
 export class MenuService {
     menus: any;
     activeMenus: any;
+    flag = false;
 
     constructor() {
         this.menus = {
@@ -101,6 +102,24 @@ export class MenuService {
             } else if (this.menus[location].length > 0) return this.menus[location][0];
             return null;
         }
+    }
+
+    /**
+     * Set side menu toggle flag
+     *
+     * @param value
+     */
+    setToggleClass(value: boolean): void {
+        this.flag = value;
+    }
+
+    /**
+     * Get side menu toggle flag
+     *
+     * @returns {boolean}
+     */
+    getToggleClass(): boolean {
+        return this.flag;
     }
 
 }

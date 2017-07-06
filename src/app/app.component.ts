@@ -1,5 +1,4 @@
 import {Component, ViewContainerRef, OnInit} from '@angular/core';
-import {CoreService} from './core/core.service';
 import {MenuService} from './core/menu.service';
 import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 import {Menu} from './core/menu';
@@ -11,8 +10,7 @@ import {Menu} from './core/menu';
 export class AppComponent implements OnInit {
     flag: boolean;
 
-    constructor(public core: CoreService,
-                public toastr: ToastsManager,
+    constructor(public toastr: ToastsManager,
                 vcr: ViewContainerRef,
                 private menuService: MenuService) {
         this.toastr.setRootViewContainerRef(vcr);
@@ -101,8 +99,8 @@ export class AppComponent implements OnInit {
      * @param value
      */
     sideMenuToggle(value: boolean): void {
-        this.core.setToggleClass(value);
-        this.flag = this.core.getToggleClass();
+        this.menuService.setToggleClass(value);
+        this.flag = this.menuService.getToggleClass();
     }
 
 }

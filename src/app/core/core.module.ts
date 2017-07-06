@@ -1,33 +1,21 @@
-import {NgModule} from '@angular/core';
+import {NgModule, SkipSelf, Optional} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {SharedModule} from '../shared/shared.module';
-import {HeaderComponent} from './header/header.component';
-import {SideBarComponent} from './side-bar/side-bar.component';
-import {FooterComponent} from './footer/footer.component';
-import {RouterModule} from '@angular/router';
-import {CoreService} from './core.service';
-import {MenuService} from './menu.service';
+import {MenuService} from "./menu.service";
+import {throwIfAlreadyLoaded} from './module-import-guard';
 
 @NgModule({
     imports: [
-        CommonModule,
-        SharedModule,
-        RouterModule
+        CommonModule
     ],
-    declarations: [
-        HeaderComponent,
-        SideBarComponent,
-        FooterComponent
-    ],
-    exports: [
-        HeaderComponent,
-        SideBarComponent,
-        FooterComponent
-    ],
+    declarations: [],
+    exports: [],
     providers: [
-        CoreService,
         MenuService
     ]
 })
 export class CoreModule {
+    constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
+        throwIfAlreadyLoaded(parentModule, 'CoreModule');
+    }
 }
+
