@@ -1,0 +1,84 @@
+<div>
+    <h1 class="page-title">Project</h1>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-green-haze">
+                        General Settings
+                    </div>
+                    <div class="actions">
+                        <a class="btn btn-circle btn-icon-only blue" (click)="nmModal.show()">
+                            <i class="fa fa-floppy-o"></i>
+                        </a>
+
+                        <a class="btn btn-circle btn-icon-only red" (click)="smModal.show()">
+                            <i class="icon-trash"></i>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <form class="" role="form">
+                        <div class="form-body">
+                            <div class="form-group form-md-line-input">
+                                <input type="text" class="form-control" id="name" placeholder="Name">
+                            </div>
+                            <div class="form-group form-md-line-input">
+                                <textarea class="form-control" rows="2" id="description"
+                                          placeholder="Description"></textarea>
+                            </div>
+                            <div class="form-group form-md-line-input">
+                                <select class="form-control">
+                                    <option selected>Type</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                    <option>Option 4</option>
+                                    <option>Option 5</option>
+                                </select>
+                                <span class="form-control-static">  (Once the type selected after creating project it cant be changed)</span>
+                            </div>
+                            <div class="mt-checkbox-inline">
+                                <label class="mt-checkbox">
+                                    <input type="checkbox" id="inlineCheckbox21" value="option1">Online
+                                    <span></span>
+                                </label>
+                                <label class="mt-checkbox">
+                                    <input type="checkbox" id="inlineCheckbox22" value="option2"> Offline
+                                    <span></span>
+                                </label>
+                                <label class="mt-checkbox">
+                                    <input type="checkbox" id="inlineCheckbox23" value="option3"> SMS
+                                    <span></span>
+                                </label>
+                                <label class="mt-checkbox">
+                                    <input type="checkbox" id="inlineCheckbox24" value="option3"> Feedback Widget
+                                    <span></span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class=""><strong>Score Setting</strong> </label>
+                                <div class="pull-right">
+                                    <bSwitch
+                                            [switch-base-class]="'bootstrap-switch'">
+                                    </bSwitch>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="form-actions right1">
+                            <button type="submit" class="btn blue pull-right">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="round-button  center-block has-success">
+                <div class="round-button-circle"><a [routerLink]="['/project']" class="round-button"><i
+                        class="fa fa-plus" aria-hidden="true"></i></a></div>
+                <span class="help-block" style="margin:10px 0;"><b>Add new widget</b></span>
+            </div>
+        </div>
+    </div>
+</div>

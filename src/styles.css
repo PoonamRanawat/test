@@ -1,1 +1,113 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all");
+@import url("../node_modules/bootstrap/dist/css/bootstrap.min.css");
+@import url("../node_modules/font-awesome/css/font-awesome.css");
+@import url("../node_modules/ng2-toastr/bundles/ng2-toastr.min.css");
+@import url("./styles/layout/layout.min.css");
+@import url("./styles/layout/themes/darkblue.min.css");
+@import url("./styles/layout/custom.min.css");
+@import url("./styles/global/plugins/simple-line-icons/simple-line-icons.min.css");
+@import url("./styles/global/components-md.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/css/bootstrap3/bootstrap-switch.css");
+
+.nav-item ul.sub-menu {
+    display: none;
+}
+
+.nav-item.open ul.sub-menu {
+    display: block;
+}
+
+.round-button {
+    width: 134px;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.round-button-circle {
+    background: #4679bd none repeat scroll 0 0;
+    border: 10px solid #cfdcec;
+    border-radius: 50%;
+    box-shadow: 0 0 3px #808080;
+    height: 130px;
+    overflow: hidden;
+    width: 130px;
+}
+
+.round-button-circle:hover {
+    background: #30588e;
+}
+
+.round-button a {
+    color: #e2eaf3;
+    display: block;
+    float: left;
+    font-family: Verdana;
+    font-size: 80px;
+    font-weight: bold;
+    line-height: 1em;
+    margin-top: -0.5em;
+    padding-bottom: 50%;
+    padding-top: 50%;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+
+.round-button1 {
+    width: 134px;
+    text-align: center;
+}
+
+.round-button-circle1 {
+    background: #4679bd none repeat scroll 0 0;
+    border: 10px solid #cfdcec;
+    border-radius: 50%;
+    box-shadow: 0 0 3px #808080;
+    height: 130px;
+    overflow: hidden;
+    width: 130px;
+}
+
+.round-button-circle1:hover {
+    background: #30588e;
+}
+
+.round-button1 a {
+    color: #e2eaf3;
+    display: block;
+    float: left;
+    font-family: Verdana;
+    font-size: 80px;
+    font-weight: bold;
+    line-height: 1em;
+    margin-top: -0.5em;
+    padding-bottom: 50%;
+    padding-top: 50%;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+
+.page-content-wrapper .page-content {
+    min-height: 700px !important;
+    margin-top: 34px !important;
+}
+
+.portlet-box {
+    border: 1px solid grey;
+    width: 300px;
+    padding: 50px;
+    margin-top: 100px;
+}
+
+.theme-panel > .toggler, .theme-panel > .toggler-close {
+    top: 60px !important;
+}
+
+.page-footer .page-footer-inner {
+    float: none !important;
+}
+
+.page-footer {
+    text-align: center !important;
+}
