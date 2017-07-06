@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-    selector: 'app-project',
+    selector: 'cfm-project',
     templateUrl: './project.component.html',
 })
 export class ProjectComponent implements OnInit {

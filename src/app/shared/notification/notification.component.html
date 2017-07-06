@@ -10,6 +10,6 @@
             <img *ngIf="menu.IconSource != null" alt="" src="{{menu.IconSource}}">
             {{ menu.Name}}
         </a>
-        <app-notification [notifications]="menu.Children"></app-notification>
+        <cfm-notification [notifications]="menu.Children"></cfm-notification>
     </li>
 </ul>

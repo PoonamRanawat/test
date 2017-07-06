@@ -2,7 +2,7 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {MenuService} from '../../core/menu.service';
 
 @Component({
-    selector: 'app-header',
+    selector: 'cfm-header',
     templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {

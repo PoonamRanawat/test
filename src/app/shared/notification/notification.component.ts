@@ -1,7 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
-    selector: 'app-notification',
+    selector: 'cfm-notification',
     templateUrl: './notification.component.html'
 })
 export class NotificationComponent implements OnInit {

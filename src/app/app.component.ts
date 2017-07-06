@@ -4,7 +4,7 @@ import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 import {Menu} from './core/menu';
 
 @Component({
-    selector: 'app-root',
+    selector: 'cfm-root',
     templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {

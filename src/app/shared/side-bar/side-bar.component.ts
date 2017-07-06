@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MenuService} from '../../core/menu.service';
 
 @Component({
-    selector: 'app-side-bar',
+    selector: 'cfm-side-bar',
     templateUrl: './side-bar.component.html'
 })
 
