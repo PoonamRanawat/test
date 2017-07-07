@@ -8,6 +8,7 @@ import {SharedModule} from '../shared/shared.module';
 import {DeleteProjectComponent} from './delete-project/delete-project.component';
 import {QuestionnaireTabComponent} from './questionnaire-tab/questionnaire-tab.component';
 import {AddPageComponent} from './add-page/add-page.component';
+import { PageListSliderComponent } from './page-list-slider/page-list-slider.component';
 
 @NgModule({
     imports: [
@@ -23,7 +24,8 @@ import {AddPageComponent} from './add-page/add-page.component';
         CreateProjectComponent,
         DeleteProjectComponent,
         QuestionnaireTabComponent,
-        AddPageComponent
+        AddPageComponent,
+        PageListSliderComponent
     ]
 })
 export class ProjectModule {

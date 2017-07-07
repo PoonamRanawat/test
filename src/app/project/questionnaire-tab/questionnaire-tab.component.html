@@ -1,8 +1,15 @@
 <div>
     <tabset>
-        <tab heading="Static title">Static content</tab>
-        <tab heading="Static Title 1">Static content 1</tab>
-        <tab heading="Static Title 2">Static content 2</tab>
+        <tab heading="Questionnaire">
+            <button (click)="toggleMenu()" class="hamburger">
+                <span>toggle menu</span>
+            </button>
+        <cfm-page-list-slider [@slideInOut]="menuState"></cfm-page-list-slider>
+        </tab>
+        <tab heading="Scores">Scores</tab>
+        <tab heading="Test & Publish">Static content 2</tab>
+        <tab heading="Overlay">Overlay</tab>
+        <tab heading="Template">Template</tab>
         <tab>
             <template tabHeading>
                 <i class="glyphicon glyphicon-bell"></i> Alert!
