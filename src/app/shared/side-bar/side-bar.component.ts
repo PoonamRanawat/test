@@ -8,7 +8,7 @@ import {MenuService} from '../../core/menu.service';
 
 export class SideBarComponent implements OnInit {
     sidebarToggleFlag: boolean;
-    _opened: Array<boolean> = [];
+    opened: Array<boolean> = [];
     menuItems: any;
 
     constructor(public menuService: MenuService) {

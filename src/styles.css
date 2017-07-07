@@ -88,8 +88,7 @@
 }
 
 .page-content-wrapper .page-content {
-    min-height: 700px !important;
-    margin-top: 34px !important;
+    min-height: calc(100vh - 50px - 33px);
 }
 
 .portlet-box {
