@@ -22,7 +22,8 @@
                     <form class="" role="form" (ngSubmit)="onSubmit(f)" #f="ngForm">
                         <div class="form-body">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="name" ngModel name="name"
+                                <input type="text" [ngClass]="name.value ? 'form-control edited': 'form-control'"
+                                       id="name" ngModel name="name"
                                        required
                                        #name="ngModel">
                                 <div *ngIf="name.errors && (name.dirty || name.touched)"
@@ -34,13 +35,14 @@
                                 <label for="name">Name</label>
                             </div>
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <textarea class="form-control" rows="2" id="description"
+                                <textarea [ngClass]="description.value ? 'form-control edited': 'form-control'" rows="2" id="description"
                                           ngModel name="description" #description="ngModel">
                                 </textarea>
                                 <label for="description">Description</label>
                             </div>
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <select class="form-control edited" id="projectType" ngModel name="projectType" required>
+                                <select class="form-control edited" id="projectType" ngModel name="projectType"
+                                        required>
                                     <option>Option 1</option>
                                     <option>Option 2</option>
                                     <option>Option 3</option>
@@ -65,7 +67,7 @@
                                 <label class=""><strong>Score Setting</strong> </label>
                                 <div class="pull-right">
                                     <bSwitch
-                                            [switch-base-class]="'bootstrap-switch'" ngModel name="score">
+                                        [switch-base-class]="'bootstrap-switch'" ngModel name="score">
                                     </bSwitch>
                                 </div>
                                 <div class="clearfix"></div>
@@ -81,7 +83,7 @@
         <div class="col-sm-6">
             <div class="round-button  center-block has-success">
                 <div class="round-button-circle"><a [routerLink]="['/project']" class="round-button"><i
-                        class="fa fa-plus" aria-hidden="true"></i></a></div>
+                    class="fa fa-plus" aria-hidden="true"></i></a></div>
                 <span class="help-block" style="margin:10px 0;"><b>Add new widget</b></span>
             </div>
         </div>

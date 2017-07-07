@@ -113,7 +113,7 @@
 .page-logo .logo-default {
     position: relative;
     top: -20px;
-    height: 75px;
+    max-height: 54px;
 }
 
 .quick-nav-trigger {
