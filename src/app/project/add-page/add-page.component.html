@@ -1,0 +1,61 @@
+<div bsModal #appPageModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="deleteProjectModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">Create New page</h4>
+                <button type="button" class="close pull-right" aria-label="Close"
+                        (click)="hideAddPageModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table>
+                            <tr>
+                                <td><label for="pageName"><strong>Page Name :</strong></label></td>
+                                <td><input type="text" id="pagename" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td><label class="" for="pageType"><strong>Type :</strong> </label></td>
+                                <td>
+                                    <div class="form-group form-md-line-input">
+                                        <select class="form-control" name="pageType" id="pageType" required>
+                                            <option value="" disabled selected>Type</option>
+                                            <option>Option 2</option>
+                                            <option>Option 3</option>
+                                            <option>Option 4</option>
+                                            <option>Option 5</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label class="" for="questionType"><strong>Question Type :</strong></label></td>
+                                <td>
+                                    <div class="form-group form-md-line-input">
+                                        <select class="form-control" name="questionType" id="questionType" required>
+                                            <option value="" disabled selected>Type</option>
+                                            <option>Option 2</option>
+                                            <option>Option 3</option>
+                                            <option>Option 4</option>
+                                            <option>Option 5</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button type="button" class="btn green pull-right" (click)="CreateProject()">Create</button>
+                        <button type="button" class="btn blue pull-right" (click)="hideAddPageModal()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

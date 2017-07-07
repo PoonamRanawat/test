@@ -6,6 +6,7 @@ import {AccordionModule, ModalModule} from 'ngx-bootstrap';
 import {JWBootstrapSwitchModule} from 'jw-bootstrap-switch-ng2';
 import {SharedModule} from '../shared/shared.module';
 import { DeleteProjectComponent } from './delete-project/delete-project.component';
+import { AddPageComponent } from './add-page/add-page.component';
 
 @NgModule({
     imports: [
@@ -18,7 +19,8 @@ import { DeleteProjectComponent } from './delete-project/delete-project.componen
     declarations: [
         ProjectComponent,
         CreateProjectComponent,
-        DeleteProjectComponent
+        DeleteProjectComponent,
+        AddPageComponent
     ]
 })
 export class ProjectModule {

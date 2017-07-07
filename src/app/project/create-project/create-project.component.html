@@ -8,7 +8,7 @@
                         General Settings
                     </div>
                     <div class="actions">
-                        <a class="btn btn-circle btn-icon-only blue">
+                        <a class="btn btn-circle btn-icon-only blue" (click)="modal1.showAddPageModal()">
                             <i class="fa fa-floppy-o"></i>
                         </a>
 
@@ -85,3 +85,4 @@
     </div>
 </div>
 <cfm-delete-project #modal></cfm-delete-project>
+<cfm-add-page #modal1></cfm-add-page>

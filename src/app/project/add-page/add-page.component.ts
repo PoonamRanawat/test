@@ -2,12 +2,13 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ModalDirective} from 'ngx-bootstrap/modal';
 
 @Component({
-    selector: 'cfm-delete-project',
-    templateUrl: './delete-project.component.html',
+    selector: 'cfm-add-page',
+    templateUrl: './add-page.component.html',
     styles: []
 })
-export class DeleteProjectComponent implements OnInit {
-    @ViewChild('deleteProjectModal') public modal: ModalDirective;
+export class AddPageComponent implements OnInit {
+
+    @ViewChild('appPageModal') public modal: ModalDirective;
 
     constructor() {
     }
@@ -18,21 +19,22 @@ export class DeleteProjectComponent implements OnInit {
     /**
      * Show modal
      */
-    showDeleteProjectModal(): void {
+    showAddPageModal(): void {
         this.modal.show();
     }
 
     /**
      * Hide modal
      */
-    hideDeleteProjectModal(): void {
+    hideAddPageModal(): void {
         this.modal.hide();
     }
 
     /**
      * Delete Project
      */
-    private deleteProject(): void {
+    private CreateProject(): void {
         console.log('Delete project API will come here');
     }
+
 }
