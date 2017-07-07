@@ -119,3 +119,125 @@
 .quick-nav-trigger {
     z-index: 10104;
 }
+
+.questionnaire-main {
+}
+
+.questionnaire-tab {
+}
+
+.questionnaire-tab-content {
+    border: 2px solid #dedede;
+    border-radius: 0 0 5px 5px;
+    border-top: 2px solid #337ab7;
+    min-height: 500px;
+}
+
+.questionnaire-tab .nav-pills > li > a, .questionnaire-tab .nav-tabs > li > a {
+    border: 1px solid #ccc9c9;
+    border-radius: 3px 3px 0 0;
+    border-bottom: 0px;
+    margin: 0 3px 0 0;
+}
+
+.questionnaire-tab .tabbable-tabdrop .nav-pills, .questionnaire-tab .tabbable-tabdrop .nav-tabs {
+    margin-bottom: 0;
+}
+
+.add-page-sidebar {
+    background: #e9e9e9;
+    border: 1px solid #d0d0d0;
+    position: relative;
+    float: left;
+
+}
+
+/* Toggle Styles */
+#questionnaire-wrapper {
+    padding-left: 250px;
+}
+
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: absolute;
+
+    width: 250px;
+
+    margin-left: -250px;
+    overflow-y: auto;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    padding: 20px 0;
+}
+
+#questionnaire-content {
+    width: 100%;
+    position: relative;
+    padding: 15px;
+    border-left: 1px solid grey;
+    background: #fff;
+
+}
+
+/* Sidebar Styles */
+
+@media (min-width: 768px) {
+    #questionnaire-wrapper {
+        padding-left: 250px;
+    }
+
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+
+    #questionnaire-content {
+        padding: 0px 20px 20px 20px;
+        position: relative;
+        margin-right: 0;
+        border-left: 1px solid grey;
+    }
+}
+
+#questionnaire-tab {
+    position: relative;
+}
+
+.add-new-page .caption a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.collapse-arrow {
+    margin: -20px;
+    position: absolute;
+    top: 200px;
+}
+
+.collapse-arrow a.btn, .collapse-arrow a .fa {
+    padding: 10px 0 !important;
+    font-size: 20px;
+}
+
+.topPane {
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid grey;
+}
+
+.feedback-icon .fa {
+    font-size: 30px;
+    margin: 10px 0 0;
+}
+
+.footer-view-icons {
+}
+
+.middle-content {
+    border: 1px solid #dedede;
+    min-height: 600px;
+}
