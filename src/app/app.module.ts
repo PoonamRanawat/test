@@ -28,11 +28,11 @@ import {QuickMenuComponent} from "./shared/quick-menu/quick-menu.component";
     imports: [
         BrowserModule,
         CoreModule,
-        AppRoutingModule,
-        ProjectModule,
         RouterModule,
+        AppRoutingModule,
         BsDropdownModule.forRoot(),
-        ToastModule.forRoot()
+        ToastModule.forRoot(),
+        ProjectModule
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy}
