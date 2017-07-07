@@ -7,6 +7,7 @@ import {JWBootstrapSwitchModule} from 'jw-bootstrap-switch-ng2';
 import {SharedModule} from '../shared/shared.module';
 import {DeleteProjectComponent} from './delete-project/delete-project.component';
 import {QuestionnaireTabComponent} from './questionnaire-tab/questionnaire-tab.component';
+import {AddPageComponent} from './add-page/add-page.component';
 
 @NgModule({
     imports: [
@@ -21,7 +22,8 @@ import {QuestionnaireTabComponent} from './questionnaire-tab/questionnaire-tab.c
         ProjectComponent,
         CreateProjectComponent,
         DeleteProjectComponent,
-        QuestionnaireTabComponent
+        QuestionnaireTabComponent,
+        AddPageComponent
     ]
 })
 export class ProjectModule {
