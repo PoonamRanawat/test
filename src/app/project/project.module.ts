@@ -5,6 +5,7 @@ import {ProjectRoutingModule} from './project-routing.module';
 import {AccordionModule, ModalModule} from 'ngx-bootstrap';
 import {JWBootstrapSwitchModule} from 'jw-bootstrap-switch-ng2';
 import {SharedModule} from '../shared/shared.module';
+import { DeleteProjectComponent } from './delete-project/delete-project.component';
 
 @NgModule({
     imports: [
@@ -16,7 +17,8 @@ import {SharedModule} from '../shared/shared.module';
     ],
     declarations: [
         ProjectComponent,
-        CreateProjectComponent
+        CreateProjectComponent,
+        DeleteProjectComponent
     ]
 })
 export class ProjectModule {

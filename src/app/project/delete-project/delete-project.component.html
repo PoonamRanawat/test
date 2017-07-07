@@ -1,0 +1,28 @@
+<div bsModal #deleteProjectModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="deleteProjectModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">Delete Project</h4>
+                <button type="button" class="close pull-right" aria-label="Close"
+                        (click)="hideDeleteProjectModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        Do you really want to delete this project?
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button type="button" class="btn btn-default" (click)="deleteProject()">OK</button>
+                        <button type="button" class="btn btn-default" (click)="hideDeleteProjectModal()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
