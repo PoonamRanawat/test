@@ -1,15 +1,18 @@
 <div class="page-wrapper page-header-fixed page-sidebar-closed-hide-logo page-content-white {{flag ? 'page-sidebar-closed': ''}}">
-    <cfm-header (addToggleClass)="sideMenuToggle($event)"></cfm-header>
-    <div class="page-container">
-        <div class="page-sidebar-wrapper">
-            <cfm-side-bar></cfm-side-bar>
-        </div>
-        <div class="page-content-wrapper">
-            <div class="page-content">
-                <router-outlet></router-outlet>
+    <div class="page-wrapper">
+        <cfm-header (addToggleClass)="sideMenuToggle($event)"></cfm-header>
+        <div class="clearfix"></div>
+        <div class="page-container">
+            <div class="page-sidebar-wrapper">
+                <cfm-side-bar></cfm-side-bar>
+            </div>
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <router-outlet></router-outlet>
+                </div>
             </div>
         </div>
+        <cfm-footer></cfm-footer>
     </div>
-    <cfm-footer></cfm-footer>
 </div>
 <cfm-quick-menu></cfm-quick-menu>
