@@ -1,4 +1,81 @@
-<button (click)="modal1.showAddPageModal()">
-    <span>Add Page</span>
-</button>
+<div id="questionnaire-wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <div class="add-new-page">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <a data-toggle="modal" href="#add-page"> <i class="fa fa-plus"></i> Add New Page</a>
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    content gose content gose here
+                </div>
+            </div>
+        </div>
+        <div class="grouping-tree">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-folder-open-o"></i>Grouping
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse"> </a>
+
+                    </div>
+                </div>
+                <div class="portlet-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <!-- questionnaire-content Content -->
+    <div id="questionnaire-content">
+        <div class="collapse-arrow">
+            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fa fa-chevron-circle-right"
+                                                                               aria-hidden="true"></i></a>
+        </div>
+        <div class="container-fluid">
+            <div class="topPane">
+                <form role="form" class="col-md-5 pull-right">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <select class="bs-select form-control" data-style="btn-primary">
+                                <option>Template 1</option>
+                                <option>Template 2</option>
+                                <option>Template 3</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5">
+                            <select class="bs-select form-control" data-style="btn-primary">
+                                <option>Overlay 1</option>
+                                <option>overlay 2</option>
+                                <option>overlay 3</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 text-right">
+                            <div class="feedback-icon">
+                                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"
+                                   data-hover="dropdown" data-close-others="true">
+                                    <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                    <!--<span class="badge badge-default"> 4 </span>-->
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="clearfix"></div>
+            </div>
+            <div class="middle-content">
+
+            </div>
+            <div class="footer-view-icons"></div>
+        </div>
+    </div>
+</div>
 <cfm-add-page #modal1></cfm-add-page>
