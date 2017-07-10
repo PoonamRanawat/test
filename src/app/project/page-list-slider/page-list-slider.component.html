@@ -5,7 +5,7 @@
             <div class="portlet box blue">
                 <div class="portlet-title">
                     <div class="caption">
-                        <a data-toggle="modal" href="#add-page"> <i class="fa fa-plus"></i> Add New Page</a>
+                        <a data-toggle="modal" (click)="addPageModal.showAddPageModal()"> <i class="fa fa-plus"></i> Add New Page</a>
                     </div>
                     <div class="tools">
                         <a href="javascript:;" class="collapse"> </a>
@@ -78,4 +78,4 @@
         </div>
     </div>
 </div>
-<cfm-add-page #modal1></cfm-add-page>
+<cfm-add-page #addPageModal></cfm-add-page>
