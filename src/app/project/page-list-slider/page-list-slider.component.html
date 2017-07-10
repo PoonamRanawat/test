@@ -1,18 +1,21 @@
-<div id="questionnaire-wrapper">
+<div id="questionnaire-wrapper " class="row">
     <!-- Sidebar -->
-    <div id="sidebar-wrapper">
+    <div class="col-sm-3">
+    <div id="sidebar-wrapper" *ngIf="!sideBarCollapse">
         <div class="add-new-page">
             <div class="portlet box blue">
                 <div class="portlet-title">
                     <div class="caption">
-                        <a data-toggle="modal" href="#add-page"> <i class="fa fa-plus"></i> Add New Page</a>
+                        <a data-toggle="modal"(click)="addPageModal.showAddPageModal()"> <i class="fa fa-plus"></i> Add New Page</a>
                     </div>
                     <div class="tools">
-                        <a href="javascript:;" class="collapse"> </a>
+                        <a href="javascript:;" (click)="togglePageList()" [ngClass]="pageListCollapse ? 'expand': 'collapse'"> </a>
                     </div>
                 </div>
-                <div class="portlet-body">
-                    content gose content gose here
+                <div class="portlet-body" *ngIf="pageListCollapse">
+                    <cfm-page-thumbnail></cfm-page-thumbnail>
+                    <cfm-page-thumbnail></cfm-page-thumbnail>
+                    <cfm-page-thumbnail></cfm-page-thumbnail>
                 </div>
             </div>
         </div>
@@ -23,26 +26,30 @@
                         <i class="fa fa-folder-open-o"></i>Grouping
                     </div>
                     <div class="tools">
-                        <a href="javascript:;" class="collapse"> </a>
+                        <a href="javascript:;" (click)="toggleGroupList()" [ngClass]="groupListCollapse ? 'expand': 'collapse'"> </a>
 
                     </div>
                 </div>
-                <div class="portlet-body">
-
+                <div class="portlet-body" *ngIf="groupListCollapse">
+                    <cfm-page-thumbnail></cfm-page-thumbnail>
                 </div>
             </div>
         </div>
     </div>
     <!-- /#sidebar-wrapper -->
+    </div>
     <!-- questionnaire-content Content -->
+    <div class="col-sm-9">
+        <div class="row">
+            <div class="col-sm-9">
     <div id="questionnaire-content">
         <div class="collapse-arrow">
-            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fa fa-chevron-circle-right"
+            <a class="btn btn-default" id="menu-toggle" (click)="toggleSideBar()"><i [ngClass]="sideBarCollapse ? 'fa fa-chevron-circle-right': 'fa fa-chevron-circle-left'"
                                                                                aria-hidden="true"></i></a>
         </div>
         <div class="container-fluid">
             <div class="topPane">
-                <form role="form" class="col-md-5 pull-right">
+                <form role="form" class="col-md-12 pull-right">
                     <div class="row">
                         <div class="col-md-5">
                             <select class="bs-select form-control" data-style="btn-primary">
@@ -77,5 +84,18 @@
             <div class="footer-view-icons"></div>
         </div>
     </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="page-setting"></div>
+                <div class="mobile-preview pull-right">
+                    <h4>
+                        Preview In
+                        <a class="btn btn-circle btn-icon-only blue" href="javascript:;"><i class="fa fa-mobile" aria-hidden="true" style="font-size: 20px; "></i></a>
+                        <a class="btn btn-circle btn-icon-only blue" href="javascript:;"><i class="fa fa-tablet" aria-hidden="true" style="font-size: 20px; "></i></a>
+                        <a class="btn btn-circle btn-icon-only blue" href="javascript:;"><i class="fa fa-desktop" aria-hidden="true" style="font-size: 20px; "></i></a>
+                    </h4>
+                </div>
+            </div>
+    </div>
 </div>
-<cfm-add-page #modal1></cfm-add-page>
+<cfm-add-page #addPageModal></cfm-add-page>

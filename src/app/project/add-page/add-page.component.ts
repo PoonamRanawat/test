@@ -8,7 +8,7 @@ import {ModalDirective} from 'ngx-bootstrap/modal';
 })
 export class AddPageComponent implements OnInit {
 
-    @ViewChild('appPageModal') public modal: ModalDirective;
+    @ViewChild('addPageModal') public modal: ModalDirective;
 
     constructor() {
     }

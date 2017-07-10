@@ -1,61 +1,47 @@
-<div bsModal #appPageModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"
-     aria-labelledby="deleteProjectModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog modal-sm">
+<div bsModal #addPageModal="bs-modal" class="modal fade draggable-modal" id="add-page" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title pull-left">Create New page</h4>
-                <button type="button" class="close pull-right" aria-label="Close"
-                        (click)="hideAddPageModal()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="hideAddPageModal()"></button>
+                <h4 class="modal-title">Create New Page</h4>
             </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <table>
-                            <tr>
-                                <td><label for="pageName"><strong>Page Name :</strong></label></td>
-                                <td><input type="text" id="pagename" class="form-control"></td>
-                            </tr>
-                            <tr>
-                                <td><label class="" for="pageType"><strong>Type :</strong> </label></td>
-                                <td>
-                                    <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="pageType" id="pageType" required>
-                                            <option value="" disabled selected>Type</option>
-                                            <option>Option 2</option>
-                                            <option>Option 3</option>
-                                            <option>Option 4</option>
-                                            <option>Option 5</option>
-                                        </select>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label class="" for="questionType"><strong>Question Type :</strong></label></td>
-                                <td>
-                                    <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="questionType" id="questionType" required>
-                                            <option value="" disabled selected>Type</option>
-                                            <option>Option 2</option>
-                                            <option>Option 3</option>
-                                            <option>Option 4</option>
-                                            <option>Option 5</option>
-                                        </select>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
+            <div class="modal-body"> <form action="#" class="form-horizontal">
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Page Name</label>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control">
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <button type="button" class="btn green pull-right" (click)="CreateProject()">Create</button>
-                        <button type="button" class="btn blue pull-right" (click)="hideAddPageModal()">Cancel</button>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Page type</label>
+                        <div class="col-md-7">
+                            <select class="bs-select form-control" data-style="btn-primary">
+                                <option>Page type 1 </option>
+                                <option>Page type 2</option>
+                                <option>Page type 3</option>
+                            </select>
+                        </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Question type</label>
+                        <div class="col-md-7">
+                            <select class="bs-select form-control" data-style="btn-primary">
+                                <option>Question 1 </option>
+                                <option>Question 2</option>
+                                <option>Question 3</option>
+                            </select>
+                        </div>
+                    </div>
+
                 </div>
+            </form> </div>
+            <div class="modal-footer">
+                <button type="button" class="btn dark blue" data-dismiss="modal" (click)="hideAddPageModal()">Cancel</button>
+                <button type="button" class="btn green" (click)="CreateProject()">Create</button>
             </div>
         </div>
+        <!-- /.modal-content -->
     </div>
+    <!-- /.modal-dialog -->
 </div>

@@ -9,6 +9,7 @@ import {DeleteProjectComponent} from './delete-project/delete-project.component'
 import {QuestionnaireTabComponent} from './questionnaire-tab/questionnaire-tab.component';
 import {AddPageComponent} from './add-page/add-page.component';
 import { PageListSliderComponent } from './page-list-slider/page-list-slider.component';
+import { PageThumbnailComponent } from './page-thumbnail/page-thumbnail.component';
 
 @NgModule({
     imports: [
@@ -25,7 +26,8 @@ import { PageListSliderComponent } from './page-list-slider/page-list-slider.com
         DeleteProjectComponent,
         QuestionnaireTabComponent,
         AddPageComponent,
-        PageListSliderComponent
+        PageListSliderComponent,
+        PageThumbnailComponent
     ]
 })
 export class ProjectModule {
