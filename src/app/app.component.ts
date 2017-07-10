@@ -96,7 +96,7 @@ export class AppComponent implements OnInit {
         this.menuService.add('left', {
             position: 1, Name: "Menu 2", Exec: (selected: Menu) => {
                 alert('Russian');
-            }, Children: null, IconClass: "icon-magnifier", IconSource: null, showInMenu: true, Route: '/dashboard'
+            }, Children: null, IconClass: "icon-magnifier", IconSource: null, showInMenu: true, Route: '/project/questionnaire'
         });
         this.menuService.add('left', {
             position: 1, Name: "Menu 3", Exec: (selected: Menu) => {
