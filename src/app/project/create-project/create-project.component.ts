@@ -25,11 +25,9 @@ export class CreateProjectComponent implements OnInit {
     }
 
     onSubmit(form: NgForm) {
-        console.log(form.value);
         this.projectSettings.name = form.value.name;
         this.projectSettings.description = form.value.description;
         this.projectSettings.type = form.value.projectType;
-        console.log(this.projectSettings.type);
-        // this.projectSetings.mode.push({name: 'online', value: form.value.online});
+
     }
 }

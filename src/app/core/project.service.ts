@@ -10,7 +10,7 @@ export class ProjectService {
             id: 1,
             name: 'Project 1',
             description: 'Project description',
-            type: 'Project type',
+            type: 'ExpertMode',
             mode: 'online',
             scoreSetting: true
         }];

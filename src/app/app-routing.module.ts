@@ -8,7 +8,8 @@ import {QuestionnaireTabComponent} from './project/questionnaire-tab/questionnai
 const appRoutes: Routes = [
     {path: '', component: ProjectComponent},
     {path: 'project/add', component: CreateProjectComponent},
-    {path: 'project/questionnaire', component: QuestionnaireTabComponent, pathMatch: 'full'},
+    {path: 'project/:id', component: CreateProjectComponent},
+    {path: 'project/:id/questionnaire', component: QuestionnaireTabComponent, pathMatch: 'full'},
     {path: '**', component: PageNotFoundComponent},
 ];
 
