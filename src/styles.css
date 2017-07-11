@@ -200,4 +200,6 @@
     overflow-y: scroll;}
 .grouping-tree .portlet.box>.portlet-body{    max-height:300px;
     overflow-y: scroll;}
-hr{     border-top: 2px solid #333;}
+hr {
+    border-top: 2px solid #333;
+}
