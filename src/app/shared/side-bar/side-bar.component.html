@@ -28,7 +28,7 @@
                 <i *ngIf="menu.IconClass != null" class="{{ menu.IconClass }}"></i>
                 <img *ngIf="menu.IconSource != null" alt="" src="{{menu.IconSource}}">
                 <span class="title">{{menu.Name}}</span>
-                <span class="arrow"></span>
+                <span class="arrow {{menu.Children != null && opened[i] ? 'open': ''}}"></span>
             </a>
             <ul class="sub-menu"
                 *ngIf="menu.Children != null && menu.Children.length > 0"

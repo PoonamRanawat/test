@@ -200,3 +200,9 @@
     overflow-y: scroll;}
 .grouping-tree .portlet.box>.portlet-body{    max-height:300px;
     overflow-y: scroll;}
+hr {
+    border-top: 2px solid #333;
+}
+.page-sidebar-menu.page-sidebar-menu-closed>li:hover {
+    box-shadow: none;
+}
