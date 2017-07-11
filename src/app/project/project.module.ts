@@ -8,8 +8,13 @@ import {SharedModule} from '../shared/shared.module';
 import {DeleteProjectComponent} from './delete-project/delete-project.component';
 import {QuestionnaireTabComponent} from './questionnaire-tab/questionnaire-tab.component';
 import {AddPageComponent} from './add-page/add-page.component';
-import { PageListSliderComponent } from './page-list-slider/page-list-slider.component';
-import { PageThumbnailComponent } from './page-thumbnail/page-thumbnail.component';
+import {PageListSliderComponent} from './page-list-slider/page-list-slider.component';
+import {PageThumbnailComponent} from './page-thumbnail/page-thumbnail.component';
+import {
+    FormsModule,
+    FormGroup,
+    FormControl
+} from '@angular/forms';
 
 @NgModule({
     imports: [
@@ -18,7 +23,8 @@ import { PageThumbnailComponent } from './page-thumbnail/page-thumbnail.componen
         AccordionModule,
         JWBootstrapSwitchModule,
         ModalModule,
-        TabsModule.forRoot()
+        TabsModule.forRoot(),
+        FormsModule
     ],
     declarations: [
         ProjectComponent,

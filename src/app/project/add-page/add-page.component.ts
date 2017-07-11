@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ModalDirective} from 'ngx-bootstrap/modal';
+import {AddPage} from './add-page';
 
 @Component({
     selector: 'cfm-add-page',
@@ -7,7 +8,8 @@ import {ModalDirective} from 'ngx-bootstrap/modal';
     styles: []
 })
 export class AddPageComponent implements OnInit {
-
+    model: AddPage = new AddPage();
+    @ViewChild('addPageForm') form: any;
     @ViewChild('addPageModal') public modal: ModalDirective;
 
     constructor() {
@@ -31,10 +33,14 @@ export class AddPageComponent implements OnInit {
     }
 
     /**
-     * Delete Project
+     * Add Page
      */
-    private CreateProject(): void {
-        console.log('Delete project API will come here');
+    addPage(): void {
+        console.log("ds");
+        // if (this.form.valid) {
+        //     console.log("Form Submitted!");
+        //     //this.form.reset();
+        // }
     }
 
 }

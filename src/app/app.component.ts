@@ -2,6 +2,7 @@ import {Component, ViewContainerRef, OnInit} from '@angular/core';
 import {MenuService} from './core/menu.service';
 import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 import {Menu} from './core/menu';
+import {ConfigService} from './core/config.service';
 
 @Component({
     selector: 'cfm-root',
@@ -12,12 +13,15 @@ export class AppComponent implements OnInit {
 
     constructor(public toastr: ToastsManager,
                 vcr: ViewContainerRef,
-                private menuService: MenuService) {
+                private menuService: MenuService,
+                private configService: ConfigService) {
         this.toastr.setRootViewContainerRef(vcr);
     }
 
     ngOnInit() {
         //@todo: Change this with menu API. Right now it is hardcoded values.
+        const getProjects = this.configService.getConfigProperty('projects');
+
         this.menuService.add('languages', {
             position: 1,
             Name: "English",
@@ -88,36 +92,44 @@ export class AppComponent implements OnInit {
             }, Children: null, IconClass: null, IconSource: null, showInMenu: true, Route: ''
         });
 
+        //Sidebar menu
         this.menuService.add('left', {
             position: 1, Name: "Home", Exec: (selected: Menu) => {
                 alert('Russian');
             }, Children: null, IconClass: "icon-home", IconSource: null, showInMenu: true, Route: '/'
         });
+
+
         this.menuService.add('left', {
-            position: 1, Name: "Menu 2", Exec: (selected: Menu) => {
-                alert('Russian');
-            }, Children: null, IconClass: "icon-magnifier", IconSource: null, showInMenu: true, Route: '/project/questionnaire'
-        });
-        this.menuService.add('left', {
-            position: 1, Name: "Menu 3", Exec: (selected: Menu) => {
-                alert('Russian');
-            }, IconClass: "icon-home", IconSource: null, showInMenu: true, Route: '', Children: [
-                {
-                    position: 1, Name: "Menu 3.1", Exec: (selected: Menu) => {
-                    alert('Russian');
-                }, Children: null, IconClass: "icon-magnifier", IconSource: null, showInMenu: true, Route: '/projects'
+            position: 1,
+            Name: "Data collection",
+            Exec: (selected: Menu) => {
+            },
+            Children: [{
+                position: 1,
+                Name: "Project 1",
+                Exec: (selected: Menu) => {
                 },
-                {
-                    position: 1, Name: "Menu 3.2", Exec: (selected: Menu) => {
-                    alert('Russian');
-                }, Children: null, IconClass: "icon-magnifier", IconSource: null, showInMenu: true, Route: '/projects'
-                },
-                {
-                    position: 1, Name: "Menu 3.3", Exec: (selected: Menu) => {
-                    alert('Russian');
-                }, Children: null, IconClass: "icon-magnifier", IconSource: null, showInMenu: true, Route: '/dashboard'
-                }
-            ]
+                Children: [{
+                    position: 1,
+                    Name: "Questionnaire",
+                    Exec: (selected: Menu) => {
+                    },
+                    Children: null,
+                    IconClass: "icon-magnifier",
+                    IconSource: null,
+                    showInMenu: true,
+                    Route: ''
+                }],
+                IconClass: "icon-magnifier",
+                IconSource: null,
+                showInMenu: true,
+                Route: ''
+            }],
+            IconClass: "icon-magnifier",
+            IconSource: null,
+            showInMenu: true,
+            Route: ''
         });
 
         this.menuService.add('quick', {

@@ -6,22 +6,35 @@ import {Component, OnInit} from '@angular/core';
     styles: [],
 })
 export class PageListSliderComponent implements OnInit {
-    sideBarCollapse: boolean = false;
-    pageListCollapse: boolean = true;
-    groupListCollapse: boolean = true;
+    private sideBarCollapse: boolean = false;
+    private pageListCollapse: boolean = true;
+    private groupListCollapse: boolean = true;
+
     constructor() {
     }
 
     ngOnInit() {
     }
+
+    /**
+     * Toggle slider
+     */
     toggleSideBar() {
-        this.sideBarCollapse = (this.sideBarCollapse === false) ? true : false;
+        this.sideBarCollapse = !this.sideBarCollapse;
     }
+
+    /**
+     * Toggle page list
+     */
     togglePageList() {
-        this.pageListCollapse = (this.pageListCollapse === true) ? false : true;
+        this.pageListCollapse = !this.pageListCollapse;
     }
+
+    /**
+     * Toggle group list
+     */
     toggleGroupList() {
-        this.groupListCollapse = (this.groupListCollapse === true) ? false : true;
+        this.groupListCollapse = !this.groupListCollapse;
     }
 
 }

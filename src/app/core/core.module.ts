@@ -1,7 +1,8 @@
 import {NgModule, SkipSelf, Optional} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MenuService} from "./menu.service";
+import {MenuService} from './menu.service';
 import {throwIfAlreadyLoaded} from './module-import-guard';
+import {ConfigService} from './config.service';
 
 @NgModule({
     imports: [
@@ -10,7 +11,8 @@ import {throwIfAlreadyLoaded} from './module-import-guard';
     declarations: [],
     exports: [],
     providers: [
-        MenuService
+        MenuService,
+        ConfigService
     ]
 })
 export class CoreModule {

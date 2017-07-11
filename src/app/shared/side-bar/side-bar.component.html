@@ -30,8 +30,10 @@
                 <span class="title">{{menu.Name}}</span>
                 <span class="arrow"></span>
             </a>
-            <cfm-sub-menu *ngIf="menu.Children != null && menu.Children.length > 0"
-                          [subMenu]="menu.Children"></cfm-sub-menu>
+            <ul class="sub-menu"
+                *ngIf="menu.Children != null && menu.Children.length > 0"
+                [cfm-sub-menu]="menu.Children">
+            </ul>
         </li>
     </ul>
 </div>
