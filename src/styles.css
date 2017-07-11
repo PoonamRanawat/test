@@ -12,7 +12,7 @@
     display: none;
 }
 
-.nav-item.open ul.sub-menu {
+.nav-item.open > ul.sub-menu {
     display: block;
 }
 
