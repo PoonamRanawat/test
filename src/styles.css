@@ -189,8 +189,12 @@
     border: 1px solid #dedede;
     height:100%;
     height:100vh;
+    position: relative;
 }
 .mobile-preview {
+    position: absolute;
+    bottom: 0px;
+    right: 1em;
 }
 .page-setting {
     height:100%;
