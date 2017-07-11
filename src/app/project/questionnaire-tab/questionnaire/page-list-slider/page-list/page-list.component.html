@@ -1,0 +1,19 @@
+<div class="add-new-page">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <a data-toggle="modal"(click)="addPageModal.showAddPageModal()"> <i class="fa fa-plus"></i> Add New Page</a>
+                        </div>
+                        <div class="tools">
+                            <a href="javascript:;" (click)="togglePageList()" [ngClass]="pageListCollapse ? 'expand': 'collapse'"> </a>
+                        </div>
+                    </div>
+                    <div class="portlet-body" *ngIf="pageListCollapse">
+                        <cfm-page-thumbnail></cfm-page-thumbnail>
+                        <cfm-page-thumbnail></cfm-page-thumbnail>
+                        <cfm-page-thumbnail></cfm-page-thumbnail>
+                    </div>
+                </div>
+            </div>
+<cfm-add-page #addPageModal></cfm-add-page>
+

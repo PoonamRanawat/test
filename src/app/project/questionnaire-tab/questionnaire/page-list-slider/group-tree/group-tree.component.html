@@ -1,0 +1,16 @@
+<div class="grouping-tree">
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-folder-open-o"></i>Grouping
+            </div>
+            <div class="tools">
+                <a href="javascript:;" (click)="toggleGroupList()" [ngClass]="groupListCollapse ? 'expand': 'collapse'"> </a>
+
+            </div>
+        </div>
+        <div class="portlet-body" *ngIf="groupListCollapse">
+            <cfm-page-thumbnail></cfm-page-thumbnail>
+        </div>
+    </div>
+</div>

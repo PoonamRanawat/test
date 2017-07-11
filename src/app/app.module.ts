@@ -9,11 +9,11 @@ import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import {HeaderComponent} from './shared/header/header.component';
 import {FooterComponent} from './shared/footer/footer.component';
 import {SideBarComponent} from './shared/side-bar/side-bar.component';
-import {BrowserModule} from "@angular/platform-browser";
+import {BrowserModule} from '@angular/platform-browser';
 import {BsDropdownModule} from 'ngx-bootstrap';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
-import {SubMenuComponent} from "./shared/side-bar/sub-menu/sub-menu.component";
-import {QuickMenuComponent} from "./shared/quick-menu/quick-menu.component";
+import {SubMenuComponent} from './shared/side-bar/sub-menu/sub-menu.component';
+import {QuickMenuComponent} from './shared/quick-menu/quick-menu.component';
 
 @NgModule({
     declarations: [
