@@ -1,5 +1,6 @@
 //@todo: This file is having hardcoded values, replace it later when we have API in place.
 import {Injectable} from '@angular/core';
+import {config} from './config';
 
 @Injectable()
 export class ConfigService {
@@ -8,18 +9,11 @@ export class ConfigService {
     }
 
     /**
-     * Get different menu on basis of location.
+     * Get configuration properties
      *
-     * @param location
      * @returns {any}
      */
-    getConfigProperty(property: string): any {
-        return [{
-            id: 1,
-            name: 'Project 1'
-        }, {
-            id: 2,
-            name: 'Project 2'
-        }]
+    getConfigProperty(): any {
+        return config['Projects']['DefaultProject'];
     }
 }

@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {MenuService} from './menu.service';
 import {throwIfAlreadyLoaded} from './module-import-guard';
 import {ConfigService} from './config.service';
+import {ProjectService} from "./project.service";
 
 @NgModule({
     imports: [
@@ -12,7 +13,8 @@ import {ConfigService} from './config.service';
     exports: [],
     providers: [
         MenuService,
-        ConfigService
+        ConfigService,
+        ProjectService
     ]
 })
 export class CoreModule {

@@ -3,6 +3,7 @@ import {MenuService} from './core/menu.service';
 import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 import {Menu} from './core/menu';
 import {ConfigService} from './core/config.service';
+import {ProjectService} from "./core/project.service";
 
 @Component({
     selector: 'cfm-root',
@@ -14,13 +15,38 @@ export class AppComponent implements OnInit {
     constructor(public toastr: ToastsManager,
                 vcr: ViewContainerRef,
                 private menuService: MenuService,
-                private configService: ConfigService) {
+                private configService: ConfigService,
+                private projectService: ProjectService) {
         this.toastr.setRootViewContainerRef(vcr);
     }
 
     ngOnInit() {
         //@todo: Change this with menu API. Right now it is hardcoded values.
-        const getProjects = this.configService.getConfigProperty('projects');
+        const projects = this.projectService.getProjects();
+        let projectMenuItems = [];
+        for (let i = 0; i < projects.length; i++) {
+            projectMenuItems.push({
+                position: 1,
+                Name: projects[i]['name'],
+                Exec: (selected: Menu) => {
+                },
+                Children: [{
+                    position: 1,
+                    Name: "Questionnaire",
+                    Exec: (selected: Menu) => {
+                    },
+                    Children: null,
+                    IconClass: "icon-magnifier",
+                    IconSource: null,
+                    showInMenu: true,
+                    Route: `/project/${projects[i]['id']}/questionnaire`
+                }],
+                IconClass: "icon-magnifier",
+                IconSource: null,
+                showInMenu: true,
+                Route: `/project/${projects[i]['id']}`
+            });
+        }
 
         this.menuService.add('languages', {
             position: 1,
@@ -105,27 +131,7 @@ export class AppComponent implements OnInit {
             Name: "Data collection",
             Exec: (selected: Menu) => {
             },
-            Children: [{
-                position: 1,
-                Name: "Project 1",
-                Exec: (selected: Menu) => {
-                },
-                Children: [{
-                    position: 1,
-                    Name: "Questionnaire",
-                    Exec: (selected: Menu) => {
-                    },
-                    Children: null,
-                    IconClass: "icon-magnifier",
-                    IconSource: null,
-                    showInMenu: true,
-                    Route: ''
-                }],
-                IconClass: "icon-magnifier",
-                IconSource: null,
-                showInMenu: true,
-                Route: ''
-            }],
+            Children: projectMenuItems,
             IconClass: "icon-magnifier",
             IconSource: null,
             showInMenu: true,
