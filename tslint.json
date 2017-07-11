@@ -110,13 +110,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "cfm",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "cfm",
       "kebab-case"
     ],
     "use-input-property-decorator": true,

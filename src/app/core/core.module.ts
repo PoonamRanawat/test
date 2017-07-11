@@ -1,6 +1,6 @@
 import {NgModule, SkipSelf, Optional} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MenuService} from "./menu.service";
+import {MenuService} from './menu.service';
 import {throwIfAlreadyLoaded} from './module-import-guard';
 
 @NgModule({
