@@ -14,6 +14,6 @@ export class ConfigService {
      * @returns {any}
      */
     getConfigProperty(): any {
-        return config['Projects']['DefaultProject'];
+        return config;
     }
 }

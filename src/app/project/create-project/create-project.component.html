@@ -15,11 +15,10 @@
                         <a class="btn btn-circle btn-icon-only red" (click)="modal.showDeleteProjectModal()">
                             <i class="icon-trash"></i>
                         </a>
-
                     </div>
                 </div>
                 <div class="portlet-body form">
-                    <form class="" role="form" (ngSubmit)="onSubmit(f)" #f="ngForm">
+                    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
                         <div class="form-body">
                             <div class="form-group form-md-line-input form-md-floating-label">
                                 <input type="text" [ngClass]="name.value ? 'form-control edited': 'form-control'"
@@ -42,28 +41,24 @@
                             </div>
                             <div class="form-group form-md-line-input form-md-floating-label">
                                 <select class="form-control edited" id="projectType" ngModel name="projectType"
-                                        required>
-                                    <option>Option 1</option>
-                                    <option>Option 2</option>
-                                    <option>Option 3</option>
-                                    <option>Option 4</option>
-                                    <option>Option 5</option>
+                                        required (change)="getDependentFields($event.target.value)">
+                                    <option *ngFor="let type of types" [value]="type['ID']">{{type['DisplayName']}}</option>
                                 </select>
                                 <label for="projectType">Type</label>
                             </div>
-                            <div class="mt-checkbox-inline">
-                                <label class="mt-checkbox" *ngFor="let mode of modes; let i=index">
-                                    <input type="checkbox"
-                                           id="{{'mode'+i}}"
-                                           name="mode"
-                                           value="{{mode['value']}}"
-                                           required="{{mode}}"
-                                           ngModel
-                                    >{{mode['name']}}
-                                    <span></span>
-                                </label>
-                            </div>
-                            <div class="form-group">
+                            <!--<div class="mt-checkbox-inline">-->
+                                <!--<label class="mt-checkbox" *ngFor="let mode of modes; let i=index">-->
+                                    <!--<input type="checkbox"-->
+                                           <!--id="{{'mode'+i}}"-->
+                                           <!--name="mode"-->
+                                           <!--value="{{mode['name']}}"-->
+                                           <!--required="{{mode}}"-->
+                                           <!--ngModel-->
+                                    <!--&gt;{{mode['name']}}-->
+                                    <!--<span></span>-->
+                                <!--</label>-->
+                            <!--</div>-->
+                            <div class="form-group" *ngIf="scoreSettingAvailable">
                                 <label class=""><strong>Score Setting</strong> </label>
                                 <div class="pull-right">
                                     <bSwitch
