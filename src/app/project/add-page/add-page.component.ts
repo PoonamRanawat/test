@@ -30,7 +30,7 @@ export class AddPageComponent implements OnInit {
         this.route.params.subscribe((params: any) => {
             this.projectId = parseInt(params['id']);
         });
-        this.modeType = this.projectService.getProject(this.projectId);
+        this.modeType = this.projectService.getProject(this.projectId)['type'];
         this.pageTypes = this.configService.getConfigPropertyByModeId(this.modeType)['PageTypes'];
     }
 

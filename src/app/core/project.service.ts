@@ -50,11 +50,11 @@ export class ProjectService {
      *
      * @param projectId
      */
-    getProject(projectId: number) {
+    getProject(id: number) {
         const projectIndex = _.findIndex(this.projects, (o) => {
-            return o['id'] === projectId;
+            return o['id'] == id;
         });
 
-        return this.projects[projectIndex]['type'];
+        return this.projects[projectIndex];
     }
 }
