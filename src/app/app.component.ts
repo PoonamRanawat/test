@@ -17,118 +17,125 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
-        //@todo: Change this with menu API. Right now it is hardcoded values.
+        // @todo: Change this with menu API. Right now it is hardcoded values.
         this.menuService.add('languages', {
             position: 1,
-            Name: "English",
+            Name: 'English',
             Exec: (selected: Menu) => {
                 alert('English');
             },
             Children: null,
             IconClass: null,
-            IconSource: "./assets/global/img/flags/us.png",
+            IconSource: './assets/global/img/flags/us.png',
             showInMenu: true,
             Route: ''
         });
         this.menuService.add('languages', {
             position: 1,
-            Name: "French",
+            Name: 'French',
             Exec: (selected: Menu) => {
                 alert('French');
             },
             Children: null,
             IconClass: null,
-            IconSource: "./assets/global/img/flags/fr.png",
+            IconSource: './assets/global/img/flags/fr.png',
             showInMenu: true,
             Route: ''
         });
         this.menuService.add('languages', {
             position: 1,
-            Name: "German",
+            Name: 'German',
             Exec: (selected: Menu) => {
                 alert('German');
             },
             Children: null,
             IconClass: null,
-            IconSource: "./assets/global/img/flags/de.png",
+            IconSource: './assets/global/img/flags/de.png',
             showInMenu: true,
             Route: ''
         });
         this.menuService.add('languages', {
             position: 1,
-            Name: "Russian",
+            Name: 'Russian',
             Exec: (selected: Menu) => {
                 alert('Russian');
             },
             Children: null,
             IconClass: null,
-            IconSource: "./assets/global/img/flags/ru.png",
+            IconSource: './assets/global/img/flags/ru.png',
             showInMenu: true,
             Route: ''
         });
 
         this.menuService.add('alerts', {
-            position: 1, Name: "Alert 1", Exec: (selected: Menu) => {
+            position: 1, Name: 'Alert 1', Exec: (selected: Menu) => {
                 alert('Russian');
             }, Children: null, IconClass: null, IconSource: null, showInMenu: true, Route: ''
         });
         this.menuService.add('alerts', {
-            position: 1, Name: "Alert 2", Exec: (selected: Menu) => {
+            position: 1, Name: 'Alert 2', Exec: (selected: Menu) => {
                 alert('Russian');
             }, Children: null, IconClass: null, IconSource: null, showInMenu: true, Route: ''
         });
         this.menuService.add('alerts', {
-            position: 1, Name: "Alert 3", Exec: (selected: Menu) => {
+            position: 1, Name: 'Alert 3', Exec: (selected: Menu) => {
                 alert('Russian');
             }, Children: null, IconClass: null, IconSource: null, showInMenu: true, Route: ''
         });
         this.menuService.add('alerts', {
-            position: 1, Name: "Alert 4", Exec: (selected: Menu) => {
+            position: 1, Name: 'Alert 4', Exec: (selected: Menu) => {
                 alert('asd');
             }, Children: null, IconClass: null, IconSource: null, showInMenu: true, Route: ''
         });
 
         this.menuService.add('left', {
-            position: 1, Name: "Home", Exec: (selected: Menu) => {
+            position: 1, Name: 'Home', Exec: (selected: Menu) => {
                 alert('Russian');
-            }, Children: null, IconClass: "icon-home", IconSource: null, showInMenu: true, Route: '/'
+            }, Children: null, IconClass: 'icon-home', IconSource: null, showInMenu: true, Route: '/'
         });
         this.menuService.add('left', {
-            position: 1, Name: "Menu 2", Exec: (selected: Menu) => {
+            position: 1,
+            Name: 'Menu 2',
+            Exec: (selected: Menu) => {
                 alert('Russian');
-            }, Children: null, IconClass: "icon-magnifier", IconSource: null, showInMenu: true, Route: '/project/questionnaire'
+            },
+            Children: null,
+            IconClass: 'icon-magnifier',
+            IconSource: null,
+            showInMenu: true,
+            Route: '/project/questionnaire'
         });
         this.menuService.add('left', {
-            position: 1, Name: "Menu 3", Exec: (selected: Menu) => {
+            position: 1, Name: 'Menu 3', Exec: (selected: Menu) => {
                 alert('Russian');
-            }, IconClass: "icon-home", IconSource: null, showInMenu: true, Route: '', Children: [
+            }, IconClass: 'icon-home', IconSource: null, showInMenu: true, Route: '', Children: [
                 {
-                    position: 1, Name: "Menu 3.1", Exec: (selected: Menu) => {
+                    position: 1, Name: 'Menu 3.1', Exec: (selected: Menu) => {
                     alert('Russian');
-                }, Children: null, IconClass: "icon-magnifier", IconSource: null, showInMenu: true, Route: '/projects'
+                }, Children: null, IconClass: 'icon-magnifier', IconSource: null, showInMenu: true, Route: '/projects'
                 },
                 {
-                    position: 1, Name: "Menu 3.2", Exec: (selected: Menu) => {
+                    position: 1, Name: 'Menu 3.2', Exec: (selected: Menu) => {
                     alert('Russian');
-                }, Children: null, IconClass: "icon-magnifier", IconSource: null, showInMenu: true, Route: '/projects'
+                }, Children: null, IconClass: 'icon-magnifier', IconSource: null, showInMenu: true, Route: '/projects'
                 },
                 {
-                    position: 1, Name: "Menu 3.3", Exec: (selected: Menu) => {
+                    position: 1, Name: 'Menu 3.3', Exec: (selected: Menu) => {
                     alert('Russian');
-                }, Children: null, IconClass: "icon-magnifier", IconSource: null, showInMenu: true, Route: '/dashboard'
+                }, Children: null, IconClass: 'icon-magnifier', IconSource: null, showInMenu: true, Route: '/dashboard'
                 }
             ]
         });
 
         this.menuService.add('quick', {
-            position: 1, Name: "Quick Menu 1", Exec: (selected: Menu) => {
+            position: 1, Name: 'Quick Menu 1', Exec: (selected: Menu) => {
                 alert('Quick Menu 1');
-            }, Children: null, IconClass: "icon-magnifier", IconSource: null, showInMenu: true, Route: '/dashboard'
+            }, Children: null, IconClass: 'icon-magnifier', IconSource: null, showInMenu: true, Route: '/dashboard'
         });
         this.menuService.add('quick', {
-            position: 1, Name: "Quick Menu 2", Exec: (selected: Menu) => {
+            position: 1, Name: 'Quick Menu 2', Exec: (selected: Menu) => {
                 alert('Quick Menu 2');
-            }, Children: null, IconClass: "icon-magnifier", IconSource: null, showInMenu: true, Route: '/dashboard'
+            }, Children: null, IconClass: 'icon-magnifier', IconSource: null, showInMenu: true, Route: '/dashboard'
         });
 
     }

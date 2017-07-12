@@ -1,4 +1,4 @@
-//@todo: This file is having hardcoded values, replace it later when we have API in place.
+// @todo: This file is having hardcoded values, replace it later when we have API in place.
 import {Injectable} from '@angular/core';
 import {Menu} from './menu';
 
@@ -33,7 +33,9 @@ export class MenuService {
      * @returns {any}
      */
     getMenuConfig(location: string): any {
-        if (!this.menus[location]) return null;
+        if (!this.menus[location]) {
+            return null
+        };
         return this.menus[location];
     }
 
@@ -96,10 +98,10 @@ export class MenuService {
      */
     getActive(location: string): Menu {
         if (this.menus[location]) {
-            let idx = this.activeMenus[location];
+            const idx = this.activeMenus[location];
             if (idx >= 0 && idx < this.menus[location].length) {
                 return this.menus[location][idx];
-            } else if (this.menus[location].length > 0) return this.menus[location][0];
+            } else if (this.menus[location].length > 0) {return this.menus[location][0]; }
             return null;
         }
     }

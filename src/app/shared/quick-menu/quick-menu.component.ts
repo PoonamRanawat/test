@@ -7,7 +7,7 @@ import {MenuService} from '../../core/menu.service';
 })
 export class QuickMenuComponent implements OnInit {
     menuItems: any;
-    private menuToggle: boolean = false;
+    private menuToggle = false;
 
     constructor(private menuService: MenuService) {
     }
