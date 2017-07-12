@@ -8,7 +8,7 @@ import {MenuService} from '../../core/menu.service';
 export class HeaderComponent implements OnInit {
     notifications: any;
     languages: any;
-    private sideBarToggle = false;
+    private sideBarToggle = true;
 
     @Output() addToggleClass: EventEmitter<boolean> = new EventEmitter<boolean>();
 

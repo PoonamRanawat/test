@@ -1,11 +1,13 @@
 import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
-    selector: 'cfm-sub-menu',
+    selector: '[cfm-sub-menu]',
     templateUrl: './sub-menu.component.html'
 })
 export class SubMenuComponent implements OnInit {
-    @Input() subMenu: any;
+    @Input('cfm-sub-menu') subMenu: any;
+    openChildItems: Array<boolean> = [];
+
     constructor() {
     }
 
