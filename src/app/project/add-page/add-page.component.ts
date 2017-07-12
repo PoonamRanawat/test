@@ -49,13 +49,15 @@ export class AddPageComponent implements OnInit {
     }
 
     /**
-     * Add Page
+     * Create Page
+     *
+     * @param addPageForm
      */
-    addPage(): void {
-        // if (this.form.valid) {
-        //     console.log("Form Submitted!");
-        //     //this.form.reset();
-        // }
+    addPage(form) {
+        if (!form.valid) {
+            return;
+        }
+        console.log(form.value)
     }
 
     /**
@@ -64,11 +66,9 @@ export class AddPageComponent implements OnInit {
      * @param value
      */
     getDependentQuestionType(value: number): void {
-
         const valueIndex = _.findIndex(this.pageTypes, (o) => {
             return o['ID'] === +value;
         });
-
         this.subPageType = this.pageTypes[valueIndex]['SubPageTypes'] ? this.pageTypes[valueIndex]['SubPageTypes'] : [];
         this.questionType = this.pageTypes[valueIndex]['QuestionTypes'] ? this.pageTypes[valueIndex]['QuestionTypes'] : [];
     }

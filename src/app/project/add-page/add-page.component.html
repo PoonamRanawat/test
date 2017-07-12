@@ -8,60 +8,80 @@
                 <h4 class="modal-title">Create New Page</h4>
             </div>
             <div class="modal-body">
-                <form novalidate class="form-horizontal" #addPageForm="ngForm" (ngSubmit)="addPage()">
+                <form class="form-horizontal" (ngSubmit)="addPage(addPageForm)" #addPageForm="ngForm" novalidate>
                     <div class="form-body">
-                        <div class="form-group"
-                             [ngClass]="{'has-danger': pageName.invalid && (pageName.dirty || pageName.touched),
-                                'has-success': pageName.valid && (pageName.dirty || pageName.touched)}">
+                        <div class="form-group" [ngClass]="{ 'has-error': addPageForm.submitted && !pageName.valid }">
                             <label for="pageName" class="col-md-4 control-label">Page Name</label>
                             <div class="col-md-7">
-                                <input type="text" name="pageName" id="pageName" class="form-control"
+                                <input type="text" name="pagename" id="pageName" class="form-control"
                                        [(ngModel)]="model.pageName" #pageName="ngModel" required>
+                                <small [hidden]="pageName.valid || (pageName.pristine && !addPageForm.submitted)"
+                                       class="text-danger">
+                                    Page Name is required
+                                </small>
                             </div>
                         </div>
-                        <div class="form-group" *ngIf="pageTypes?.length > 0">
+                        <div class="form-group" *ngIf="pageTypes?.length > 0"
+                             [ngClass]="{ 'has-error': addPageForm.submitted && !pageType.valid }">
                             <label class="col-md-4 control-label">Page type</label>
                             <div class="col-md-7">
                                 <select class="bs-select form-control" name="pageType"
                                         data-style="btn-primary"
-                                        (change)="getDependentQuestionType($event.target.value)">
-                                    <option></option>
+                                        (change)="getDependentQuestionType($event.target.value)"
+                                        [(ngModel)]="model.pageType" #pageType="ngModel" required>
+                                    <option value="0">--Select Page--</option>
                                     <option *ngFor="let type of pageTypes" [value]="type['ID']">
                                         {{type['DisplayName']}}
                                     </option>
                                 </select>
+                                <small [hidden]="pageType.valid || (pageType.pristine && !addPageForm.submitted)"
+                                       class="text-danger">
+                                    Page Type is required
+                                </small>
                             </div>
                         </div>
-                        <div class="form-group" *ngIf="questionType?.length > 0">
+                        <div class="form-group" *ngIf="questionType?.length > 0"
+                             [ngClass]="{ 'has-error': addPageForm.submitted && !question.valid }">
                             <label class="col-md-4 control-label">Question type</label>
                             <div class="col-md-7">
-                                <select class="bs-select form-control" name="questionType"
-                                        data-style="btn-primary">
+                                <select class="bs-select form-control" name="question"
+                                        data-style="btn-primary" [(ngModel)]="model.question" #question="ngModel"
+                                        required>
                                     <option *ngFor="let type of questionType" [value]="type['ID']">
                                         {{type['DisplayName']}}
                                     </option>
                                 </select>
+                                <small [hidden]="question.valid || (question.pristine && !addPageForm.submitted)"
+                                       class="text-danger">
+                                    Question Type is required
+                                </small>
                             </div>
                         </div>
-                        <div class="form-group" *ngIf="subPageType?.length > 0">
+                        <div class="form-group" *ngIf="subPageType?.length > 0"
+                             [ngClass]="{ 'has-error': addPageForm.submitted && !subPage.valid }">
                             <label class="col-md-4 control-label">Sub page type</label>
                             <div class="col-md-7">
-                                <select class="bs-select form-control" name="subPageType"
-                                        data-style="btn-primary">
+                                <select class="bs-select form-control" name="subPage"
+                                        data-style="btn-primary" [(ngModel)]="model.subPage" #subPage="ngModel">
                                     <option *ngFor="let type of subPageType" [value]="type['ID']">
                                         {{type['DisplayName']}}
                                     </option>
                                 </select>
+                                <small [hidden]="subPage.valid || (subPage.pristine && !addPageForm.submitted)"
+                                       class="text-danger">
+                                    SubPage is required
+                                </small>
                             </div>
                         </div>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn dark blue" (click)="hideAddPageModal()">Cancel
+                        </button>
+                        <button type="submit" class="btn green" [disabled]="!addPageForm.valid">Create</button>
+                    </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn dark blue" (click)="hideAddPageModal()">Cancel
-                </button>
-                <button type="submit" class="btn green" [disabled]="!addPageForm.valid">Create</button>
-            </div>
+
         </div>
     </div>
 </div>
