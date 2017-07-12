@@ -3,32 +3,55 @@ import {NgForm} from '@angular/forms';
 import {ProjectSettings} from '../projectSettings';
 import {ConfigService} from '../../core/config.service';
 import * as _ from 'lodash';
+import {ProjectService} from '../../core/project.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
-    selector: 'cfm-create-project',
-    templateUrl: './create-project.component.html',
+    selector: 'cfm-project-form',
+    templateUrl: './project-form.component.html',
     styles: [],
     providers: [ProjectSettings]
 })
-export class CreateProjectComponent implements OnInit {
+
+export class ProjectFormComponent implements OnInit {
     name: string;
     description: string;
     projectSettings: ProjectSettings;
+    projectId: number;
+    private sub: any;
     private types = [];
     private modes = [];
     private scoreSettingAvailable: boolean;
 
-    constructor(ps: ProjectSettings, private configService: ConfigService) {
+    constructor(ps: ProjectSettings,
+                private configService: ConfigService,
+                private projectService: ProjectService,
+                private route: ActivatedRoute) {
         this.projectSettings = ps;
     }
 
     ngOnInit() {
+        this.sub = this.route.params.subscribe(params => {
+            this.projectId = +params['id'];
+
+        });
         this.types = this.configService.getConfigProperty()['QuestionnaireTypes'];
+        console.log(this.projectService.getProject(this.projectId));
 
     }
 
-    onSubmit(form: NgForm) {
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
+
+    /**
+     * Add new project
+     *
+     * @param form
+     */
+    onSubmit(form: NgForm): void {
         console.log(form.value);
+        //this.projectService.addProject(form.value);
         // this.projectSettings.name = form.value.name;
         // this.projectSettings.description = form.value.description;
         // this.projectSettings.type = form.value.projectType;

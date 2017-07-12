@@ -17,7 +17,23 @@ export class ProjectService {
         }];
     }
 
-    addProject() {
+    /**
+     * Add new project
+     *
+     * @param formValues
+     */
+    addProject(formValues: Object): boolean {
+        if (formValues) {
+            this.projects.push({
+                id: 2,
+                name: formValues['name'],
+                description: formValues['description'],
+                type: formValues['projectType'],
+                mode: 'online',
+                scoreSetting: formValues['score']
+            });
+            return true;
+        }
 
     }
 
