@@ -5,169 +5,244 @@ export const config = {
     "QuestionnaireTypes": [{
         "DisplayName": "Expert Mode",
         "ID": 1,
-        "PageTypes": [
-            {
-                "Name": "SingleQuestionPage",
-                "DisplayName": "Single Question Page",
-                "ID": 1,
-                "QuestionTypes": {
-                    "SingleQuestionSingleResponse": {
-                        "Name": "SingleQuestionSingleResponse",
-                        "DisplayName": "Single Response",
-                        "ID": 1,
-                        "Settings": {
-                            "QuestionSettings": {
-                                "RandomizeAnswers": null,
-                                "CreateOtherCategory": {"DefaultValue": "False"}
-                            },
-                            "AnswerSettings": {
-                                "ExcludeFromRandomize": {"DefaultValue": "False"},
-                                "ActiveAnswer": null,
-                                "Routing": {"Function": "GetSetRoutePage()"},
-                                "AddPictureOrIcon": null
+        "PageTypes": [{
+            "Name": "SingleQuestionPage",
+            "DisplayName": "Single Question Page",
+            "ID": 1,
+            "QuestionTypes": [
+                {
+                    "Name": "SingleQuestionSingleResponse",
+                    "DisplayName": "Single Response",
+                    "ID": 1,
+                    "Settings": {
+                        "QuestionSettings": {
+                            "RandomizeAnswers": null,
+                            "CreateOtherCategory": {
+                                "DefaultValue": "False"
                             }
-                        }
-                    },
-                    "SingleQuestionMultiResponse": {
-                        "Name": "SingleQuestionMultiResponse",
-                        "DisplayName": "Multi Response",
-                        "ID": 2,
-                        "Settings": {
-                            "QuestionSettings": {
-                                "RandomizeAnswers": null,
-                                "CreateOtherCategory": {"DefaultValue": "False"},
-                                "MinimumAnswerOptionSelection": {"DefaultValue": "2"},
-                                "MaximumAnswerOptionSelection": {"DefaultValue": "2"}
+                        },
+                        "AnswerSettings": {
+                            "ExcludeFromRandomize": {
+                                "DefaultValue": "False"
                             },
-                            "AnswerSettings": {
-                                "ExcludeFromRandomize": {"DefaultValue": "False"},
-                                "ActiveAnswer": null,
-                                "Routing": {"Function": "GetSetRoutePage()"},
-                                "AddPictureOrIcon": null
+                            "ActiveAnswer": null,
+                            "Routing": {
+                                "Function": "GetSetRoutePage()"
+                            },
+                            "AddPictureOrIcon": null
+                        }
+                    }
+                },
+                {
+                    "Name": "SingleQuestionMultiResponse",
+                    "DisplayName": "Multi Response",
+                    "ID": 2,
+                    "Settings": {
+                        "QuestionSettings": {
+                            "RandomizeAnswers": null,
+                            "CreateOtherCategory": {
+                                "DefaultValue": "False"
+                            },
+                            "MinimumAnswerOptionSelection": {
+                                "DefaultValue": "2"
+                            },
+                            "MaximumAnswerOptionSelection": {
+                                "DefaultValue": "2"
                             }
-                        }
-                    },
-                    "SingleQuestionXPointScale": {
-                        "Name": "SingleQuestionXPointScale",
-                        "DisplayName": "X Point Scale",
-                        "ID": 3,
-                        "Settings": {
-                            "QuestionSettings": {
-                                "LowestScaleNumber": {"DefaultValue": "0"},
-                                "HighestScaleNumber": {"DefaultValue": "10"}
-                            }
-                        }
-                    },
-                    "SingleQuestionComment": {
-                        "Name": "SingleQuestionComment",
-                        "DisplayName": "Comment Type",
-                        "ID": 4,
-                        "Settings": {
-                            "QuestionSettings": {
-                                "HTMLEditor": {"DefaultValue": "False"},
-                                "MaximumNumberOfCharacters": {"DefaultValue": "1000"},
-                                "MinimumNumberOfCharacters": {"DefaultValue": "1"}
-                            }
-                        }
-                    },
-                    "SingleQuestionMediaRecording": {
-                        "Name": "SingleQuestionMediaRecording",
-                        "DisplayName": "Media Recording",
-                        "ID": 5,
-                        "Settings": {
-                            "ModeSettings": {
-                                "AudioMode": {"DefaultValue": "True"},
-                                "VideoMode": {"DefaultValue": "True"},
-                                "PhotoMode": {"DefaultValue": "True"}
+                        },
+                        "AnswerSettings": {
+                            "ExcludeFromRandomize": {
+                                "DefaultValue": "False"
                             },
-                            "AudioSettings": {
-                                "RecordComputerMic": {"DefaultValue": "True"},
-                                "RecordPhoneOrTabletMic": {"DefaultValue": "True"},
-                                "UploadFile": {"DefaultValue": "True"},
-                                "MaximumLengthOfAudio": {"DefaultValue": "300"}
+                            "ActiveAnswer": null,
+                            "Routing": {
+                                "Function": "GetSetRoutePage()"
                             },
-                            "VideoSettings": {
-                                "RecordComputerMic": null,
-                                "RecordPhotoOrTabletMic": null,
-                                "UploadFile": {"DefaultValue": "True"},
-                                "MaximumLengthOfAudio": null
+                            "AddPictureOrIcon": null
+                        }
+                    }
+                },
+                {
+                    "Name": "SingleQuestionXPointScale",
+                    "DisplayName": "X Point Scale",
+                    "ID": 3,
+                    "Settings": {
+                        "QuestionSettings": {
+                            "LowestScaleNumber": {
+                                "DefaultValue": "0"
                             },
-                            "PhotoSettings": {
-                                "CameraWebcam": {"DefaultValue": "True"},
-                                "CameraPhoneOrTablet": {"DefaultValue": "True"},
-                                "UploadFile": {"DefaultValue": "True"}
+                            "HighestScaleNumber": {
+                                "DefaultValue": "10"
                             }
                         }
                     }
                 },
-                "PageSettings": {
-                    "Active": null,
-                    "View": null,
-                    "ShowProgressBar": null,
-                    "AutoProceed": null,
-                    "Routing": null,
-                    "ShowNextButton": null,
-                    "ShowPreviousButton": null,
-                    "Required": null,
-                    "Status": null,
-                    "NAOption": null,
-                    "NoOfRespondent": null,
-                    "SkipPageOnRespondentCount": null,
-                    "VisibleToPercentageOfRespondent": null,
-                    "ErrorMessage": null
+                {
+                    "Name": "SingleQuestionComment",
+                    "DisplayName": "Comment Type",
+                    "ID": 4,
+                    "Settings": {
+                        "QuestionSettings": {
+                            "HTMLEditor": {
+                                "DefaultValue": "False"
+                            },
+                            "MaximumNumberOfCharacters": {
+                                "DefaultValue": "1000"
+                            },
+                            "MinimumNumberOfCharacters": {
+                                "DefaultValue": "1"
+                            }
+                        }
+                    }
+                },
+                {
+                    "Name": "SingleQuestionMediaRecording",
+                    "DisplayName": "Media Recording",
+                    "ID": 5,
+                    "Settings": {
+                        "ModeSettings": {
+                            "AudioMode": {
+                                "DefaultValue": "True"
+                            },
+                            "VideoMode": {
+                                "DefaultValue": "True"
+                            },
+                            "PhotoMode": {
+                                "DefaultValue": "True"
+                            }
+                        },
+                        "AudioSettings": {
+                            "RecordComputerMic": {
+                                "DefaultValue": "True"
+                            },
+                            "RecordPhoneOrTabletMic": {
+                                "DefaultValue": "True"
+                            },
+                            "UploadFile": {
+                                "DefaultValue": "True"
+                            },
+                            "MaximumLengthOfAudio": {
+                                "DefaultValue": "300"
+                            }
+                        },
+                        "VideoSettings": {
+                            "RecordComputerMic": null,
+                            "RecordPhotoOrTabletMic": null,
+                            "UploadFile": {
+                                "DefaultValue": "True"
+                            },
+                            "MaximumLengthOfAudio": null
+                        },
+                        "PhotoSettings": {
+                            "CameraWebcam": {
+                                "DefaultValue": "True"
+                            },
+                            "CameraPhoneOrTablet": {
+                                "DefaultValue": "True"
+                            },
+                            "UploadFile": {
+                                "DefaultValue": "True"
+                            }
+                        }
+                    }
                 }
-            },
+            ],
+            "PageSettings": {
+                "Active": null,
+                "View": null,
+                "ShowProgressBar": null,
+                "AutoProceed": null,
+                "Routing": null,
+                "ShowNextButton": null,
+                "ShowPreviousButton": null,
+                "Required": null,
+                "Status": null,
+                "NAOption": null,
+                "NoOfRespondent": null,
+                "SkipPageOnRespondentCount": null,
+                "VisibleToPercentageOfRespondent": null,
+                "ErrorMessage": null
+            }
+        },
             {
                 "Name": "MatrixQuestionPage",
                 "DisplayName": "Matrix Question Page",
                 "ID": 2,
-                "QuestionTypes": {
-                    "MatrixQuestionSingleResponse": {
+                "QuestionTypes": [
+                    {
                         "Name": "MatrixQuestionSingleResponse",
                         "DisplayName": "Single Response",
                         "ID": 6,
                         "Settings": {
                             "ColumnSettings": {
-                                "ExcludeFromRandomize": {"DefaultValue": "False"},
-                                "ActiveAnswer": {"DefaultValue": "True"},
-                                "Routing": {"DefaultValue": "GetSetRoutePage()"},
-                                "AddPictureOrIcon": {"DefaultValue": "True"}
+                                "ExcludeFromRandomize": {
+                                    "DefaultValue": "False"
+                                },
+                                "ActiveAnswer": {
+                                    "DefaultValue": "True"
+                                },
+                                "Routing": {
+                                    "DefaultValue": "GetSetRoutePage()"
+                                },
+                                "AddPictureOrIcon": {
+                                    "DefaultValue": "True"
+                                }
                             },
-                            "RowSettings": {"NAOption": {"DefaultValue": "False"}}
+                            "RowSettings": {
+                                "NAOption": {
+                                    "DefaultValue": "False"
+                                }
+                            }
                         }
                     },
-                    "MatrixQuestionMultiResponse": {
+                    {
                         "Name": "MatrixQuestionMultiResponse",
                         "DisplayName": "Multi Response",
                         "ID": 7,
                         "Settings": {
                             "ColumnSettings": {
-                                "ActiveAnswer": {"DefaultValue": "True"},
-                                "AddPictureOrIcon": {"DefaultValue": "True"},
-                                "ExcludeFromRandomize": {"DefaultValue": "False"},
-                                "Routing": {"DefaultValue": "GetSetRoutePage()"}
+                                "ActiveAnswer": {
+                                    "DefaultValue": "True"
+                                },
+                                "AddPictureOrIcon": {
+                                    "DefaultValue": "True"
+                                },
+                                "ExcludeFromRandomize": {
+                                    "DefaultValue": "False"
+                                },
+                                "Routing": {
+                                    "DefaultValue": "GetSetRoutePage()"
+                                }
                             },
                             "RowSettings": {
-                                "NAOption": {"DefaultValue": "False"},
+                                "NAOption": {
+                                    "DefaultValue": "False"
+                                },
                                 "MinimumOptionAnswerSelection": null,
                                 "MaximumOptionAnswerSelection": null
                             }
                         }
                     },
-                    "MatrixQuestionXPointScale": {
+                    {
                         "Name": "MatrixQuestionXPointScale",
                         "DisplayName": "X Point Scale",
                         "ID": 8,
                         "Settings": {
                             "RowSettings": {
-                                "LowestScaleNumber": {"DefaultValue": "0"},
-                                "HighestScaleNumber": {"DefaultValue": "10"}
+                                "LowestScaleNumber": {
+                                    "DefaultValue": "0"
+                                },
+                                "HighestScaleNumber": {
+                                    "DefaultValue": "10"
+                                }
                             }
                         }
                     }
-                },
+                ],
                 "PageSettings": {
-                    "Active": {"Defaultvalue": "False"},
+                    "Active": {
+                        "Defaultvalue": "False"
+                    },
                     "View": null,
                     "ShowProgressBar": null,
                     "AutoProceed": null,
@@ -223,41 +298,53 @@ export const config = {
                 "Name": "VOCKPI",
                 "DisplayName": "VOC - KPI",
                 "ID": 6,
-                "QuestionTypes": {
-                    "NetPromoterScore": {
+                "QuestionTypes": [
+                    {
                         "Name": "NetPromoterScore",
                         "DisplayName": "Net Promoter Score (NPS)",
                         "ID": 11,
                         "Settings": {
                             "QuestionSettings": {
-                                "CategoryColor": {"DefaultValue": "True"},
-                                "KPIType": {"DefaultValue": "NPS"}
+                                "CategoryColor": {
+                                    "DefaultValue": "True"
+                                },
+                                "KPIType": {
+                                    "DefaultValue": "NPS"
+                                }
                             }
                         }
                     },
-                    "CustomerSupportScore": {
+                    {
                         "Name": "CustomerSupportScore",
                         "DisplayName": "Customer Support Score",
                         "ID": 12,
                         "Settings": {
                             "QuestionSettings": {
-                                "CategoryColor": {"DefaultValue": "True"},
-                                "KPIType": {"DefaultValue": "NPS"}
+                                "CategoryColor": {
+                                    "DefaultValue": "True"
+                                },
+                                "KPIType": {
+                                    "DefaultValue": "NPS"
+                                }
                             }
                         }
                     },
-                    "CustomerSatisfactionScore": {
+                    {
                         "Name": "CustomerSatisfactionScore",
                         "DisplayName": "Customer Satisfaction Score",
                         "ID": 13,
                         "Settings": {
                             "QuestionSettings": {
-                                "CategoryColor": {"DefaultValue": "True"},
-                                "KPIType": {"DefaultValue": "NPS"}
+                                "CategoryColor": {
+                                    "DefaultValue": "True"
+                                },
+                                "KPIType": {
+                                    "DefaultValue": "NPS"
+                                }
                             }
                         }
                     }
-                },
+                ],
                 "PageSettings": {
                     "Active": null,
                     "View": null,
@@ -278,22 +365,30 @@ export const config = {
                 "Name": "VOCRootCause",
                 "DisplayName": "VOC - Root Cause",
                 "ID": 7,
-                "QuestionTypes": {
-                    "VOCRootCause": {
+                "QuestionTypes": [
+                    {
                         "Name": "RootCause",
                         "DisplayName": "Root Cause",
                         "ID": 13,
                         "Settings": {
-                            "QuestionSettings": {"RandomizeAnswer": {"DefaultValue": "False"}},
+                            "QuestionSettings": {
+                                "RandomizeAnswer": {
+                                    "DefaultValue": "False"
+                                }
+                            },
                             "AnswerSettings": {
-                                "ExcludeFromRandomize": {"DefaultValue": "False"},
+                                "ExcludeFromRandomize": {
+                                    "DefaultValue": "False"
+                                },
                                 "ActiveAnswer": null,
-                                "Routing": {"Function": "GetSetRoutePage()"},
+                                "Routing": {
+                                    "Function": "GetSetRoutePage()"
+                                },
                                 "AddPictureOrIcon": null
                             }
                         }
                     }
-                },
+                ],
                 "PageSettings": {
                     "Active": null,
                     "View": null,
@@ -314,12 +409,11 @@ export const config = {
                 "Name": "SystemPage",
                 "DisplayName": "System Page",
                 "ID": 5,
-                "SubPageTypes": [
-                    {
-                        "Name": "InformationPage",
-                        "DisplayName": "Information Page",
-                        "ID": 1
-                    },
+                "SubPageTypes": [{
+                    "Name": "InformationPage",
+                    "DisplayName": "Information Page",
+                    "ID": 1
+                },
                     {
                         "Name": "CompletedPage",
                         "DisplayName": "Completed Page",
@@ -339,13 +433,22 @@ export const config = {
                 "PageSettings": null
             }
         ],
-        "Modes": [
-            {name: "Online"},
-            {name: "Offline"},
-            {name: "SMS"},
-            {name: "FeedbackWidget"}
+        "Modes": [{
+            "name": "Online"
+        },
+            {
+                "name": "Offline"
+            },
+            {
+                "name": "SMS"
+            },
+            {
+                "name": "FeedbackWidget"
+            }
         ],
-        "Scoring": {"IsScoringAvailable": "True"}
+        "Scoring": {
+            "IsScoringAvailable": "True"
+        }
     },
         {
             "DisplayName": "VOC",
@@ -363,12 +466,18 @@ export const config = {
                             "Settings": {
                                 "QuestionSettings": {
                                     "RandomizeAnswers": null,
-                                    "CreateOtherCategory": {"DefaultValue": "False"}
+                                    "CreateOtherCategory": {
+                                        "DefaultValue": "False"
+                                    }
                                 },
                                 "AnswerSettings": {
-                                    "ExcludeFromRandomize": {"DefaultValue": "False"},
+                                    "ExcludeFromRandomize": {
+                                        "DefaultValue": "False"
+                                    },
                                     "ActiveAnswer": null,
-                                    "Routing": {"Function": "GetSetRoutePage()"},
+                                    "Routing": {
+                                        "Function": "GetSetRoutePage()"
+                                    },
                                     "AddPictureOrIcon": null
                                 }
                             }
@@ -380,14 +489,24 @@ export const config = {
                             "Settings": {
                                 "QuestionSettings": {
                                     "RandomizeAnswers": null,
-                                    "CreateOtherCategory": {"DefaultValue": "False"},
-                                    "MinimumAnswerOptionSelection": {"DefaultValue": "2"},
-                                    "MaximumAnswerOptionSelection": {"DefaultValue": "2"}
+                                    "CreateOtherCategory": {
+                                        "DefaultValue": "False"
+                                    },
+                                    "MinimumAnswerOptionSelection": {
+                                        "DefaultValue": "2"
+                                    },
+                                    "MaximumAnswerOptionSelection": {
+                                        "DefaultValue": "2"
+                                    }
                                 },
                                 "AnswerSettings": {
-                                    "ExcludeFromRandomize": {"DefaultValue": "False"},
+                                    "ExcludeFromRandomize": {
+                                        "DefaultValue": "False"
+                                    },
                                     "ActiveAnswer": null,
-                                    "Routing": {"Function": "GetSetRoutePage()"},
+                                    "Routing": {
+                                        "Function": "GetSetRoutePage()"
+                                    },
                                     "AddPictureOrIcon": null
                                 }
                             }
@@ -398,8 +517,12 @@ export const config = {
                             "ID": 3,
                             "Settings": {
                                 "QuestionSettings": {
-                                    "LowestScaleNumber": {"DefaultValue": "0"},
-                                    "HighestScaleNumber": {"DefaultValue": "10"}
+                                    "LowestScaleNumber": {
+                                        "DefaultValue": "0"
+                                    },
+                                    "HighestScaleNumber": {
+                                        "DefaultValue": "10"
+                                    }
                                 }
                             }
                         },
@@ -409,9 +532,15 @@ export const config = {
                             "ID": 4,
                             "Settings": {
                                 "QuestionSettings": {
-                                    "HTMLEditor": {"DefaultValue": "False"},
-                                    "MaximumNumberOfCharacters": {"DefaultValue": "1000"},
-                                    "MinimumNumberOfCharacters": {"DefaultValue": "1"}
+                                    "HTMLEditor": {
+                                        "DefaultValue": "False"
+                                    },
+                                    "MaximumNumberOfCharacters": {
+                                        "DefaultValue": "1000"
+                                    },
+                                    "MinimumNumberOfCharacters": {
+                                        "DefaultValue": "1"
+                                    }
                                 }
                             }
                         },
@@ -421,26 +550,48 @@ export const config = {
                             "ID": 5,
                             "Settings": {
                                 "ModeSettings": {
-                                    "AudioMode": {"DefaultValue": "True"},
-                                    "VideoMode": {"DefaultValue": "True"},
-                                    "PhotoMode": {"DefaultValue": "True"}
+                                    "AudioMode": {
+                                        "DefaultValue": "True"
+                                    },
+                                    "VideoMode": {
+                                        "DefaultValue": "True"
+                                    },
+                                    "PhotoMode": {
+                                        "DefaultValue": "True"
+                                    }
                                 },
                                 "AudioSettings": {
-                                    "RecordComputerMic": {"DefaultValue": "True"},
-                                    "RecordPhoneOrTabletMic": {"DefaultValue": "True"},
-                                    "UploadFile": {"DefaultValue": "True"},
-                                    "MaximumLengthOfAudio": {"DefaultValue": "300"}
+                                    "RecordComputerMic": {
+                                        "DefaultValue": "True"
+                                    },
+                                    "RecordPhoneOrTabletMic": {
+                                        "DefaultValue": "True"
+                                    },
+                                    "UploadFile": {
+                                        "DefaultValue": "True"
+                                    },
+                                    "MaximumLengthOfAudio": {
+                                        "DefaultValue": "300"
+                                    }
                                 },
                                 "VideoSettings": {
                                     "RecordComputerMic": null,
                                     "RecordPhotoOrTabletMic": null,
-                                    "UploadFile": {"DefaultValue": "True"},
+                                    "UploadFile": {
+                                        "DefaultValue": "True"
+                                    },
                                     "MaximumLengthOfAudio": null
                                 },
                                 "PhotoSettings": {
-                                    "CameraWebcam": {"DefaultValue": "True"},
-                                    "CameraPhoneOrTablet": {"DefaultValue": "True"},
-                                    "UploadFile": {"DefaultValue": "True"}
+                                    "CameraWebcam": {
+                                        "DefaultValue": "True"
+                                    },
+                                    "CameraPhoneOrTablet": {
+                                        "DefaultValue": "True"
+                                    },
+                                    "UploadFile": {
+                                        "DefaultValue": "True"
+                                    }
                                 }
                             }
                         }
@@ -473,12 +624,24 @@ export const config = {
                             "ID": 6,
                             "Settings": {
                                 "ColumnSettings": {
-                                    "ExcludeFromRandomize": {"DefaultValue": "False"},
-                                    "ActiveAnswer": {"DefaultValue": "True"},
-                                    "Routing": {"DefaultValue": "GetSetRoutePage()"},
-                                    "AddPictureOrIcon": {"DefaultValue": "True"}
+                                    "ExcludeFromRandomize": {
+                                        "DefaultValue": "False"
+                                    },
+                                    "ActiveAnswer": {
+                                        "DefaultValue": "True"
+                                    },
+                                    "Routing": {
+                                        "DefaultValue": "GetSetRoutePage()"
+                                    },
+                                    "AddPictureOrIcon": {
+                                        "DefaultValue": "True"
+                                    }
                                 },
-                                "RowSettings": {"NAOption": {"DefaultValue": "False"}}
+                                "RowSettings": {
+                                    "NAOption": {
+                                        "DefaultValue": "False"
+                                    }
+                                }
                             }
                         },
                         "MatrixQuestionMultiResponse": {
@@ -487,13 +650,23 @@ export const config = {
                             "ID": 7,
                             "Settings": {
                                 "ColumnSettings": {
-                                    "ActiveAnswer": {"DefaultValue": "True"},
-                                    "AddPictureOrIcon": {"DefaultValue": "True"},
-                                    "ExcludeFromRandomize": {"DefaultValue": "False"},
-                                    "Routing": {"DefaultValue": "GetSetRoutePage()"}
+                                    "ActiveAnswer": {
+                                        "DefaultValue": "True"
+                                    },
+                                    "AddPictureOrIcon": {
+                                        "DefaultValue": "True"
+                                    },
+                                    "ExcludeFromRandomize": {
+                                        "DefaultValue": "False"
+                                    },
+                                    "Routing": {
+                                        "DefaultValue": "GetSetRoutePage()"
+                                    }
                                 },
                                 "RowSettings": {
-                                    "NAOption": {"DefaultValue": "False"},
+                                    "NAOption": {
+                                        "DefaultValue": "False"
+                                    },
                                     "MinimumOptionAnswerSelection": null,
                                     "MaximumOptionAnswerSelection": null
                                 }
@@ -505,14 +678,20 @@ export const config = {
                             "ID": 8,
                             "Settings": {
                                 "RowSettings": {
-                                    "LowestScaleNumber": {"DefaultValue": "0"},
-                                    "HighestScaleNumber": {"DefaultValue": "10"}
+                                    "LowestScaleNumber": {
+                                        "DefaultValue": "0"
+                                    },
+                                    "HighestScaleNumber": {
+                                        "DefaultValue": "10"
+                                    }
                                 }
                             }
                         }
                     },
                     "PageSettings": {
-                        "Active": {"Defaultvalue": "False"},
+                        "Active": {
+                            "Defaultvalue": "False"
+                        },
                         "View": null,
                         "ShowProgressBar": null,
                         "AutoProceed": null,
@@ -575,8 +754,12 @@ export const config = {
                             "ID": 11,
                             "Settings": {
                                 "QuestionSettings": {
-                                    "CategoryColor": {"DefaultValue": "True"},
-                                    "KPIType": {"DefaultValue": "NPS"}
+                                    "CategoryColor": {
+                                        "DefaultValue": "True"
+                                    },
+                                    "KPIType": {
+                                        "DefaultValue": "NPS"
+                                    }
                                 }
                             }
                         },
@@ -586,8 +769,12 @@ export const config = {
                             "ID": 12,
                             "Settings": {
                                 "QuestionSettings": {
-                                    "CategoryColor": {"DefaultValue": "True"},
-                                    "KPIType": {"DefaultValue": "NPS"}
+                                    "CategoryColor": {
+                                        "DefaultValue": "True"
+                                    },
+                                    "KPIType": {
+                                        "DefaultValue": "NPS"
+                                    }
                                 }
                             }
                         },
@@ -597,8 +784,12 @@ export const config = {
                             "ID": 13,
                             "Settings": {
                                 "QuestionSettings": {
-                                    "CategoryColor": {"DefaultValue": "True"},
-                                    "KPIType": {"DefaultValue": "NPS"}
+                                    "CategoryColor": {
+                                        "DefaultValue": "True"
+                                    },
+                                    "KPIType": {
+                                        "DefaultValue": "NPS"
+                                    }
                                 }
                             }
                         }
@@ -629,11 +820,19 @@ export const config = {
                             "DisplayName": "Root Cause",
                             "ID": 13,
                             "Settings": {
-                                "QuestionSettings": {"RandomizeAnswer": {"DefaultValue": "False"}},
+                                "QuestionSettings": {
+                                    "RandomizeAnswer": {
+                                        "DefaultValue": "False"
+                                    }
+                                },
                                 "AnswerSettings": {
-                                    "ExcludeFromRandomize": {"DefaultValue": "False"},
+                                    "ExcludeFromRandomize": {
+                                        "DefaultValue": "False"
+                                    },
                                     "ActiveAnswer": null,
-                                    "Routing": {"Function": "GetSetRoutePage()"},
+                                    "Routing": {
+                                        "Function": "GetSetRoutePage()"
+                                    },
                                     "AddPictureOrIcon": null
                                 }
                             }
@@ -684,10 +883,15 @@ export const config = {
                     "PageSettings": null
                 }
             },
-            "Modes": [
-                {name: "Online"},
-                {name: "Offline"},
-                {name: "SMS"},
+            "Modes": [{
+                "name": "Online"
+            },
+                {
+                    "name": "Offline"
+                },
+                {
+                    "name": "SMS"
+                }
             ]
         }
     ]

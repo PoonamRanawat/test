@@ -19,41 +19,31 @@
                                        [(ngModel)]="model.pageName" #pageName="ngModel" required>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" *ngIf="pageTypes?.length > 0">
                             <label class="col-md-4 control-label">Page type</label>
                             <div class="col-md-7">
-                                <select class="bs-select form-control" name="pageType" [(ngModel)]="model.pageType"
-                                        data-style="btn-primary">
-                                    <option value="1">Single Question page</option>
-                                    <option value="2">Matrix Question</option>
-                                    <option value="3">Input form</option>
-                                    <option value="4">Summary</option>
-                                    <option value="5">System page</option>
-                                    <option value="6">VOC-KPI</option>
-                                    <option>VOC-Root cause</option>
+                                <select class="bs-select form-control" name="pageType"
+                                        data-style="btn-primary" (change)="getDependentQuestionType($event.target.value)" >
+                                    <option></option>
+                                    <option *ngFor="let type of pageTypes" [value]="type['ID']">{{type['DisplayName']}}</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" *ngIf="questionType?.length > 0">
                             <label class="col-md-4 control-label">Question type</label>
                             <div class="col-md-7">
                                 <select class="bs-select form-control" name="questionType"
-                                        [(ngModel)]="model.questionType" data-style="btn-primary">
-                                    <option>Question 1</option>
-                                    <option>Question 2</option>
-                                    <option>Question 3</option>
+                                         data-style="btn-primary">
+                                    <option *ngFor="let type of questionType" [value]="type['ID']">{{type['DisplayName']}} </option>
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" *ngIf="subPageType?.length > 0">
                             <label class="col-md-4 control-label">Sub page type</label>
                             <div class="col-md-7">
                                 <select class="bs-select form-control" name="subPageType"
-                                        [(ngModel)]="model.subPageType" data-style="btn-primary">
-                                    <option>Information page</option>
-                                    <option disabled>Completed page</option>
-                                    <option disabled>Time elapsed page</option>
-                                    <option>Grouping page</option>
+                                         data-style="btn-primary">
+                                    <option *ngFor="let type of subPageType" [value]="type['ID']">{{type['DisplayName']}}</option>
                                 </select>
                             </div>
                         </div>

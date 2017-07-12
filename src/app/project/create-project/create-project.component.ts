@@ -40,7 +40,7 @@ export class CreateProjectComponent implements OnInit {
      *
      * @param value
      */
-    getDependentFields(value): void {
+    getDependentFields(value: number): void {
         const valueIndex = _.findIndex(this.types, (o) => {
             return o['ID'] == value;
         });
