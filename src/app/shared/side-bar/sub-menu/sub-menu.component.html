@@ -1,10 +1,11 @@
-<li class="nav-item" *ngFor="let menu of subMenu ">
+<li class="nav-item nested-nav-item {{menu.Children != null && openChildItems[i] ? 'open': ''}}"
+    *ngFor="let menu of subMenu; let i = index;">
     <a [routerLink]="menu.Route ? menu.Route : null" class="nav-link nav-toggle">
         <i *ngIf="menu.IconClass != null" class="{{ menu.IconClass }}"></i>
         <img *ngIf="menu.IconSource != null" alt="" src="{{menu.IconSource}}">
         <span class="title">{{menu.Name}}</span>
-        <span *ngIf="menu.Children != null && menu.Children.length > 0" class="arrow"></span>
     </a>
+    <span *ngIf="menu.Children != null && menu.Children.length > 0" class="arrow" (click)="openChildItems[i]=!openChildItems[i];"></span>
     <ul class="sub-menu"
         *ngIf="menu.Children != null && menu.Children.length > 0"
         [cfm-sub-menu]="menu.Children">

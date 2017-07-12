@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {ProjectComponent} from './project.component';
-import {CreateProjectComponent} from './create-project/create-project.component';
+import {ProjectFormComponent} from './project-form/project-form.component';
 import {ProjectRoutingModule} from './project-routing.module';
 import {AccordionModule, ModalModule, TabsModule} from 'ngx-bootstrap';
 import {JWBootstrapSwitchModule} from 'jw-bootstrap-switch-ng2';
@@ -28,7 +28,7 @@ import {
     ],
     declarations: [
         ProjectComponent,
-        CreateProjectComponent,
+        ProjectFormComponent,
         DeleteProjectComponent,
         QuestionnaireTabComponent,
         AddPageComponent,

@@ -34,7 +34,8 @@
                                 <label for="name">Name</label>
                             </div>
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <textarea [ngClass]="description.value ? 'form-control edited': 'form-control'" rows="2" id="description"
+                                <textarea [ngClass]="description.value ? 'form-control edited': 'form-control'" rows="2"
+                                          id="description"
                                           ngModel name="description" #description="ngModel">
                                 </textarea>
                                 <label for="description">Description</label>
@@ -42,27 +43,29 @@
                             <div class="form-group form-md-line-input form-md-floating-label">
                                 <select class="form-control edited" id="projectType" ngModel name="projectType"
                                         required (change)="getDependentFields($event.target.value)">
-                                    <option *ngFor="let type of types" [value]="type['ID']">{{type['DisplayName']}}</option>
+                                    <option *ngFor="let type of types" [value]="type['ID']">{{type['DisplayName']}}
+                                    </option>
                                 </select>
                                 <label for="projectType">Type</label>
                             </div>
-                            <!--<div class="mt-checkbox-inline">-->
-                                <!--<label class="mt-checkbox" *ngFor="let mode of modes; let i=index">-->
-                                    <!--<input type="checkbox"-->
-                                           <!--id="{{'mode'+i}}"-->
-                                           <!--name="mode"-->
-                                           <!--value="{{mode['name']}}"-->
-                                           <!--required="{{mode}}"-->
-                                           <!--ngModel-->
-                                    <!--&gt;{{mode['name']}}-->
-                                    <!--<span></span>-->
-                                <!--</label>-->
-                            <!--</div>-->
+                            <div class="form-group" *ngIf="modes.length > 0">
+                                <label>Modes</label>
+                                <div class="mt-checkbox-inline">
+                                    <label class="mt-checkbox" *ngFor="let mode of modes;">
+                                        <input type="checkbox"
+                                               name="mode[]"
+                                               value="{{mode['name']}}"
+                                               ngModel
+                                               required
+                                        >{{mode['name']}}
+                                    </label>
+                                </div>
+                            </div>
                             <div class="form-group" *ngIf="scoreSettingAvailable">
                                 <label class=""><strong>Score Setting</strong> </label>
                                 <div class="pull-right">
                                     <bSwitch
-                                        [switch-base-class]="'bootstrap-switch'" ngModel name="score">
+                                            [switch-base-class]="'bootstrap-switch'" ngModel name="score">
                                     </bSwitch>
                                 </div>
                                 <div class="clearfix"></div>
@@ -78,7 +81,7 @@
         <div class="col-sm-6">
             <div class="round-button  center-block has-success">
                 <div class="round-button-circle"><a [routerLink]="['/project']" class="round-button"><i
-                    class="fa fa-plus" aria-hidden="true"></i></a></div>
+                        class="fa fa-plus" aria-hidden="true"></i></a></div>
                 <span class="help-block" style="margin:10px 0;"><b>Add new widget</b></span>
             </div>
         </div>
