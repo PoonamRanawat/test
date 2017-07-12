@@ -7,11 +7,16 @@ import {Component, OnInit} from '@angular/core';
 })
 export class PageListSliderComponent implements OnInit {
     sideBarCollapse = false;
+
     constructor() {
     }
 
     ngOnInit() {
     }
+
+    /**
+     *  Toggles side bar
+     */
     toggleSideBar() {
         this.sideBarCollapse = !this.sideBarCollapse;
     }
