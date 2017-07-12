@@ -5,7 +5,8 @@
         <img *ngIf="menu.IconSource != null" alt="" src="{{menu.IconSource}}">
         <span class="title">{{menu.Name}}</span>
     </a>
-    <span *ngIf="menu.Children != null && menu.Children.length > 0" class="arrow" (click)="openChildItems[i]=!openChildItems[i];"></span>
+    <span *ngIf="menu.Children != null && menu.Children.length > 0" class="arrow"
+          (click)="openChildItems[i]=!openChildItems[i];"></span>
     <ul class="sub-menu"
         *ngIf="menu.Children != null && menu.Children.length > 0"
         [cfm-sub-menu]="menu.Children">

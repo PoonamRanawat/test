@@ -1,5 +1,6 @@
 //@todo: This file is having hardcoded values, replace it later when we have API in place.
 import {Injectable} from '@angular/core';
+import * as _ from 'lodash';
 
 @Injectable()
 export class ProjectService {
@@ -51,6 +52,10 @@ export class ProjectService {
      * @returns {any}
      */
     getProject(id: number) {
-        return this.projects[id];
+        const projectIndex = _.findIndex(this.projects, (o) => {
+            return o['ID'] == id;
+        });
+
+        return this.projects[projectIndex];
     }
 }

@@ -33,10 +33,10 @@ export class ProjectFormComponent implements OnInit {
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
             this.projectId = +params['id'];
-
+            console.log(this.projectService.getProject(this.projectId));
         });
         this.types = this.configService.getConfigProperty()['QuestionnaireTypes'];
-        console.log(this.projectService.getProject(this.projectId));
+
 
     }
 

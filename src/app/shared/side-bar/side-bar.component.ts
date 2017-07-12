@@ -18,4 +18,8 @@ export class SideBarComponent implements OnInit {
         this.menuItems = this.menuService.getMenuConfig('left');
         this.sidebarToggleFlag = this.menuService.getToggleClass();
     }
+
+    toggleItems(i){
+        this.opened[i] = !this.opened[i];
+    }
 }
