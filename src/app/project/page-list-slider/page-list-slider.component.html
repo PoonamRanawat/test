@@ -1,5 +1,4 @@
 <div id="questionnaire-wrapper " class="row">
-    <!-- Sidebar -->
     <div class="col-sm-3">
         <div id="sidebar-wrapper" *ngIf="!sideBarCollapse">
             <div class="add-new-page">
@@ -10,7 +9,7 @@
                                 Add New Page</a>
                         </div>
                         <div class="tools">
-                            <a href="javascript:;" (click)="togglePageList()"
+                            <a (click)="togglePageList()"
                                [ngClass]="pageListCollapse ? 'expand': 'collapse'"> </a>
                         </div>
                     </div>
@@ -28,7 +27,7 @@
                             <i class="fa fa-folder-open-o"></i>Grouping
                         </div>
                         <div class="tools">
-                            <a href="javascript:;" (click)="toggleGroupList()"
+                            <a (click)="toggleGroupList()"
                                [ngClass]="groupListCollapse ? 'expand': 'collapse'"> </a>
 
                         </div>
@@ -39,9 +38,7 @@
                 </div>
             </div>
         </div>
-        <!-- /#sidebar-wrapper -->
     </div>
-    <!-- questionnaire-content Content -->
     <div class="col-sm-9">
         <div class="row">
             <div class="col-sm-9">
@@ -49,7 +46,8 @@
                     <div class="collapse-arrow">
                         <a class="btn btn-default" id="menu-toggle" (click)="toggleSideBar()"><i
                                 [ngClass]="sideBarCollapse ? 'fa fa-chevron-circle-right': 'fa fa-chevron-circle-left'"
-                                aria-hidden="true"></i></a>
+                                aria-hidden="true"></i>
+                        </a>
                     </div>
                     <div class="container-fluid">
                         <div class="topPane">

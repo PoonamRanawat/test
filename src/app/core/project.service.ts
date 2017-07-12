@@ -52,7 +52,7 @@ export class ProjectService {
      */
     getProject(projectId: number) {
         const projectIndex = _.findIndex(this.projects, (o) => {
-            return o['id'] == projectId;
+            return o['id'] === projectId;
         });
 
         return this.projects[projectIndex];

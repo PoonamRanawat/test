@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {ProjectSettings} from '../projectSettings';
 import {ConfigService} from '../../core/config.service';
@@ -13,7 +13,7 @@ import {ActivatedRoute} from '@angular/router';
     providers: [ProjectSettings]
 })
 
-export class ProjectFormComponent implements OnInit {
+export class ProjectFormComponent implements OnInit, OnDestroy {
     name: string;
     description: string;
     projectSettings: ProjectSettings;

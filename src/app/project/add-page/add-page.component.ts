@@ -13,11 +13,11 @@ import * as _ from 'lodash';
 })
 export class AddPageComponent implements OnInit {
     modeType: number;
-    private pageTypes = [];
     projectId: number;
+    model: AddPage = new AddPage();
+    private pageTypes = [];
     private questionType = [];
     private subPageType = [];
-    model: AddPage = new AddPage();
     @ViewChild('addPageForm') form: any;
     @ViewChild('addPageModal') public modal: ModalDirective;
 
@@ -28,7 +28,7 @@ export class AddPageComponent implements OnInit {
 
     ngOnInit() {
         this.route.params.subscribe((params: any) => {
-            this.projectId = parseInt(params['id']);
+            this.projectId = +params['id'];
         });
         this.modeType = this.projectService.getProject(this.projectId)['type'];
         this.pageTypes = this.configService.getConfigPropertyByModeId(this.modeType)['PageTypes'];
