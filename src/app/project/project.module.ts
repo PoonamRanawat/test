@@ -8,8 +8,17 @@ import {SharedModule} from '../shared/shared.module';
 import {DeleteProjectComponent} from './delete-project/delete-project.component';
 import {QuestionnaireTabComponent} from './questionnaire-tab/questionnaire-tab.component';
 import {AddPageComponent} from './add-page/add-page.component';
-import { PageListSliderComponent } from './page-list-slider/page-list-slider.component';
-import { PageThumbnailComponent } from './page-thumbnail/page-thumbnail.component';
+import { PageListSliderComponent } from './questionnaire-tab/questionnaire/page-list-slider/page-list-slider.component';
+import { PageThumbnailComponent } from './questionnaire-tab/questionnaire/page-list-slider/page-list/page-thumbnail/page-thumbnail.component';
+import { QuestionnaireComponent } from './questionnaire-tab/questionnaire/questionnaire.component';
+import { PageListComponent } from './questionnaire-tab/questionnaire/page-list-slider/page-list/page-list.component';
+import { GroupTreeComponent } from './questionnaire-tab/questionnaire/page-list-slider/group-tree/group-tree.component';
+import { QuestionnaireTopMenuComponent } from './questionnaire-tab/questionnaire/questionnaire-top-menu/questionnaire-top-menu.component';
+import { SettingsSliderComponent } from './questionnaire-tab/questionnaire/settings-slider/settings-slider.component';
+import { PageSettingsComponent } from './questionnaire-tab/questionnaire/settings-slider/page-settings/page-settings.component';
+import { QuestionSettingsComponent } from './questionnaire-tab/questionnaire/settings-slider/question-settings/question-settings.component';
+import { AnswerSettingsComponent } from './questionnaire-tab/questionnaire/settings-slider/answer-settings/answer-settings.component';
+import { QuestionnaireMainComponent } from './questionnaire-tab/questionnaire/questionnaire-main/questionnaire-main.component';
 
 @NgModule({
     imports: [
@@ -27,7 +36,16 @@ import { PageThumbnailComponent } from './page-thumbnail/page-thumbnail.componen
         QuestionnaireTabComponent,
         AddPageComponent,
         PageListSliderComponent,
-        PageThumbnailComponent
+        PageThumbnailComponent,
+        QuestionnaireComponent,
+        PageListComponent,
+        GroupTreeComponent,
+        QuestionnaireTopMenuComponent,
+        SettingsSliderComponent,
+        PageSettingsComponent,
+        QuestionSettingsComponent,
+        AnswerSettingsComponent,
+        QuestionnaireMainComponent
     ]
 })
 export class ProjectModule {
