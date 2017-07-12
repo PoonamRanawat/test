@@ -163,6 +163,7 @@
 
     border-left: 1px solid grey;
     background: #fff;
+    border-right: 1px solid grey;
 
 }
 
@@ -206,9 +207,27 @@
 .middle-content {
     border: 1px solid #dedede;
     height: 100vh;
+    position: relative;
 }
 
 .mobile-preview {
+
+}
+.outer-container
+{
+    height:100vh;
+    overflow-x: auto;
+}
+.page-sidebar-menu.page-sidebar-menu-closed>li:hover
+{
+    box-shadow: none;
+}
+.page-sidebar .page-sidebar-menu .sub-menu, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu
+{
+    list-style: none;
+    display: none;
+    padding: 0;
+    margin: -1px 0;
 }
 
 .page-setting {
@@ -376,4 +395,20 @@ ul.nav-tabs > li.nav-item > a:hover {
 
 .nested-nav-item .arrow.open:before {
     content: "\F107";
+}
+
+/*css for rightslider button*/
+.btn:not(.md-skip):not(.bs-select-all):not(.bs-deselect-all) {
+    font-size: 19px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 12px 1px 12px;
 }
