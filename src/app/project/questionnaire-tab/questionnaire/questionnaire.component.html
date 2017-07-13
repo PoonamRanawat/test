@@ -1,28 +1,31 @@
 <div id="questionnaire-wrapper " class="wrapper">
-    <cfm-page-list-slider></cfm-page-list-slider>
+    <cfm-page-list-slider [@slideInOut]="leftMenuState"></cfm-page-list-slider>
     <div class="main">
         <div class="col1">
             <div class="collapse-arrow">
-                <a class="btn btn-default" id="menu-toggle" (click)="toggleSideBar()"><i
-                    [ngClass]="sideBarCollapse ? 'fa fa-chevron-circle-right': 'fa fa-chevron-circle-left'"
-                    aria-hidden="true"></i></a>
+                <a class="btn btn-default" (click)="toggleLeftMenu()">
+                    <i
+                        [ngClass]="sideBarCollapse ? 'fa fa-chevron-circle-right': 'fa fa-chevron-circle-left'"
+                        aria-hidden="true"></i></a>
             </div>
-                <div id="questionnaire-content">
+            <div id="questionnaire-content">
 
-                    <div class="container-fluid">
-                        <cfm-questionnaire-top-menu></cfm-questionnaire-top-menu>
-                        <div class="middle-content">
+                <div class="container-fluid">
+                    <cfm-questionnaire-top-menu></cfm-questionnaire-top-menu>
+                    <div class="middle-content">
                         <cfm-questionnaire-main></cfm-questionnaire-main>
-                        </div>
-                        <div class="footer-view-icons"></div>
                     </div>
+                    <div class="footer-view-icons"></div>
                 </div>
+            </div>
             <div class="collapse-arrow-right">
-                <a class="btn btn-default slidebtn" id="menu-toggle"><i aria-hidden="true" class="fa fa-chevron-circle-right" ng-reflect-ng-class="fa fa-chevron-circle-left"></i></a>
+                <a class="btn btn-default slidebtn" (click)="toggleRightMenu()">
+                    <i aria-hidden="true" class="fa fa-chevron-circle-right"></i>
+                </a>
             </div>
         </div>
     </div>
-    <div class="col3">
+    <div class="col3" [@slideInOut]="rightMenuState">
         <cfm-settings-slider></cfm-settings-slider>
         <div class="col-sm-12">
             <div class="mobile-preview pull-right">

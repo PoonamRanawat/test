@@ -156,7 +156,7 @@
 
 #sidebar-wrapper {
     padding: 10px 0;
-    height:auto;
+    height: auto;
 }
 
 #questionnaire-content {
@@ -212,34 +212,35 @@
 .mobile-preview {
 
 }
-.wrapper
-{
+
+.wrapper {
     display: flex;
     flex-direction: row;
     height: calc(100vh - 90px);
     overflow: auto;
 }
-.main
-{
+
+.main {
     display: flex;
     flex-grow: 1;
 }
-.col1
-{
+
+.col1 {
     flex-grow: 1;
     margin: 0px 25px 0px 25px;
     position: relative;
 }
-.col2
-{
+
+.col2 {
     width: 300px;
     order: -1;
 }
-.col3
-{
+
+.col3 {
     width: 300px;
 }
-@media(max-width: 640px) {
+
+@media (max-width: 640px) {
     main {
         flex-direction: column;
     }
@@ -250,12 +251,11 @@
     }
 }
 
-.page-sidebar-menu.page-sidebar-menu-closed>li:hover
-{
+.page-sidebar-menu.page-sidebar-menu-closed > li:hover {
     box-shadow: none;
 }
-.page-sidebar .page-sidebar-menu .sub-menu, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu
-{
+
+.page-sidebar .page-sidebar-menu .sub-menu, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu {
     list-style: none;
     display: none;
     padding: 0;
@@ -444,33 +444,34 @@ ul.nav-tabs > li.nav-item > a:hover {
     user-select: none;
     padding: 12px 1px 12px;
 }
-.portlet box blue
-{
-    position: relative;
-}
-.collapse-arrow-right
-{
+
+/*.portlet box blue {*/
+    /*position: relative;*/
+/*}*/
+
+.collapse-arrow-right {
     position: absolute;
     top: 12em;
     right: -18px;
 }
+
 /*css for delete popup*/
-.content-wrapper .modal-header
-{
-    padding:5px;
+.content-wrapper .modal-header {
+    padding: 5px;
 }
-.delete-msg
-{
-    margin: 0px 0px 10px 0px;
-    padding: 0px 0px 0px 28px;
+
+.delete-msg {
+    margin: 0 0 10px 0;
+    padding: 0 0 0 28px;
     font-weight: bold;
 }
-.delete-msg span
-{
-    padding: 0px 0px 0px 5.5em;
+
+.delete-msg span {
+    padding: 0 0 0 5.5em;
 }
+
 .modal .modal-header .close {
-    margin: 5px 5px 0px 0px !important;
+    margin: 5px 5px 0 0 !important;
 }
 
 
