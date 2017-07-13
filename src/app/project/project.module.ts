@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {ProjectComponent} from './project.component';
 import {ProjectFormComponent} from './project-form/project-form.component';
 import {ProjectRoutingModule} from './project-routing.module';
-import {AccordionModule, ModalModule, TabsModule} from 'ngx-bootstrap';
+import {AccordionModule, ModalModule, TabsModule, TooltipModule} from 'ngx-bootstrap';
 import {JWBootstrapSwitchModule} from 'jw-bootstrap-switch-ng2';
 import {SharedModule} from '../shared/shared.module';
 import {DeleteProjectComponent} from './delete-project/delete-project.component';
@@ -19,6 +19,7 @@ import { PageSettingsComponent } from './questionnaire-tab/questionnaire/setting
 import { QuestionSettingsComponent } from './questionnaire-tab/questionnaire/settings-slider/question-settings/question-settings.component';
 import { AnswerSettingsComponent } from './questionnaire-tab/questionnaire/settings-slider/answer-settings/answer-settings.component';
 import { QuestionnaireMainComponent } from './questionnaire-tab/questionnaire/questionnaire-main/questionnaire-main.component';
+import { DeletePageComponent } from './questionnaire-tab/questionnaire/page-list-slider/page-list/page-thumbnail/delete-page/delete-page.component';
 
 @NgModule({
     imports: [
@@ -27,7 +28,8 @@ import { QuestionnaireMainComponent } from './questionnaire-tab/questionnaire/qu
         AccordionModule,
         JWBootstrapSwitchModule,
         ModalModule,
-        TabsModule.forRoot()
+        TabsModule.forRoot(),
+        TooltipModule.forRoot()
     ],
     declarations: [
         ProjectComponent,
@@ -45,7 +47,8 @@ import { QuestionnaireMainComponent } from './questionnaire-tab/questionnaire/qu
         PageSettingsComponent,
         QuestionSettingsComponent,
         AnswerSettingsComponent,
-        QuestionnaireMainComponent
+        QuestionnaireMainComponent,
+        DeletePageComponent
     ]
 })
 export class ProjectModule {

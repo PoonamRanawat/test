@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'cfm-page-thumbnail',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class PageThumbnailComponent implements OnInit {
+
+    @Input() pageId: number;
+    @Input() pageName: string;
 
   constructor() { }
 
