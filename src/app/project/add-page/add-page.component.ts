@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router'
 import {ModalDirective} from 'ngx-bootstrap/modal';
 import {AddPage} from './add-page';
@@ -53,7 +54,7 @@ export class AddPageComponent implements OnInit {
      *
      * @param addPageForm
      */
-    addPage(form) {
+    addPage(form: NgForm): void {
         if (!form.valid) {
             return;
         }

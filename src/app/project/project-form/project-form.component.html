@@ -18,15 +18,15 @@
                     </div>
                 </div>
                 <div class="portlet-body form">
-                    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                    <form (ngSubmit)="onSubmit(generalForm)" #generalForm="ngForm" novalidate>
                         <div class="form-body">
-                            <div class="form-group form-md-line-input form-md-floating-label">
+                            <div class="form-group form-md-line-input form-md-floating-label" >
                                 <input type="text" [ngClass]="name.value ? 'form-control edited': 'form-control'"
                                        id="name" ngModel name="name"
                                        required
                                        #name="ngModel">
                                 <div *ngIf="name.errors && (name.dirty || name.touched)"
-                                     class="alert alert-danger">
+                                     class="text-danger">
                                     <div [hidden]="!name.errors.required">
                                         Name is required
                                     </div>
@@ -48,16 +48,17 @@
                                 </select>
                                 <label for="projectType">Type</label>
                             </div>
-                            <div class="form-group" *ngIf="modes.length > 0">
+                            <div class="form-group" *ngIf="modes.length > 0" >
                                 <label>Modes</label>
                                 <div class="mt-checkbox-inline">
-                                    <label class="mt-checkbox" *ngFor="let mode of modes;">
+                                    <label class="mt-checkbox" *ngFor="let mode of modes; let i = index">
                                         <input type="checkbox"
-                                               name="mode[]"
+                                               name="mode"
+                                               [checked] = "mode['name'] == 'Online'"
                                                value="{{mode['name']}}"
-                                               ngModel
-                                               required
+                                               required (change)="selectModeCheckbox($event.target.value)"
                                         >{{mode['name']}}
+                                        <span></span>
                                     </label>
                                 </div>
                             </div>
@@ -72,7 +73,7 @@
                             </div>
                         </div>
                         <div class="form-actions right1">
-                            <button type="submit" class="btn blue pull-right" [disabled]="!f.valid">Create</button>
+                            <button type="submit" class="btn blue pull-right" [disabled]="!generalForm.valid">Create</button>
                         </div>
                     </form>
                 </div>

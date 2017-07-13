@@ -11,7 +11,7 @@
                 <form class="form-horizontal" (ngSubmit)="addPage(addPageForm)" #addPageForm="ngForm" novalidate>
                     <div class="form-body">
                         <div class="form-group" [ngClass]="{ 'has-error': addPageForm.submitted && !pageName.valid }">
-                            <label for="pageName" class="col-md-4 control-label">Page Name</label>
+                            <label for="pageName" class="col-md-4 control-label">Page Name<span class="text-danger"> *</span></label>
                             <div class="col-md-7">
                                 <input type="text" name="pagename" id="pageName" class="form-control"
                                        [(ngModel)]="model.pageName" #pageName="ngModel" required>
@@ -23,13 +23,12 @@
                         </div>
                         <div class="form-group" *ngIf="pageTypes?.length > 0"
                              [ngClass]="{ 'has-error': addPageForm.submitted && !pageType.valid }">
-                            <label class="col-md-4 control-label">Page type</label>
+                            <label class="col-md-4 control-label">Page type<span class="text-danger"> *</span></label>
                             <div class="col-md-7">
                                 <select class="bs-select form-control" name="pageType"
                                         data-style="btn-primary"
                                         (change)="getDependentQuestionType($event.target.value)"
                                         [(ngModel)]="model.pageType" #pageType="ngModel" required>
-                                    <option value="0">--Select Page--</option>
                                     <option *ngFor="let type of pageTypes" [value]="type['ID']">
                                         {{type['DisplayName']}}
                                     </option>
@@ -42,7 +41,7 @@
                         </div>
                         <div class="form-group" *ngIf="questionType?.length > 0"
                              [ngClass]="{ 'has-error': addPageForm.submitted && !question.valid }">
-                            <label class="col-md-4 control-label">Question type</label>
+                            <label class="col-md-4 control-label">Question type<span class="text-danger"> *</span></label>
                             <div class="col-md-7">
                                 <select class="bs-select form-control" name="question"
                                         data-style="btn-primary" [(ngModel)]="model.question" #question="ngModel"
@@ -59,7 +58,7 @@
                         </div>
                         <div class="form-group" *ngIf="subPageType?.length > 0"
                              [ngClass]="{ 'has-error': addPageForm.submitted && !subPage.valid }">
-                            <label class="col-md-4 control-label">Sub page type</label>
+                            <label class="col-md-4 control-label">Sub page type<span class="text-danger"> *</span></label>
                             <div class="col-md-7">
                                 <select class="bs-select form-control" name="subPage"
                                         data-style="btn-primary" [(ngModel)]="model.subPage" #subPage="ngModel">
@@ -81,7 +80,6 @@
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>

@@ -52,7 +52,6 @@ export class AppComponent implements OnInit {
             position: 1,
             Name: 'English',
             Exec: (selected: Menu) => {
-                alert('English');
             },
             Children: null,
             IconClass: null,
@@ -64,7 +63,6 @@ export class AppComponent implements OnInit {
             position: 1,
             Name: 'French',
             Exec: (selected: Menu) => {
-                alert('French');
             },
             Children: null,
             IconClass: null,
@@ -76,7 +74,6 @@ export class AppComponent implements OnInit {
             position: 1,
             Name: 'German',
             Exec: (selected: Menu) => {
-                alert('German');
             },
             Children: null,
             IconClass: null,
@@ -88,7 +85,6 @@ export class AppComponent implements OnInit {
             position: 1,
             Name: 'Russian',
             Exec: (selected: Menu) => {
-                alert('Russian');
             },
             Children: null,
             IconClass: null,
@@ -99,29 +95,24 @@ export class AppComponent implements OnInit {
 
         this.menuService.add('alerts', {
             position: 1, Name: 'Alert 1', Exec: (selected: Menu) => {
-                alert('Russian');
             }, Children: null, IconClass: null, IconSource: null, showInMenu: true, Route: ''
         });
         this.menuService.add('alerts', {
             position: 1, Name: 'Alert 2', Exec: (selected: Menu) => {
-                alert('Russian');
             }, Children: null, IconClass: null, IconSource: null, showInMenu: true, Route: ''
         });
         this.menuService.add('alerts', {
             position: 1, Name: 'Alert 3', Exec: (selected: Menu) => {
-                alert('Russian');
             }, Children: null, IconClass: null, IconSource: null, showInMenu: true, Route: ''
         });
         this.menuService.add('alerts', {
             position: 1, Name: 'Alert 4', Exec: (selected: Menu) => {
-                alert('asd');
             }, Children: null, IconClass: null, IconSource: null, showInMenu: true, Route: ''
         });
 
         //Sidebar menu
         this.menuService.add('left', {
             position: 1, Name: 'Home', Exec: (selected: Menu) => {
-                alert('Russian');
             }, Children: null, IconClass: 'icon-home', IconSource: null, showInMenu: true, Route: '/'
         });
 
@@ -140,12 +131,10 @@ export class AppComponent implements OnInit {
 
         this.menuService.add('quick', {
             position: 1, Name: 'Quick Menu 1', Exec: (selected: Menu) => {
-                alert('Quick Menu 1');
             }, Children: null, IconClass: 'icon-magnifier', IconSource: null, showInMenu: true, Route: '/dashboard'
         });
         this.menuService.add('quick', {
             position: 1, Name: 'Quick Menu 2', Exec: (selected: Menu) => {
-                alert('Quick Menu 2');
             }, Children: null, IconClass: 'icon-magnifier', IconSource: null, showInMenu: true, Route: '/dashboard'
         });
 

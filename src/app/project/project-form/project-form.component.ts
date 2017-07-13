@@ -21,6 +21,7 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
     private sub: any;
     private types = [];
     private modes = [];
+    private modeData = ['Online'];
     private scoreSettingAvailable: boolean;
 
     constructor(ps: ProjectSettings,
@@ -33,7 +34,7 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
             this.projectId = +params['id'];
-            console.log(this.projectService.getProject(this.projectId));
+            // console.log(this.projectService.getProject(this.projectId));
         });
         this.types = this.configService.getConfigProperty()['QuestionnaireTypes'];
 
@@ -51,11 +52,6 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
      */
     onSubmit(form: NgForm): void {
         console.log(form.value);
-        //this.projectService.addProject(form.value);
-        // this.projectSettings.name = form.value.name;
-        // this.projectSettings.description = form.value.description;
-        // this.projectSettings.type = form.value.projectType;
-
     }
 
     /**
@@ -65,10 +61,18 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
      */
     getDependentFields(value: number): void {
         const valueIndex = _.findIndex(this.types, (o) => {
-            return o['ID'] == value;
+            return o['ID'] === +value;
         });
 
         this.modes = this.types[valueIndex]['Modes'];
         this.scoreSettingAvailable = (!!this.types[valueIndex]['Scoring']);
+    }
+
+    /**
+     *
+     * @param value
+     */
+    selectModeCheckbox(value: string): void {
+        (!this.modeData.includes(value)) ? this.modeData.push(value) : this.modeData.splice(this.modeData.indexOf(value), 1);
     }
 }
