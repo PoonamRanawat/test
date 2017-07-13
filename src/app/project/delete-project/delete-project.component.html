@@ -2,9 +2,9 @@
      aria-labelledby="deleteProjectModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-sm">
-        <div class="modal-content">
+        <div class="modal-content content-wrapper">
             <div class="modal-header">
-                <h4 class="modal-title pull-left">Delete Project</h4>
+                <h5 class="modal-title pull-left">Delete Project</h5>
                 <button type="button" class="close pull-right" aria-label="Close"
                         (click)="hideDeleteProjectModal()">
                     <span aria-hidden="true">&times;</span>
@@ -13,13 +13,13 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-sm-12">
-                        Do you really want to delete this project?
+                        <p class="delete-msg">Do you really want to delete this <span>project?</span></p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <button type="button" class="btn btn-default" (click)="deleteProject()">OK</button>
                         <button type="button" class="btn btn-default" (click)="hideDeleteProjectModal()">Cancel</button>
+                        <button type="button" class="btn btn-default pull-right" (click)="deleteProject()">OK</button>
                     </div>
                 </div>
             </div>

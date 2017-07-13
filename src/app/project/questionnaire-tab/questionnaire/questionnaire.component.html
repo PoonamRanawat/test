@@ -1,8 +1,12 @@
-<div id="questionnaire-wrapper " class="row outer-container">
+<div id="questionnaire-wrapper " class="wrapper">
     <cfm-page-list-slider></cfm-page-list-slider>
-    <div class="col-sm-6">
-        <div class="row">
-            <div class="col-sm-12">
+    <div class="main">
+        <div class="col1">
+            <div class="collapse-arrow">
+                <a class="btn btn-default" id="menu-toggle" (click)="toggleSideBar()"><i
+                    [ngClass]="sideBarCollapse ? 'fa fa-chevron-circle-right': 'fa fa-chevron-circle-left'"
+                    aria-hidden="true"></i></a>
+            </div>
                 <div id="questionnaire-content">
 
                     <div class="container-fluid">
@@ -13,10 +17,12 @@
                         <div class="footer-view-icons"></div>
                     </div>
                 </div>
+            <div class="collapse-arrow-right">
+                <a class="btn btn-default slidebtn" id="menu-toggle"><i aria-hidden="true" class="fa fa-chevron-circle-right" ng-reflect-ng-class="fa fa-chevron-circle-left"></i></a>
             </div>
         </div>
     </div>
-    <div class="col-sm-3">
+    <div class="col3">
         <cfm-settings-slider></cfm-settings-slider>
         <div class="col-sm-12">
             <div class="mobile-preview pull-right">

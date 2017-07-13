@@ -156,7 +156,7 @@
 
 #sidebar-wrapper {
     padding: 10px 0;
-    height: 100vh;
+    height:auto;
 }
 
 #questionnaire-content {
@@ -181,8 +181,7 @@
 .collapse-arrow {
     margin: -20px;
     position: absolute;
-    top: 200px;
-    left: 340px;
+    top: 189px;
 }
 
 .collapse-arrow a.btn, .collapse-arrow a .fa {
@@ -213,11 +212,44 @@
 .mobile-preview {
 
 }
-.outer-container
+.wrapper
 {
-    height:100vh;
-    overflow-x: auto;
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 90px);
+    overflow: auto;
 }
+.main
+{
+    display: flex;
+    flex-grow: 1;
+}
+.col1
+{
+    flex-grow: 1;
+    margin: 0px 25px 0px 25px;
+    position: relative;
+}
+.col2
+{
+    width: 300px;
+    order: -1;
+}
+.col3
+{
+    width: 300px;
+}
+@media(max-width: 640px) {
+    main {
+        flex-direction: column;
+    }
+
+    .col2, .col3 {
+        width: auto;
+        height: 50px;
+    }
+}
+
 .page-sidebar-menu.page-sidebar-menu-closed>li:hover
 {
     box-shadow: none;
@@ -398,7 +430,7 @@ ul.nav-tabs > li.nav-item > a:hover {
 }
 
 /*css for rightslider button*/
-.btn:not(.md-skip):not(.bs-select-all):not(.bs-deselect-all) {
+.collapse-arrow-right .slidebtn:not(.md-skip):not(.bs-select-all):not(.bs-deselect-all) {
     font-size: 19px;
     font-weight: 600;
     text-transform: uppercase;
@@ -412,3 +444,33 @@ ul.nav-tabs > li.nav-item > a:hover {
     user-select: none;
     padding: 12px 1px 12px;
 }
+.portlet box blue
+{
+    position: relative;
+}
+.collapse-arrow-right
+{
+    position: absolute;
+    top: 12em;
+    right: -18px;
+}
+/*css for delete popup*/
+.content-wrapper .modal-header
+{
+    padding:5px;
+}
+.delete-msg
+{
+    margin: 0px 0px 10px 0px;
+    padding: 0px 0px 0px 28px;
+    font-weight: bold;
+}
+.delete-msg span
+{
+    padding: 0px 0px 0px 5.5em;
+}
+.modal .modal-header .close {
+    margin: 5px 5px 0px 0px !important;
+}
+
+

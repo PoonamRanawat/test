@@ -1,12 +1,6 @@
-<div class="col-sm-3">
+<div class="col2">
     <div id="sidebar-wrapper" [ngClass]="sideBarCollapse ? 'display-none': ''">
         <cfm-page-list></cfm-page-list>
-
         <cfm-group-tree></cfm-group-tree>
-    </div>
-    <div class="collapse-arrow">
-        <a class="btn btn-default" id="menu-toggle" (click)="toggleSideBar()"><i
-            [ngClass]="sideBarCollapse ? 'fa fa-chevron-circle-right': 'fa fa-chevron-circle-left'"
-            aria-hidden="true"></i></a>
     </div>
 </div>
