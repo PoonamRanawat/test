@@ -74,6 +74,6 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
      * @param value
      */
     selectModeCheckbox(value: string): void {
-        (!this.modeData.includes(value)) ? this.modeData.push(value) : this.modeData.splice(this.modeData.indexOf(value), 1);
+        (this.modeData.indexOf(value) === -1) ? this.modeData.push(value) : this.modeData.splice(this.modeData.indexOf(value), 1);
     }
 }
