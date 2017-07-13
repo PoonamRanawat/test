@@ -4,9 +4,8 @@
         <div class="col1">
             <div class="collapse-arrow">
                 <a class="btn btn-default" (click)="toggleLeftMenu()">
-                    <i
-                        [ngClass]="sideBarCollapse ? 'fa fa-chevron-circle-right': 'fa fa-chevron-circle-left'"
-                        aria-hidden="true"></i></a>
+                    <i [ngClass]="leftMenuState === 'out' ? 'fa fa-chevron-circle-right': 'fa fa-chevron-circle-left'"
+                       aria-hidden="true"></i></a>
             </div>
             <div id="questionnaire-content">
 
@@ -20,7 +19,8 @@
             </div>
             <div class="collapse-arrow-right">
                 <a class="btn btn-default slidebtn" (click)="toggleRightMenu()">
-                    <i aria-hidden="true" class="fa fa-chevron-circle-right"></i>
+                    <i aria-hidden="true"
+                       [ngClass]="rightMenuState === 'out' ? 'fa fa-chevron-circle-left': 'fa fa-chevron-circle-right'"></i>
                 </a>
             </div>
         </div>
@@ -31,11 +31,15 @@
             <div class="mobile-preview pull-right">
                 <h4>
                     Preview In
-                    <a class="btn btn-circle btn-icon-only blue"><i class="fa fa-mobile fa-2x"
-                                                                    aria-hidden="true"></i></a>
-                    <a class="btn btn-circle btn-icon-only blue"><i class="fa fa-tablet fa-2x"
-                                                                    aria-hidden="true"></i></a>
-                    <a class="btn btn-circle btn-icon-only blue"><i class="fa fa-desktop fa-lg" aria-hidden="true"></i></a>
+                    <a class="btn btn-circle btn-icon-only blue">
+                        <i class="fa fa-mobile fa-2x" aria-hidden="true"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only blue">
+                        <i class="fa fa-tablet fa-2x" aria-hidden="true"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only blue">
+                        <i class="fa fa-desktop fa-lg" aria-hidden="true"></i>
+                    </a>
                 </h4>
             </div>
         </div>
