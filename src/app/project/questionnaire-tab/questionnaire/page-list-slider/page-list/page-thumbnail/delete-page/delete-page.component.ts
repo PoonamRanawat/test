@@ -9,6 +9,7 @@ import {ModalDirective} from 'ngx-bootstrap/modal';
 export class DeletePageComponent implements OnInit {
 
     @ViewChild('deletePageModal') public modal: ModalDirective;
+    pageId: number;
 
     constructor() {
     }
@@ -19,7 +20,8 @@ export class DeletePageComponent implements OnInit {
     /**
      * Show modal
      */
-    showDeletePageModal(): void {
+    showDeletePageModal(pageId: number): void {
+        this.pageId = pageId;
         this.modal.show();
     }
 
@@ -34,6 +36,6 @@ export class DeletePageComponent implements OnInit {
      * Delete page
      */
     private deletePage(): void {
-        console.log('Delete Page API will come here');
+        console.log('Delete Page API will come here PageId = ' + this.pageId);
     }
 }
