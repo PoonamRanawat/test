@@ -51,7 +51,7 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
      */
     onSubmit(form: NgForm): void {
         console.log(form.value);
-        //this.projectService.addProject(form.value);
+        // this.projectService.addProject(form.value);
         // this.projectSettings.name = form.value.name;
         // this.projectSettings.description = form.value.description;
         // this.projectSettings.type = form.value.projectType;
