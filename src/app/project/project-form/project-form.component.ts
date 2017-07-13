@@ -69,6 +69,7 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
     }
 
     /**
+     * Push modes into modedata properties
      *
      * @param value
      */
