@@ -254,25 +254,21 @@
 .page-sidebar-menu.page-sidebar-menu-closed > li:hover {
     box-shadow: none;
 }
-
 .page-sidebar .page-sidebar-menu .sub-menu, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu {
     list-style: none;
     display: none;
     padding: 0;
     margin: -1px 0;
 }
-
 .page-setting {
     height: 100vh;
 }
-
 .add-new-page .portlet.box > .portlet-body {
 
     max-height: 350px;
     padding: 10px;
     overflow-y: scroll;
 }
-
 .grouping-tree .portlet.box > .portlet-body {
     max-height: 300px;
     overflow-y: scroll;
@@ -509,6 +505,20 @@ ul.nav-tabs > li.nav-item > a:hover {
 }
 .answer-block
 {
-    padding: 7px 0 0 0;
+    padding: 7px 0 0 36px;
     cursor: pointer;
+}
+.upload-image
+{
+    padding: 15px 0 0 0;
+    margin: 14px 34px;
+}
+.align-addbtn
+{
+    position: relative;
+    top:6px;
+}
+.img-box
+{
+  margin:25px 0;
 }
