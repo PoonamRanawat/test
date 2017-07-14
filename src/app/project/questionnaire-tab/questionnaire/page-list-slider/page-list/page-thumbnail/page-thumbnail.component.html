@@ -4,10 +4,10 @@
             <div class="clearfix"></div>
             <div class="mt-overlay-1 page-thumbnail-box">
                 <div class="action pull-right copy-delete-icon">
-                    <a class="btn btn-circle btn-icon-only btn-outline green" tooltip="copy page" container="body">
-                        <i class="fa fa-files-o" aria-hidden="true"></i>
+                    <a class="btn btn-circle btn-icon-only btn-outline green new-btn-icon" tooltip="copy page" container="body">
+                        <i class="fa fa-files-o " aria-hidden="true"></i>
                     </a>
-                    <a class="btn btn-circle btn-icon-only btn-outline green" tooltip="delete page" container="body"
+                    <a class="btn btn-circle btn-icon-only btn-outline green new-btn-icon" tooltip="delete page" container="body"
                        (click)="deletePageModal.showDeletePageModal(pageId)" >
                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                     </a>
@@ -18,5 +18,4 @@
         </div>
     </div>
 </div>
-<hr/>
 <cfm-delete-page #deletePageModal></cfm-delete-page>

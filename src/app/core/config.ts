@@ -455,7 +455,7 @@ export const config = {
         }
     },
         {
-            "DisplayName": "VOC",
+            "DisplayName": "Voice of Customer -VOC",
             "ID": 2,
             "PageTypes": {
                 "SingleQuestionPage": {
