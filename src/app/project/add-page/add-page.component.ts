@@ -16,9 +16,9 @@ export class AddPageComponent implements OnInit {
     modeType: number;
     projectId: number;
     model: AddPage = new AddPage();
-    private pageTypes = [];
-    private questionType = [];
-    private subPageType = [];
+    pageTypes = [];
+    questionType = [];
+    subPageType = [];
     @ViewChild('addPageForm') form: any;
     @ViewChild('addPageModal') public modal: ModalDirective;
 

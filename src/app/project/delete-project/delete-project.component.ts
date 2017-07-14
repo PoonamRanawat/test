@@ -32,7 +32,7 @@ export class DeleteProjectComponent implements OnInit {
     /**
      * Delete Project
      */
-    private deleteProject(): void {
+    deleteProject(): void {
         console.log('Delete project API will come here');
     }
 }

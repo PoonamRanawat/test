@@ -18,11 +18,11 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
     description: string;
     projectSettings: ProjectSettings;
     projectId: number;
+    types = [];
+    modes = [];
+    scoreSettingAvailable: boolean;
     private sub: any;
-    private types = [];
-    private modes = [];
     private modeData = ['Online'];
-    private scoreSettingAvailable: boolean;
 
     constructor(ps: ProjectSettings,
                 private configService: ConfigService,

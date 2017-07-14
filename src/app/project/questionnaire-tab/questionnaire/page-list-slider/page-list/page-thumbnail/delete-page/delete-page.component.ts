@@ -35,7 +35,7 @@ export class DeletePageComponent implements OnInit {
     /**
      * Delete page
      */
-    private deletePage(): void {
+    deletePage(): void {
         console.log('Delete Page API will come here PageId = ' + this.pageId);
     }
 }
