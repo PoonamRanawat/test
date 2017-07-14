@@ -2,11 +2,11 @@
     <div class="portlet box blue">
         <div class="portlet-title">
             <div class="caption">
-                <a data-toggle="modal" (click)="addPageModal.showAddPageModal()"> <i class="fa fa-plus"></i> Add New
+                <a data-toggle="modal" (click)="addPageModal.showAddPageModal()"> <i class="fa fa-plus round-btn-plus"></i> Add New
                     Page</a>
             </div>
             <div class="tools">
-                <a (click)="togglePageList()" [ngClass]="pageListCollapse ? 'expand': 'collapse'"> </a>
+                <a (click)="togglePageList()" [ngClass]="pageListCollapse ? 'expand round-btn': 'collapse round-btn'"> </a>
             </div>
         </div>
         <div class="portlet-body" *ngIf="pageListCollapse">

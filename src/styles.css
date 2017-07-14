@@ -1,10 +1,10 @@
 @import url("../node_modules/bootstrap/dist/css/bootstrap.min.css");
-@import url("../node_modules/font-awesome/css/font-awesome.css");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url("../node_modules/ng2-toastr/bundles/ng2-toastr.min.css");
 @import url("./styles/layout/layout.min.css");
 @import url("./styles/layout/themes/darkblue.min.css");
 @import url("./styles/layout/custom.min.css");
-@import url("./styles/global/plugins/simple-line-icons/simple-line-icons.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css");
 @import url("./styles/global/components-md.min.css");
 @import url("./styles/global/boostrap-switch.css");
 
@@ -533,6 +533,7 @@ ul.nav-tabs > li.nav-item > a:hover {
     -webkit-transition: height .2s, box-shadow .2s;
     transition: height .2s, box-shadow .2s;
 }
+<<<<<<< HEAD
 
 .answer-block
 {
@@ -552,4 +553,31 @@ ul.nav-tabs > li.nav-item > a:hover {
 .img-box
 {
   margin:25px 0;
+=======
+.round-btn
+{
+    border: 1px solid #FFF;
+    padding: 10px;
+    background-repeat: no-repeat;
+    background-position: 3px 2px;
+    border-radius: 30px;
+}
+.round-btn-plus
+{
+    border: 1px solid #FFF;
+    font-size: 12px;
+    padding: 3px 6px;
+    border-radius: 30px;
+}
+.round-btn-folder {
+    border: 1px solid #FFF;
+    padding: 4px 3.3px 3px 4px;
+    margin: 0px 4px !important;
+    border-radius: 30px;
+}
+.action .new-btn-icon{
+    height: 26px;
+    width: 26px;
+    padding: 4px 0 5px 1px !important;
+>>>>>>> new-bugs
 }
