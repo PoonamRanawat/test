@@ -36,12 +36,12 @@ export class AppComponent implements OnInit {
                     Exec: (selected: Menu) => {
                     },
                     Children: null,
-                    IconClass: "icon-magnifier",
+                    IconClass: "null",
                     IconSource: null,
                     showInMenu: true,
                     Route: `/project/${projects[i]['id']}/questionnaire`
                 }],
-                IconClass: "icon-magnifier",
+                IconClass: "null",
                 IconSource: null,
                 showInMenu: true,
                 Route: `/project/${projects[i]['id']}`
@@ -123,7 +123,7 @@ export class AppComponent implements OnInit {
             Exec: (selected: Menu) => {
             },
             Children: projectMenuItems,
-            IconClass: "icon-magnifier",
+            IconClass: "icon-puzzle",
             IconSource: null,
             showInMenu: true,
             Route: ''

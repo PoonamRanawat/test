@@ -11,7 +11,8 @@
                 <form class="form-horizontal" (ngSubmit)="addPage(addPageForm)" #addPageForm="ngForm" novalidate>
                     <div class="form-body">
                         <div class="form-group" [ngClass]="{ 'has-error': addPageForm.submitted && !pageName.valid }">
-                            <label for="pageName" class="col-md-4 control-label">Page Name<span class="text-danger"> *</span></label>
+                            <label for="pageName" class="col-md-4 control-label">Page Name<span
+                                class="text-danger"> *</span></label>
                             <div class="col-md-7">
                                 <input type="text" name="pagename" id="pageName" class="form-control"
                                        [(ngModel)]="model.pageName" #pageName="ngModel" required>
@@ -41,7 +42,8 @@
                         </div>
                         <div class="form-group" *ngIf="questionType?.length > 0"
                              [ngClass]="{ 'has-error': addPageForm.submitted && !question.valid }">
-                            <label class="col-md-4 control-label">Question type<span class="text-danger"> *</span></label>
+                            <label class="col-md-4 control-label">Question type<span
+                                class="text-danger"> *</span></label>
                             <div class="col-md-7">
                                 <select class="bs-select form-control" name="question"
                                         data-style="btn-primary" [(ngModel)]="model.question" #question="ngModel"
@@ -58,7 +60,8 @@
                         </div>
                         <div class="form-group" *ngIf="subPageType?.length > 0"
                              [ngClass]="{ 'has-error': addPageForm.submitted && !subPage.valid }">
-                            <label class="col-md-4 control-label">Sub page type<span class="text-danger"> *</span></label>
+                            <label class="col-md-4 control-label">Sub page type<span
+                                class="text-danger"> *</span></label>
                             <div class="col-md-7">
                                 <select class="bs-select form-control" name="subPage"
                                         data-style="btn-primary" [(ngModel)]="model.subPage" #subPage="ngModel">
