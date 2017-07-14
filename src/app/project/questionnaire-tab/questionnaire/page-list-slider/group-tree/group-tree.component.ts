@@ -22,13 +22,7 @@ export class GroupTreeComponent implements OnInit {
             name: 'root2',
             children: [
                 {id: 5, name: 'child2.1'},
-                {
-                    id: 6,
-                    name: 'child2.2',
-                    children: [
-                        {id: 7, name: 'subsub'}
-                    ]
-                }
+                {id: 6, name: 'child2.2'}
             ]
         }
     ];
