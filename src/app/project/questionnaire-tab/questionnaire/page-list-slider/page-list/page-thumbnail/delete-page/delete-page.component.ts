@@ -18,7 +18,8 @@ export class DeletePageComponent implements OnInit {
     }
 
     /**
-     * Show modal
+     * Show delete page modal
+     * @param pageId
      */
     showDeletePageModal(pageId: number): void {
         this.pageId = pageId;
@@ -37,5 +38,6 @@ export class DeletePageComponent implements OnInit {
      */
     deletePage(): void {
         console.log('Delete Page API will come here PageId = ' + this.pageId);
+        this.hideDeletePageModal();
     }
 }

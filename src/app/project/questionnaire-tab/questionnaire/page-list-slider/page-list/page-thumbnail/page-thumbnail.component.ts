@@ -1,18 +1,26 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
-  selector: 'cfm-page-thumbnail',
-  templateUrl: './page-thumbnail.component.html',
-  styles: []
+    selector: 'cfm-page-thumbnail',
+    templateUrl: './page-thumbnail.component.html',
+    styles: []
 })
 export class PageThumbnailComponent implements OnInit {
 
     @Input() pageId: number;
     @Input() pageName: string;
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
+
+    /**
+     * creates a copy of selected page
+     */
+    private copyPage() {
+        console.log('Copy the Page' + this.pageId);
+    }
 
 }
