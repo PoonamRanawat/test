@@ -34,5 +34,6 @@ export class DeleteProjectComponent implements OnInit {
      */
     private deleteProject(): void {
         console.log('Delete project API will come here');
+        this.hideDeleteProjectModal();
     }
 }

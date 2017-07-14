@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageListComponent implements OnInit {
     pageListCollapse = true;
+    // todo: page list items will come from an API call
+    pageList = [{pageId: 1, pageName: 'single'}, {pageId: 2, pageName: 'double'}, {pageId: 3, pageName: 'multi'}];
 
     constructor() {
     }

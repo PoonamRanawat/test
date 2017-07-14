@@ -20,6 +20,7 @@ import { QuestionSettingsComponent } from './questionnaire-tab/questionnaire/set
 import { AnswerSettingsComponent } from './questionnaire-tab/questionnaire/settings-slider/answer-settings/answer-settings.component';
 import { QuestionnaireMainComponent } from './questionnaire-tab/questionnaire/questionnaire-main/questionnaire-main.component';
 import { DeletePageComponent } from './questionnaire-tab/questionnaire/page-list-slider/page-list/page-thumbnail/delete-page/delete-page.component';
+import { TreeModule } from 'angular-tree-component';
 
 @NgModule({
     imports: [
@@ -29,7 +30,8 @@ import { DeletePageComponent } from './questionnaire-tab/questionnaire/page-list
         JWBootstrapSwitchModule,
         ModalModule,
         TabsModule.forRoot(),
-        TooltipModule.forRoot()
+        TooltipModule.forRoot(),
+        TreeModule
     ],
     declarations: [
         ProjectComponent,
