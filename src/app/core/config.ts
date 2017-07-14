@@ -434,16 +434,20 @@ export const config = {
             }
         ],
         "Modes": [{
-            "name": "Online"
+            "name": "Online",
+            "status":true
         },
             {
-                "name": "Offline"
+                "name": "Offline",
+                "status":false
             },
             {
-                "name": "SMS"
+                "name": "SMS",
+                "status":false
             },
             {
-                "name": "FeedbackWidget"
+                "name": "FeedbackWidget",
+                "status":false
             }
         ],
         "Scoring": {
@@ -884,13 +888,16 @@ export const config = {
                 }
             },
             "Modes": [{
-                "name": "Online"
+                "name": "Online",
+                "status":false
             },
                 {
-                    "name": "Offline"
+                    "name": "Offline",
+                    "status":false
                 },
                 {
-                    "name": "SMS"
+                    "name": "SMS",
+                    "status":true
                 }
             ]
         }

@@ -15,7 +15,7 @@
                 </div>
             </form>
         </li>
-        <li class="nav-item {{menu.Children != null && opened[i] ? 'open': ''}}"
+        <li class="nav-item {{menu.Children != null && opened[i] ? 'active open': ''}}"
             *ngFor="let menu of menuItems; let i = index;">
             <a *ngIf="menu.Children == null || menu.Children.length == 0" [routerLink]="menu.Route ? menu.Route : null">
                 <i *ngIf="menu.IconClass != null" class="{{ menu.IconClass }}"></i>

@@ -38,7 +38,7 @@
                 <li class="dropdown dropdown-user " *ngIf="languages.length > 0" dropdown>
                     <a class="dropdown-toggle" dropdownToggle>
                         <img *ngIf="menuService.getActive('languages') != null && menuService.getActive('languages').IconSource != null"
-                             alt="" class="img-circle" src="{{ menuService.getActive('languages').IconSource}}"/>
+                             alt="" class="img-square" src="{{ menuService.getActive('languages').IconSource}}"/>
                         <i *ngIf="menuService.getActive('languages') != null && menuService.getActive('languages').IconClass != null"
                            class="{{ menuService.getActive('languages').IconClass }}"></i>
                         <span class="username username-hide-on-mobile"> {{menuService.getActive('languages').Name }}</span>
@@ -70,28 +70,28 @@
                     </a>
                     <ul *dropdownMenu class="dropdown-menu">
                         <li role="menuitem">
-                            <a href="page_user_profile_1.html">
+                            <a href="javascript:void(0)">
                                 <i class="icon-user"></i> My Profile </a>
                         </li>
                         <li>
-                            <a href="app_calendar.html">
+                            <a href="javascript:void(0)">
                                 <i class="icon-calendar"></i> My Calendar </a>
                         </li>
                         <li>
-                            <a href="app_inbox.html">
+                            <a href="javascript:void(0)">
                                 <i class="icon-envelope-open"></i> My Inbox
                                 <span class="badge badge-danger"> 3 </span>
                             </a>
                         </li>
                         <li>
-                            <a href="app_todo.html">
+                            <a href="javascript:void(0)">
                                 <i class="icon-rocket"></i> My Tasks
                                 <span class="badge badge-success"> 7 </span>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="page_user_lock_1.html">
+                            <a href="javascript:void(0)">
                                 <i class="icon-lock"></i> Lock Screen </a>
                         </li>
                         <li>

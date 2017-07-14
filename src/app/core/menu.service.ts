@@ -35,7 +35,8 @@ export class MenuService {
     getMenuConfig(location: string): any {
         if (!this.menus[location]) {
             return null
-        };
+        }
+        ;
         return this.menus[location];
     }
 
@@ -101,7 +102,9 @@ export class MenuService {
             const idx = this.activeMenus[location];
             if (idx >= 0 && idx < this.menus[location].length) {
                 return this.menus[location][idx];
-            } else if (this.menus[location].length > 0) {return this.menus[location][0]; }
+            } else if (this.menus[location].length > 0) {
+                return this.menus[location][0];
+            }
             return null;
         }
     }
