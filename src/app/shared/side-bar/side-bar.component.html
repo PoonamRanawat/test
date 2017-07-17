@@ -22,7 +22,6 @@
                 <img *ngIf="menu.IconSource != null" alt="" src="{{menu.IconSource}}">
                 <span class="title">{{menu.Name}}</span>
             </a>
-
             <a *ngIf="!(menu.Children == null || menu.Children.length == 0)" class="nav-link nav-toggle" (click)="opened[i]=!opened[i];">
                 <i *ngIf="menu.IconClass != null" class="{{ menu.IconClass }}"></i>
                 <img *ngIf="menu.IconSource != null" alt="" src="{{menu.IconSource}}">
