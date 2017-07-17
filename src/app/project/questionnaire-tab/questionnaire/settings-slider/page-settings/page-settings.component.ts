@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'cfm-page-settings',
-  templateUrl: './page-settings.component.html',
-  styles: []
+    selector: 'cfm-page-settings',
+    templateUrl: './page-settings.component.html',
+    styles: []
 })
 export class PageSettingsComponent implements OnInit {
+    private pageSettingsCollapse;
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
+    /**
+     * Toggle page settings
+     *
+     */
+    togglePageSetting() {
+        this.pageSettingsCollapse = !this.pageSettingsCollapse;
+    }
 }

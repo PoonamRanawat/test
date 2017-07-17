@@ -5,11 +5,11 @@
                 Answer Settings
             </div>
             <div class="tools">
-                <a class="collapse"> </a>
+                <a (click)="toggleAnswerSetting()" [ngClass]="answerSettingsCollapse ? 'expand round-btn': 'collapse round-btn'"> </a>
 
             </div>
         </div>
-        <div class="portlet-body">
+        <div class="portlet-body" *ngIf="answerSettingsCollapse">
 
             <div class="form-group">
                 <label class="col-md-6 control-label nopadding">Exclude from randomize</label>

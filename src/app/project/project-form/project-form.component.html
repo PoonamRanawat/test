@@ -1,5 +1,5 @@
 <div>
-    <h1 class="page-title">Project</h1>
+    <h1 class="page-title no-top-margin">Project</h1>
     <hr/>
     <div class="row">
         <div class="col-sm-6">
@@ -26,14 +26,12 @@
                                        id="name" ngModel name="name"
                                        required
                                        #name="ngModel">
-                                <div *ngIf="name.errors && (name.dirty || name.touched)"
-                                     class="text-danger">
-                                    <div [hidden]="!name.errors.required">
-                                        Name is required
-                                    </div>
-                                </div>
                                 <label for="name">Name<span class="text-danger"> *</span></label>
                             </div>
+                            <small [hidden]="name.valid || (name.pristine && !generalForm.submitted)"
+                                   class="text-danger">
+                                Name is required
+                            </small>
                             <div class="form-group form-md-line-input form-md-floating-label">
                                 <textarea [ngClass]="description.value ? 'form-control edited': 'form-control'" rows="2"
                                           id="description"
