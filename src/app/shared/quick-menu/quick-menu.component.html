@@ -1,4 +1,4 @@
-<nav [ngClass]="(menuToggle)?'quick-nav nav-is-visible':'quick-nav'" *ngIf="menuItems.length > 0">
+<nav [ngClass]="(menuToggle)?'quick-nav nav-is-visible quick-nav-new':'quick-nav quick-nav-new'" *ngIf="menuItems.length > 0">
     <a class="quick-nav-trigger" (click)="onClickMenuToggle()">
         <span aria-hidden="true"></span>
     </a>
