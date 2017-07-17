@@ -1,12 +1,12 @@
 import {environment} from '../environments/environment';
 
 let config = {
-    'apiUrl': 'https://aqua-test.andagon.com/aquaWeb/api/'
+    'apiUrl': ''
 };
 
 if (environment.production) {
     config = {
-        'apiUrl': 'https://aqua-test.andagon.com/aquaWeb/api/'
+        'apiUrl': ''
     };
 }
 
