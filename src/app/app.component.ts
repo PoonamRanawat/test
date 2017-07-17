@@ -1,9 +1,10 @@
 import {Component, ViewContainerRef, OnInit} from '@angular/core';
+import {Router, NavigationStart, NavigationEnd, NavigationError, NavigationCancel, RoutesRecognized} from '@angular/router';
 import {MenuService} from './core/menu.service';
 import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 import {Menu} from './core/menu';
 import {ConfigService} from './core/config.service';
-import {ProjectService} from "./core/project.service";
+import {ProjectService} from './core/project.service';
 
 @Component({
     selector: 'cfm-root',
@@ -16,8 +17,15 @@ export class AppComponent implements OnInit {
                 vcr: ViewContainerRef,
                 private menuService: MenuService,
                 private configService: ConfigService,
-                private projectService: ProjectService) {
+                private projectService: ProjectService,
+                private router: Router) {
         this.toastr.setRootViewContainerRef(vcr);
+        // Opening the side menu on page change.
+        router.events.forEach((event) => {
+            if (event instanceof NavigationStart) {
+                this.sideMenuToggle(false);
+            }
+        });
     }
 
     ngOnInit() {
@@ -32,16 +40,16 @@ export class AppComponent implements OnInit {
                 },
                 Children: [{
                     position: 1,
-                    Name: "Questionnaire",
+                    Name: 'Questionnaire',
                     Exec: (selected: Menu) => {
                     },
                     Children: null,
-                    IconClass: "null",
+                    IconClass: 'null',
                     IconSource: null,
                     showInMenu: true,
                     Route: `/project/${projects[i]['id']}/questionnaire`
                 }],
-                IconClass: "null",
+                IconClass: 'null',
                 IconSource: null,
                 showInMenu: true,
                 Route: `/project/${projects[i]['id']}`
@@ -119,11 +127,11 @@ export class AppComponent implements OnInit {
 
         this.menuService.add('left', {
             position: 1,
-            Name: "Data collection",
+            Name: 'Data collection',
             Exec: (selected: Menu) => {
             },
             Children: projectMenuItems,
-            IconClass: "icon-puzzle",
+            IconClass: 'icon-puzzle',
             IconSource: null,
             showInMenu: true,
             Route: ''

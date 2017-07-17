@@ -27,7 +27,7 @@ export class ConfigService {
         const valueIndex = _.findIndex(config['Project'][0]['QuestionnaireTypes'], (o) => {
             return o['ID'] === modeId;
         });
-        console.log(config['Project'][0]['QuestionnaireTypes'][valueIndex]);
+
         return config['Project'][0]['QuestionnaireTypes'][valueIndex];
     }
 

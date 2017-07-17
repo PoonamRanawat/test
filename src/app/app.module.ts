@@ -14,7 +14,7 @@ import {BsDropdownModule} from 'ngx-bootstrap';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {SubMenuComponent} from './shared/side-bar/sub-menu/sub-menu.component';
 import {QuickMenuComponent} from './shared/quick-menu/quick-menu.component';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
