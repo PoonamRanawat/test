@@ -15,7 +15,7 @@ export class ConfigService {
      * @returns {any}
      */
     getConfigProperty(): any {
-        return config;
+        return config['Project'][0];
     }
 
     /**
@@ -24,11 +24,11 @@ export class ConfigService {
      * @returns {any}
      */
     getConfigPropertyByModeId(modeId: number): any {
-        const valueIndex = _.findIndex(config['QuestionnaireTypes'], (o) => {
+        const valueIndex = _.findIndex(config['Project'][0]['QuestionnaireTypes'], (o) => {
             return o['ID'] === modeId;
         });
-
-        return config['QuestionnaireTypes'][valueIndex];
+        console.log(config['Project'][0]['QuestionnaireTypes'][valueIndex]);
+        return config['Project'][0]['QuestionnaireTypes'][valueIndex];
     }
 
 }

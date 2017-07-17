@@ -37,8 +37,6 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
             // console.log(this.projectService.getProject(this.projectId));
         });
         this.types = this.configService.getConfigProperty()['QuestionnaireTypes'];
-
-
     }
 
     ngOnDestroy() {
