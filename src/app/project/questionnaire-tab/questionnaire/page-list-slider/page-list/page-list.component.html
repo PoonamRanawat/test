@@ -10,7 +10,10 @@
             </div>
         </div>
         <div class="portlet-body" *ngIf="pageListCollapse">
-            <cfm-page-thumbnail *ngFor="let page of pageList" [pageId]="page.pageId" [pageName]="page.pageName"></cfm-page-thumbnail>
+            <div *ngFor="let page of pageList; let i = index">
+                <cfm-page-thumbnail [pageId]="page.pageId" [pageName]="page.pageName"></cfm-page-thumbnail>
+                <p class="text-center">{{ i + 1}}</p>
+            </div>
     </div>
 </div>
 <cfm-add-page #addPageModal></cfm-add-page>
