@@ -35,8 +35,7 @@ export class MenuService {
     getMenuConfig(location: string): any {
         if (!this.menus[location]) {
             return null
-        }
-        ;
+        };
         return this.menus[location];
     }
 

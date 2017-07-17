@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class PageListComponent implements OnInit {
-    pageListCollapse = true;
+    private pageListCollapse = true;
     // todo: page list items will come from an API call
     pageList = [
         { pageId: 1, pageName: 'page1' },
@@ -23,6 +23,7 @@ export class PageListComponent implements OnInit {
 
     /**
      *  Toggle page list
+     *
      */
     togglePageList() {
         this.pageListCollapse = !this.pageListCollapse;

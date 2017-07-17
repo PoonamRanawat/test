@@ -5,11 +5,11 @@
                 Question Settings
             </div>
             <div class="tools">
-                <a class="collapse"> </a>
+                <a (click)="toggleQuestionSetting()" [ngClass]="questionSettingsCollapse ? 'expand round-btn': 'collapse round-btn'"> </a>
 
             </div>
         </div>
-        <div class="portlet-body">
+        <div class="portlet-body" *ngIf="questionSettingsCollapse">
 
             <div class="form-group">
                 <label class="col-md-6 control-label nopadding">Randomize answers</label>
@@ -25,7 +25,6 @@
                     <input type="checkbox" checked class="make-switch" id="test" data-size="mini">
                 </div>
             </div>
-
         </div>
     </div>
 </div>
