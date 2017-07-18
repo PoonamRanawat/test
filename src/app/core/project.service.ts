@@ -1,20 +1,13 @@
 //@todo: This file is having hardcoded values, replace it later when we have API in place.
 import {Injectable} from '@angular/core';
 import * as _ from 'lodash';
+import {ApiService} from './api.service';
 
 @Injectable()
 export class ProjectService {
     projects: any;
 
-    constructor() {
-        this.projects = [{
-            id: 1,
-            name: 'Project 1',
-            description: 'Project description',
-            type: 1,
-            mode: 'online',
-            scoreSetting: true
-        }];
+    constructor(private apiService: ApiService) {
     }
 
     /**
@@ -38,10 +31,21 @@ export class ProjectService {
     }
 
     /**
+     * Set projects
+     */
+    setProjects() {
+        this.projects = this.apiService.getMethod('project');
+    }
+
+    /**
      * Get projects
      * @returns {any}
      */
     getProjects() {
+        if (!this.projects) {
+            this.setProjects();
+        }
+
         return this.projects;
     }
 

@@ -116,16 +116,8 @@
     max-height: 54px;
 }
 
-.quick-nav-trigger {
+nav .quick-nav-trigger {
     z-index: 10104;
-    height: 50px;
-    width: 50px;
-}
-
-.questionnaire-main {
-}
-
-.questionnaire-tab {
 }
 
 .questionnaire-tab-content {
@@ -520,33 +512,6 @@ ul.nav-tabs > li.nav-item > a:hover {
     padding: 8px 1px;
 }
 
-.quick-nav .quick-nav-bg {
-    position: absolute;
-    z-index: 10102;
-    top: 0;
-    right: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 30px !important;
-    background: #36C6D3;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
-    -webkit-transition: height .2s, box-shadow .2s;
-    transition: height .2s, box-shadow .2s;
-}
-
-.quick-nav .quick-nav-bg-new {
-    position: absolute;
-    z-index: 10102;
-    top: 6px !important;
-    right: 5px !important;
-    width: 50px !important;
-    height: 50px !important;
-    border-radius: 30px !important;
-    background: #36C6D3;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
-    -webkit-transition: height .2s, box-shadow .2s;
-    transition: height .2s, box-shadow .2s;
-}
 .answer-block
 {
     padding: 7px 0 0 36px;
