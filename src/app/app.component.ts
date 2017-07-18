@@ -12,6 +12,8 @@ import {ProjectService} from './core/project.service';
 })
 export class AppComponent implements OnInit {
     flag: boolean;
+    projects = [];
+    projectMenuItems = [];
 
     constructor(public toastr: ToastsManager,
                 vcr: ViewContainerRef,
@@ -30,31 +32,7 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         // @todo: Change this with menu API. Right now it is hardcoded values.
-        const projects = this.projectService.getProjects();
-        let projectMenuItems = [];
-        for (let i = 0; i < projects.length; i++) {
-            projectMenuItems.push({
-                position: 1,
-                Name: projects[i]['name'],
-                Exec: (selected: Menu) => {
-                },
-                Children: [{
-                    position: 1,
-                    Name: 'Questionnaire',
-                    Exec: (selected: Menu) => {
-                    },
-                    Children: null,
-                    IconClass: 'null',
-                    IconSource: null,
-                    showInMenu: true,
-                    Route: `/project/${projects[i]['id']}/questionnaire`
-                }],
-                IconClass: 'null',
-                IconSource: null,
-                showInMenu: true,
-                Route: `/project/${projects[i]['id']}`
-            });
-        }
+        this.getProjects();
 
         this.menuService.add('languages', {
             position: 1,
@@ -130,7 +108,7 @@ export class AppComponent implements OnInit {
             Name: 'Data collection',
             Exec: (selected: Menu) => {
             },
-            Children: projectMenuItems,
+            Children: this.projectMenuItems,
             IconClass: 'icon-puzzle',
             IconSource: null,
             showInMenu: true,
@@ -156,6 +134,52 @@ export class AppComponent implements OnInit {
     sideMenuToggle(value: boolean): void {
         this.menuService.setToggleClass(value);
         this.flag = this.menuService.getToggleClass();
+    }
+
+    /**
+     * Get projects
+     */
+    getProjects() {
+        this.projectService.getProjects().subscribe(
+            result => {
+                this.projects = result['Data'];
+                this.prepareProjectMenuItems();
+            },
+            error => {
+                console.log(error);
+            }
+        );
+    }
+
+    /**
+     * Prepare project menu items
+     */
+    prepareProjectMenuItems() {
+        if(this.projects.length > 0) {
+            for (let i = 0; i < this.projects.length; i++) {
+                this.projectMenuItems.push({
+                    position: 1,
+                    Name: this.projects[i]['Name'],
+                    Exec: (selected: Menu) => {
+                    },
+                    Children: [{
+                        position: 1,
+                        Name: 'Questionnaire',
+                        Exec: (selected: Menu) => {
+                        },
+                        Children: null,
+                        IconClass: 'null',
+                        IconSource: null,
+                        showInMenu: true,
+                        Route: `/project/${this.projects[i]['Id']}/questionnaire`
+                    }],
+                    IconClass: 'null',
+                    IconSource: null,
+                    showInMenu: true,
+                    Route: `/project/${this.projects[i]['Id']}`
+                });
+            }
+        }
     }
 
 }

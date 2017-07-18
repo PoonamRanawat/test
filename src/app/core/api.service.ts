@@ -17,6 +17,7 @@ export class ApiService {
    * @param url
    */
   getMethod(url: string) {
+    console
     return this.http.get(APP_CONFIG.apiUrl + url, this.getOptions())
         .map((res: Response) => res.json())
         .catch(this.handleError);
@@ -61,10 +62,8 @@ export class ApiService {
    * @returns {RequestOptions}
    */
   private getOptions() {
-    const auth = localStorage.getItem('token');
     const headers = new Headers({
       'Content-Type': 'application/json',
-      'Authorization': 'Basic ' + auth
     });
     return new RequestOptions({headers: headers});
 

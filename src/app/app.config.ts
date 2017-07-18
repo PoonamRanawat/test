@@ -1,12 +1,12 @@
 import {environment} from '../environments/environment';
 
 let config = {
-    'apiUrl': ''
+    'apiUrl': 'http://192.168.2.188:8080/api/'
 };
 
 if (environment.production) {
     config = {
-        'apiUrl': ''
+        'apiUrl': 'http://192.168.2.188:8080/api/'
     };
 }
 
