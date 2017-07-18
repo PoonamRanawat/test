@@ -8,6 +8,8 @@ import {MenuService} from '../../core/menu.service';
 
 export class SideBarComponent implements OnInit {
     sidebarToggleFlag: boolean;
+    isActive: number;
+    isOpen = false;
     opened: Array<boolean> = [];
     menuItems: any;
 
@@ -17,5 +19,15 @@ export class SideBarComponent implements OnInit {
     ngOnInit() {
         this.menuItems = this.menuService.getMenuConfig('left');
         this.sidebarToggleFlag = this.menuService.getToggleClass();
+    }
+
+    /**
+     * Activate the sidebar menu item
+     *
+     * @param index
+     */
+    activateMenuItem(index: number): void {
+        this.isActive = index;
+        this.isOpen = !this.isOpen;
     }
 }

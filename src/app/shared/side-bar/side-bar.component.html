@@ -15,20 +15,19 @@
                 </div>
             </form>
         </li>
-        <li class="nav-item {{menu.Children != null && opened[i] ? 'active open': ''}}"
+        <li class="nav-item {{isActive == i && (menu.Children == null || opened[i]) ? 'active': ''}} {{menu.Children != null && opened[i] ? ' open':''}}"
             *ngFor="let menu of menuItems; let i = index;">
-            <a *ngIf="menu.Children == null || menu.Children.length == 0" [routerLink]="menu.Route ? menu.Route : null">
+            <a *ngIf="menu.Children == null || menu.Children.length == 0" [routerLink]="menu.Route ? menu.Route : null" (click)="activateMenuItem(i)">
                 <i *ngIf="menu.IconClass != null" class="{{ menu.IconClass }}"></i>
                 <img *ngIf="menu.IconSource != null" alt="" src="{{menu.IconSource}}">
                 <span class="title">{{menu.Name}}</span>
             </a>
-            <a *ngIf="!(menu.Children == null || menu.Children.length == 0)" class="nav-link nav-toggle" (click)="opened[i]=!opened[i];">
+            <a *ngIf="!(menu.Children == null || menu.Children.length == 0)"
+               class="link nav-toggle" (click)="opened[i]=!opened[i]; activateMenuItem(i);">
                 <i *ngIf="menu.IconClass != null" class="{{ menu.IconClass }}"></i>
                 <img *ngIf="menu.IconSource != null" alt="" src="{{menu.IconSource}}">
                 <span class="title">{{menu.Name}}</span>
-                <span class="selected"></span>
-                <span class="arrow {{menu.Children != null && opened[i] ? 'open': ''}}"
-                      ></span>
+                <span class="arrow {{menu.Children != null && opened[i] ? 'open': ''}}"></span>
             </a>
             <ul class="sub-menu"
                 *ngIf="menu.Children != null && menu.Children.length > 0"
