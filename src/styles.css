@@ -116,7 +116,7 @@
     max-height: 54px;
 }
 
-nav .quick-nav-trigger {
+nav.quick-nav-new .quick-nav-trigger {
     z-index: 10104;
 }
 
@@ -248,21 +248,25 @@ nav .quick-nav-trigger {
 .page-sidebar-menu.page-sidebar-menu-closed > li:hover {
     box-shadow: none;
 }
+
 .page-sidebar .page-sidebar-menu .sub-menu, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu {
     list-style: none;
     display: none;
     padding: 0;
     margin: -1px 0;
 }
+
 .page-setting {
     height: 100vh;
 }
+
 .add-new-page .portlet.box > .portlet-body {
 
     max-height: 350px;
     padding: 10px;
     overflow-y: scroll;
 }
+
 .grouping-tree .portlet.box > .portlet-body {
     max-height: 300px;
     overflow-y: scroll;
@@ -512,51 +516,60 @@ ul.nav-tabs > li.nav-item > a:hover {
     padding: 8px 1px;
 }
 
-.answer-block
-{
+nav.quick-nav-new .quick-nav-bg-new {
+    top: 6px;
+    right: 5px;
+    width: 50px;
+    height: 50px;
+}
+
+.answer-block {
     padding: 7px 0 0 36px;
     cursor: pointer;
 }
-.upload-image
-{
+
+.upload-image {
     padding: 15px 0 0 0;
     margin: 14px 34px;
 }
-.align-addbtn
-{
+
+.align-addbtn {
     position: relative;
-    top:6px;
+    top: 6px;
 }
+
 .img-box {
     margin: 25px 0;
 }
 
-.round-btn
-{
+.round-btn {
     border: 1px solid #FFF;
     padding: 10px;
     background-repeat: no-repeat;
     background-position: 3px 2px;
     border-radius: 30px;
 }
-.round-btn-plus
-{
+
+.round-btn-plus {
     border: 1px solid #FFF;
     font-size: 12px;
     padding: 3px 6px;
     border-radius: 30px;
 }
+
 .round-btn-folder {
     border: 1px solid #FFF;
     padding: 4px 3.3px 3px 4px;
-    margin: 0px 4px !important;
+    margin: 0 4px !important;
     border-radius: 30px;
 }
+
 .action .new-btn-icon {
     height: 26px;
     width: 26px;
     padding: 4px 0 5px 1px !important;
 }
+
 .no-top-margin {
-    margin-top: 0px !important;
+    margin-top: 0 !important;
 }
