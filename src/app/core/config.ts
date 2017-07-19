@@ -1091,31 +1091,31 @@ export const config = {
                         {
                             "Name": "Online",
                             "ID": 1,
-                            "IsAvailable": "True"
+                            "Status": "true"
                         },
                         {
                             "Name": "Offline",
                             "ID": 2,
-                            "IsAvailable": "True"
+                            "Status": "false"
                         },
                         {
                             "Name": "SMS",
                             "ID": 3,
-                            "IsAvailable": "True"
+                            "Status": "false"
                         },
                         {
                             "Name": "FeedbackWidget",
                             "ID": 4,
-                            "IsAvailable": "True"
+                            "Status": "false"
                         }
                     ],
                     "Scoring": {
-                        "IsScoringAvailable": "True"
+                        "IsScoringAvailable": "true"
                     }
                 },
                 {
-                    "DisplayName": "VOC",
-                    "ID": 1,
+                    "DisplayName": "Voice Of Customer - (VOC)",
+                    "ID": 2,
                     "PageTypes": [
                         {
                             "Name": "SingleQuestionPage",
@@ -2199,26 +2199,26 @@ export const config = {
                         {
                             "Name": "Online",
                             "ID": 1,
-                            "IsAvailable": "True"
+                            "Status": "true"
                         },
                         {
                             "Name": "Offline",
                             "ID": 2,
-                            "IsAvailable": "True"
+                            "Status": "true"
                         },
                         {
                             "Name": "SMS",
                             "ID": 3,
-                            "IsAvailable": "True"
+                            "Status": "false"
                         },
                         {
                             "Name": "FeedbackWidget",
                             "ID": 4,
-                            "IsAvailable": "True"
+                            "Status": "false"
                         }
                     ],
                     "Scoring": {
-                        "IsScoringAvailable": "True"
+                        "IsScoringAvailable": "true"
                     }
                 }
             ]
