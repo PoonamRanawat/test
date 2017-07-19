@@ -7,6 +7,7 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css");
 @import url("./styles/global/components-md.min.css");
 @import url("./styles/global/boostrap-switch.css");
+@import url("./styles/custom/custom.css");
 
 .nav-item ul.sub-menu {
     display: none;
@@ -150,7 +151,7 @@ nav.quick-nav-new .quick-nav-trigger {
 
 #sidebar-wrapper {
     padding: 10px 0;
-    height: auto;
+    height: 80%;
 }
 
 #questionnaire-content {
@@ -167,7 +168,7 @@ nav.quick-nav-new .quick-nav-trigger {
 
 /* Sidebar Styles */
 
-.add-new-page .caption a {
+.add-new-page .caption a, .grouping-tree .caption a{
     color: #fff;
     text-decoration: none;
 }
@@ -199,7 +200,7 @@ nav.quick-nav-new .quick-nav-trigger {
 
 .middle-content {
     border: 1px solid #dedede;
-    height: 100vh;
+    height: 100%;
     position: relative;
 }
 
@@ -226,7 +227,7 @@ nav.quick-nav-new .quick-nav-trigger {
 }
 
 .col3 {
-    width: 300px;
+    width: 270px;
 }
 
 @media (max-width: 640px) {
@@ -544,24 +545,25 @@ nav.quick-nav-new .quick-nav-bg-new {
 
 .round-btn {
     border: 1px solid #FFF;
-    padding: 10px;
+    padding: 9px;
     background-repeat: no-repeat;
-    background-position: 3px 2px;
+    background-position: 4px 3px;
     border-radius: 30px;
 }
 
 .round-btn-plus {
     border: 1px solid #FFF;
-    font-size: 12px;
+    font-size: 10px;
     padding: 3px 6px;
     border-radius: 30px;
 }
 
 .round-btn-folder {
     border: 1px solid #FFF;
-    padding: 4px 3.3px 3px 4px;
-    margin: 0 4px !important;
+    padding: 3px 5px;
+    margin: 0 6px 0 0;
     border-radius: 30px;
+    font-size: 9px;
 }
 
 .action .new-btn-icon {
@@ -572,4 +574,40 @@ nav.quick-nav-new .quick-nav-bg-new {
 
 .no-top-margin {
     margin-top: 0 !important;
+}
+.input-group
+{
+    border:1px solid #435060;
+    padding: 5px;
+}
+.sidebar-search .btn:not(.md-skip):not(.bs-select-all):not(.bs-deselect-all):hover
+{
+    box-shadow: none;
+}
+.input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group
+{
+    z-index: 2;
+    margin-left: -11px;
+}
+.add-new-page .portlet.box>.portlet-title>.caption, .grouping-tree .portlet.box>.portlet-title>.caption {
+    font-size: 13px;
+    padding: 7px 0 2px !important;
+}
+.add-new-page .portlet.box>.portlet-title>.tools>a.expand,
+.add-new-page .portlet.box>.portlet-title>.tools>a.collapse,
+.grouping-tree .portlet.box>.portlet-title>.tools>a.expand,
+.grouping-tree .portlet.box>.portlet-title>.tools>a.collapse {
+    background-size: 10px;
+}
+.add-new-page .portlet.box>.portlet-title, .grouping-tree .portlet.box>.portlet-title{
+    min-height: 33px;
+}
+.add-new-page .portlet>.portlet-title>.tools, .grouping-tree .portlet>.portlet-title>.tools{
+    padding: 7px 0 0 0;
+}
+.sidebar-search .input-group .form-control {
+    width: 96%;
+}
+.btn-new {
+    width: 94px;
 }

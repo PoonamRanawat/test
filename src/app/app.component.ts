@@ -171,12 +171,12 @@ export class AppComponent implements OnInit {
                         IconClass: 'null',
                         IconSource: null,
                         showInMenu: true,
-                        Route: `/project/${this.projects[i]['Id']}/questionnaire`
+                        Route: `/project/${this.projects[i]['QuestionnaireId']}/questionnaire`
                     }],
                     IconClass: 'null',
                     IconSource: null,
                     showInMenu: true,
-                    Route: `/project/${this.projects[i]['Id']}`
+                    Route: `/project/${this.projects[i]['QuestionnaireId']}`
                 });
             }
         }

@@ -28,7 +28,7 @@
                                        #name="ngModel">
                                 <label for="name">Name<span class="text-danger"> *</span></label>
                             </div>
-                            <small [hidden]="name.valid || (name.pristine && !generalForm.submitted)"
+                            <small *ngIf="name.errors && (name.dirty || name.touched)"
                                    class="text-danger">
                                 Name is required
                             </small>
