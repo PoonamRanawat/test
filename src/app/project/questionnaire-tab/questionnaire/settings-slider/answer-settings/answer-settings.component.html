@@ -5,46 +5,12 @@
                 <a>Answer Settings</a>
             </div>
             <div class="tools">
-                <a (click)="toggleAnswerSetting()" [ngClass]="answerSettingsCollapse ? 'expand round-btn': 'collapse round-btn'"> </a>
+                <a (click)="toggleAnswerSetting()"
+                   [ngClass]="answerSettingsCollapse ? 'expand round-btn': 'collapse round-btn'"> </a>
 
             </div>
         </div>
         <div class="portlet-body" *ngIf="answerSettingsCollapse">
-
-            <div class="form-group">
-                <label class="col-md-6 control-label nopadding">Exclude from randomize</label>
-                <div class="col-md-6 nopadding right-align">
-                    <input type="checkbox" checked class="make-switch" id="test" data-size="mini">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-md-6 control-label nopadding">Active answer</label>
-                <div class="col-md-6 nopadding right-align">
-                    <input type="checkbox" checked class="make-switch" id="test" data-size="mini">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-md-6 control-label nopadding">Routing</label>
-                <div class="col-md-6 nopadding right-align">
-                    <select class="form-control">
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-md-6 control-label nopadding">Add picture/icon</label>
-                <div class="col-md-6 nopadding right-align">
-                    <input type="checkbox" checked class="make-switch" id="test" data-size="mini">
-                </div>
-            </div>
-
         </div>
     </div>
 </div>

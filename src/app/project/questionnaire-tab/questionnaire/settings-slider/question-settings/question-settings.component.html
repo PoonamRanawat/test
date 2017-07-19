@@ -2,29 +2,15 @@
     <div class="portlet box blue">
         <div class="portlet-title">
             <div class="caption">
-               <a> Question Settings</a>
+                <a> Question Settings</a>
             </div>
             <div class="tools">
-                <a (click)="toggleQuestionSetting()" [ngClass]="questionSettingsCollapse ? 'expand round-btn': 'collapse round-btn'"> </a>
+                <a (click)="toggleQuestionSetting()"
+                   [ngClass]="questionSettingsCollapse ? 'expand round-btn': 'collapse round-btn'"> </a>
 
             </div>
         </div>
         <div class="portlet-body" *ngIf="questionSettingsCollapse">
-
-            <div class="form-group">
-                <label class="col-md-6 control-label nopadding">Randomize answers</label>
-                <div class="col-md-6 nopadding right-align">
-                    <input type="checkbox" checked class="make-switch" id="test" data-size="mini">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-md-6 control-label nopadding">Create other category<br>
-                    <span>(editable)</span></label>
-                <div class="col-md-6 nopadding right-align">
-                    <input type="checkbox" checked class="make-switch" id="test" data-size="mini">
-                </div>
-            </div>
         </div>
     </div>
 </div>

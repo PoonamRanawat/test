@@ -28,7 +28,7 @@ export class ApiService {
      * @param url
      * @param body
      */
-    postMethod(url: string, body: string) {
+    postMethod(url: string, body: Object) {
         return this.http.post(APP_CONFIG.apiUrl + url, body, this.getOptions())
             .map((response: Response) => response.json()).catch(this.handleError);
     }
@@ -39,7 +39,7 @@ export class ApiService {
      * @param url
      * @param body
      */
-    putMethod(url: string, body: string) {
+    putMethod(url: string, body: Object) {
         return this.http.put(APP_CONFIG.apiUrl + url, body, this.getOptions())
             .map((response: Response) => response.json()).catch(this.handleError);
     }

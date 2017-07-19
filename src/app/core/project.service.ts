@@ -65,7 +65,7 @@ export class ProjectService {
      * @param body
      * @returns {Observable<R|T>}
      */
-    createProject(body) {
+    createProject(body: Object) {
         return this.apiService.postMethod('project/create', body);
     }
 
@@ -75,7 +75,7 @@ export class ProjectService {
      * @param body
      * @returns {Observable<R|T>}
      */
-    updateProject(body) {
+    updateProject(body: Object) {
         return this.apiService.putMethod('questionnaire/update', body);
     }
 
@@ -85,7 +85,7 @@ export class ProjectService {
      * @param projectId
      * @returns {Observable<R|T>}
      */
-    deleteProject(projectId) {
+    deleteProject(projectId: number) {
         return this.apiService.deleteMethod(`questionnaire/delete?id=${projectId}`);
     }
 
