@@ -363,15 +363,6 @@ hr {
     text-align: right;
 }
 
-.portlet-body .form-group {
-    height: auto;
-    overflow: hidden;
-}
-
-.portlet-body .form-group span {
-    font-size: 12px;
-}
-
 .action.btn-icon-only {
     width: 30px;
     height: 30px;
@@ -570,4 +561,8 @@ nav.quick-nav-new .quick-nav-bg-new {
 
 .page-content-white .page-content .page-bar {
     margin-bottom: 15px;
+}
+
+.has-error .help-block {
+    color: #e73d4a;
 }

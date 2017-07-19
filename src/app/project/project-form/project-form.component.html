@@ -3,25 +3,27 @@
 </div>
 <div class="row">
     <div class="col-sm-6">
-        <div class="portlet light bordered">
-            <div class="portlet-title">
-                <div class="caption font-green-haze">
-                    General Settings
+        <form (ngSubmit)="onSubmit(projectForm.value)" [formGroup]="projectForm">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-green-haze">
+                        General Settings
+                    </div>
+                    <div class="actions" *ngIf="projectId">
+                        <button type="submit" class="btn btn-circle btn-icon-only blue" [disabled]="!projectForm.valid">
+                            <i class="fa fa-floppy-o"></i>
+                        </button>
+                        <a class="btn btn-circle btn-icon-only red" (click)="modal.showDeleteProjectModal()">
+                            <i class="icon-trash"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="actions" *ngIf="projectId">
-                    <a class="btn btn-circle btn-icon-only blue">
-                        <i class="fa fa-floppy-o"></i>
-                    </a>
+                <div class="portlet-body form">
 
-                    <a class="btn btn-circle btn-icon-only red" (click)="modal.showDeleteProjectModal()">
-                        <i class="icon-trash"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="portlet-body form">
-                <form (ngSubmit)="onSubmit(projectForm.value)" [formGroup]="projectForm">
                     <div class="form-body">
-                        <div class="form-group form-md-line-input form-md-floating-label">
+                        <div class="form-group form-md-line-input form-md-floating-label"
+                             [ngClass]="{'has-error': projectForm.get('Name').invalid && projectForm.get('Name').touched}"
+                        >
                             <input formControlName="Name"
                                    type="text"
                                    id="projectName"
@@ -29,29 +31,35 @@
                                    [class.edited]="projectForm.get('Name').value"
                             >
                             <label for="projectName">Name<span class="text-danger"> *</span></label>
-                            <span *ngIf="projectForm.get('Name').hasError('required') && projectForm.get('Name').touched"
-                                  class="text-danger">
-                                    Name is required
-                                </span>
+                            <span *ngIf="projectForm.get('Name').invalid && projectForm.get('Name').touched"
+                                  class="help-block help-block-error">
+                                Name is required.
+                            </span>
                         </div>
                         <div class="form-group form-md-line-input form-md-floating-label">
-                                <textarea class="form-control"
-                                          [class.edited]="projectForm.get('Description').value"
-                                          rows="2"
-                                          id="description"
-                                          formControlName="Description"
-                                >
-                                </textarea>
+                            <textarea class="form-control"
+                                      [class.edited]="projectForm.get('Description').value"
+                                      rows="2"
+                                      id="description"
+                                      formControlName="Description"
+                            >
+                            </textarea>
                             <label for="description">Description</label>
                         </div>
-                        <div class="form-group form-md-line-input form-md-floating-label">
-                            <select class="form-control edited" formControlName="QuestionnaireTypeId"
+                        <div class="form-group form-md-line-input form-md-floating-label"
+                             [ngClass]="{'has-error': projectForm.get('QuestionnaireTypeId').invalid && projectForm.get('QuestionnaireTypeId').touched}"
+                        >
+                            <select class="form-control" [class.edited]="projectForm.get('QuestionnaireTypeId').value"
+                                    formControlName="QuestionnaireTypeId"
                                     id="projectType" (change)="getDependentFields($event.target.value)">
                                 <option *ngFor="let type of types" [value]="type['ID']">{{type['DisplayName']}}
                                 </option>
                             </select>
                             <label for="projectType">Type<span class="text-danger"> *</span></label>
-
+                            <span *ngIf="projectForm.get('QuestionnaireTypeId').invalid && projectForm.get('QuestionnaireTypeId').touched"
+                                  class="help-block help-block-error">
+                                Type is required.
+                            </span>
                         </div>
                         <p><i>Note: Once the project is created, the <strong>type of modes</strong> can't be
                             changed.</i></p>
@@ -61,9 +69,10 @@
                                 <label class="mt-checkbox" *ngFor="let mode of modes; let i = index">
                                     <input type="checkbox"
                                            formControlName="Modes"
+                                           name="{{mode['Name']}}"
                                            [checked]="isModeSelected(mode['Name'])"
                                            value="{{mode['Name']}}"
-                                           required (change)="selectModeCheckbox($event.target.value)"
+                                           (change)="selectModeCheckbox($event.target.value)"
                                     >{{mode['Name']}}
                                     <span></span>
                                 </label>
@@ -84,9 +93,9 @@
                             {{projectId ? 'Update' : 'Create'}}
                         </button>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
     <div class="col-sm-6">
         <div class="round-button  center-block has-success">

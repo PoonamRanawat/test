@@ -26,7 +26,7 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
                 public toastr: ToastsManager,
                 private formBuilder: FormBuilder) {
         this.projectForm = formBuilder.group({
-            'Name': [null, Validators.required, 'asdasd'],
+            'Name': [null, Validators.required],
             'Description': [null],
             'QuestionnaireTypeId': [null, Validators.required],
             'IsScoringAllowed': [false],
@@ -138,7 +138,6 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
     getProjectDetails() {
         this.projectService.getProjectData(this.projectId).subscribe(
             result => {
-                console.log(result['Data']);
                 this.getDependentFields(result['Data']['QuestionnaireTypeId']);
                 this.projectForm.setValue({
                     Name: result['Data']['Name'],
