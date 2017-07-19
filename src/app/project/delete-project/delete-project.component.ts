@@ -1,5 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, Input, Output, EventEmitter} from '@angular/core';
 import {ModalDirective} from 'ngx-bootstrap/modal';
+import {ProjectService} from '../../core/project.service';
+import {ToastsManager} from 'ng2-toastr';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'cfm-delete-project',
@@ -8,8 +11,10 @@ import {ModalDirective} from 'ngx-bootstrap/modal';
 })
 export class DeleteProjectComponent implements OnInit {
     @ViewChild('deleteProjectModal') public modal: ModalDirective;
+    @Input('projectId') public projectId: number;
+    @Output() reloadProjects = new EventEmitter();
 
-    constructor() {
+    constructor(private projectService: ProjectService, public toastr: ToastsManager, private router: Router) {
     }
 
     ngOnInit() {
@@ -33,7 +38,16 @@ export class DeleteProjectComponent implements OnInit {
      * Delete Project
      */
     deleteProject(): void {
-        console.log('Delete project API will come here');
-        this.hideDeleteProjectModal();
+        this.projectService.deleteProject(this.projectId).subscribe(
+            result => {
+                this.toastr.success('Project deleted successfully');
+                this.reloadProjects.next();
+                this.hideDeleteProjectModal();
+                this.router.navigateByUrl('/');
+            },
+            error => {
+                this.toastr.error(error);
+            }
+        );
     }
 }

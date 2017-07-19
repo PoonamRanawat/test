@@ -2,32 +2,33 @@
 import {Injectable} from '@angular/core';
 import * as _ from 'lodash';
 import {ApiService} from './api.service';
+import {Observable} from 'rxjs';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class ProjectService {
     projects: any;
+    private subject = new Subject<boolean>();
 
     constructor(private apiService: ApiService) {
     }
 
     /**
-     * Add new project
+     * Set the status to reload the projects
      *
-     * @param formValues
+     * @param reloadProjects
      */
-    addProject(formValues: Object): boolean {
-        if (formValues) {
-            this.projects.push({
-                id: 2,
-                name: formValues['name'],
-                description: formValues['description'],
-                type: formValues['projectType'],
-                mode: 'online',
-                scoreSetting: formValues['score']
-            });
-            return true;
-        }
+    reloadProjects(reloadProjects) {
+        this.subject.next(reloadProjects);
+    }
 
+    /**
+     * Send the status to reload the projects
+     *
+     * @returns {Observable<boolean>}
+     */
+    getReloadedProjects(): Observable<any> {
+        return this.subject.asObservable();
     }
 
     /**
@@ -61,4 +62,44 @@ export class ProjectService {
 
         return this.projects[projectIndex];
     }
+
+    /**
+     * Get project details
+     *
+     * @param projectId
+     */
+    getProjectData(projectId: number) {
+        return this.apiService.getMethod(`questionnaire?id=${projectId}`);
+    }
+
+    /**
+     * Create new project
+     *
+     * @param body
+     * @returns {Observable<R|T>}
+     */
+    createProject(body) {
+        return this.apiService.postMethod('project/create', body);
+    }
+
+    /**
+     * Update project
+     *
+     * @param body
+     * @returns {Observable<R|T>}
+     */
+    updateProject(body) {
+        return this.apiService.putMethod('questionnaire/update', body);
+    }
+
+    /**
+     * Delete project
+     *
+     * @param projectId
+     * @returns {Observable<R|T>}
+     */
+    deleteProject(projectId) {
+        return this.apiService.deleteMethod(`questionnaire/delete?id=${projectId}`);
+    }
+
 }

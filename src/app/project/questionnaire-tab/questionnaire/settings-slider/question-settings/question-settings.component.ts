@@ -6,9 +6,11 @@ import {Component, OnInit} from '@angular/core';
     styles: []
 })
 export class QuestionSettingsComponent implements OnInit {
-    private questionSettingsCollapse;
+    questionSettingsCollapse = false;
+
     constructor() {
     }
+
     ngOnInit() {
     }
 

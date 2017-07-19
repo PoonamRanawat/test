@@ -6,7 +6,7 @@ import {Component, OnInit} from '@angular/core';
     styles: []
 })
 export class PageSettingsComponent implements OnInit {
-    private pageSettingsCollapse;
+    pageSettingsCollapse = false;
 
     constructor() {
     }
