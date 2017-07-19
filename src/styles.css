@@ -168,7 +168,7 @@ nav.quick-nav-new .quick-nav-trigger {
 
 /* Sidebar Styles */
 
-.add-new-page .caption a, .grouping-tree .caption a{
+.add-new-page .caption a, .grouping-tree .caption a {
     color: #fff;
     text-decoration: none;
 }
@@ -575,39 +575,50 @@ nav.quick-nav-new .quick-nav-bg-new {
 .no-top-margin {
     margin-top: 0 !important;
 }
-.input-group
-{
-    border:1px solid #435060;
+
+.input-group {
+    border: 1px solid #435060;
     padding: 5px;
 }
-.sidebar-search .btn:not(.md-skip):not(.bs-select-all):not(.bs-deselect-all):hover
-{
+
+.sidebar-search .btn:not(.md-skip):not(.bs-select-all):not(.bs-deselect-all):hover {
     box-shadow: none;
 }
-.input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group
-{
+
+.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
     z-index: 2;
     margin-left: -11px;
 }
-.add-new-page .portlet.box>.portlet-title>.caption, .grouping-tree .portlet.box>.portlet-title>.caption {
+
+.add-new-page .portlet.box > .portlet-title > .caption, .grouping-tree .portlet.box > .portlet-title > .caption {
     font-size: 13px;
     padding: 7px 0 2px !important;
 }
-.add-new-page .portlet.box>.portlet-title>.tools>a.expand,
-.add-new-page .portlet.box>.portlet-title>.tools>a.collapse,
-.grouping-tree .portlet.box>.portlet-title>.tools>a.expand,
-.grouping-tree .portlet.box>.portlet-title>.tools>a.collapse {
+
+.add-new-page .portlet.box > .portlet-title > .tools > a.expand,
+.add-new-page .portlet.box > .portlet-title > .tools > a.collapse,
+.grouping-tree .portlet.box > .portlet-title > .tools > a.expand,
+.grouping-tree .portlet.box > .portlet-title > .tools > a.collapse {
     background-size: 10px;
 }
-.add-new-page .portlet.box>.portlet-title, .grouping-tree .portlet.box>.portlet-title{
+
+.add-new-page .portlet.box > .portlet-title, .grouping-tree .portlet.box > .portlet-title {
     min-height: 33px;
 }
-.add-new-page .portlet>.portlet-title>.tools, .grouping-tree .portlet>.portlet-title>.tools{
+
+.add-new-page .portlet > .portlet-title > .tools, .grouping-tree .portlet > .portlet-title > .tools {
     padding: 7px 0 0 0;
 }
+
 .sidebar-search .input-group .form-control {
     width: 96%;
 }
+
 .btn-new {
     width: 94px;
+}
+
+nav.quick-nav {
+    top: 55px;
+    margin-top: 0px;
 }

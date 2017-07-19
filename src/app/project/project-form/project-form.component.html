@@ -27,11 +27,12 @@
                                        required
                                        #name="ngModel">
                                 <label for="name">Name<span class="text-danger"> *</span></label>
+                                <small *ngIf="(name.invalid && name.touched )"
+                                       class="text-danger">
+                                    Name is required
+                                </small>
                             </div>
-                            <small *ngIf="name.errors && (name.dirty || name.touched)"
-                                   class="text-danger">
-                                Name is required
-                            </small>
+
                             <div class="form-group form-md-line-input form-md-floating-label">
                                 <textarea [ngClass]="description.value ? 'form-control edited': 'form-control'" rows="2"
                                           id="description"
