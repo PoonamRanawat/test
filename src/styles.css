@@ -7,7 +7,6 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css");
 @import url("./styles/global/components-md.min.css");
 @import url("./styles/global/boostrap-switch.css");
-@import url("./styles/custom/custom.css");
 
 .nav-item ul.sub-menu {
     display: none;
