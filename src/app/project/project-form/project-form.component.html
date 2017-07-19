@@ -29,6 +29,10 @@
                                        [class.edited]="projectForm.get('Name').value"
                                 >
                                 <label for="projectName">Name<span class="text-danger"> *</span></label>
+                                <span *ngIf="projectForm.get('Name').hasError('required') && projectForm.get('Name').touched"
+                                       class="text-danger">
+                                    Name is required
+                                </span>
                             </div>
                             <div class="form-group form-md-line-input form-md-floating-label">
                                 <textarea class="form-control"
@@ -52,12 +56,12 @@
                             <p><i>Note: Once the project is created, the <strong>type of modes</strong> can't be
                                 changed.</i></p>
                             <div class="form-group" *ngIf="modes.length > 0">
-                                <label>Modes</label>
+                                <label>Modes<span class="text-danger"> *</span></label>
                                 <div class="mt-checkbox-inline">
                                     <label class="mt-checkbox" *ngFor="let mode of modes; let i = index">
                                         <input type="checkbox"
-                                               name="mode"
-                                               [checked]="mode['status'] == true"
+                                               formControlName="Modes"
+                                               [checked]="isModeSelected(mode['Name'])"
                                                value="{{mode['Name']}}"
                                                required (change)="selectModeCheckbox($event.target.value)"
                                         >{{mode['Name']}}

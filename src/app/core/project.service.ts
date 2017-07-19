@@ -18,7 +18,7 @@ export class ProjectService {
      *
      * @param reloadProjects
      */
-    reloadProjects(reloadProjects) {
+    reloadProjects(reloadProjects: boolean) {
         this.subject.next(reloadProjects);
     }
 

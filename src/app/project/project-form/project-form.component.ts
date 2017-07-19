@@ -13,12 +13,10 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 export class ProjectFormComponent implements OnInit, OnDestroy {
     projectForm: FormGroup;
-    projectType: number;
     projectId: number;
     types: any;
     modes = [];
     scoreSettingAvailable: any;
-    titleAlert: string = 'This field is required';
     private sub: any;
     private modesSelected = [];
 
@@ -28,10 +26,11 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
                 public toastr: ToastsManager,
                 private formBuilder: FormBuilder) {
         this.projectForm = formBuilder.group({
-            'Name': [null, Validators.required],
+            'Name': [null, Validators.required, 'asdasd'],
             'Description': [null],
             'QuestionnaireTypeId': [null, Validators.required],
-            'IsScoringAllowed': [false]
+            'IsScoringAllowed': [false],
+            'Modes': [[], Validators.required]
         });
     }
 
@@ -43,18 +42,6 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
             }
 
         });
-
-        // this.projectForm.get('validate').valueChanges.subscribe(
-        //     (validate) => {
-        //         // if (validate == '1') {
-        //         //     this.projectForm.get('projectName').setValidators([Validators.required, Validators.minLength(3)]);
-        //         //     this.titleAlert = 'You need to specify at least 3 characters';
-        //         // } else {
-        //         //     this.projectForm.get('projectName').setValidators(Validators.required);
-        //         // }
-        //         // this.projectForm.get('projectName').updateValueAndValidity();
-        //     }
-        // );
 
         this.types = this.configService.getConfigProperty()['QuestionnaireTypes'];
     }
@@ -151,17 +138,39 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
     getProjectDetails() {
         this.projectService.getProjectData(this.projectId).subscribe(
             result => {
+                console.log(result['Data']);
                 this.getDependentFields(result['Data']['QuestionnaireTypeId']);
                 this.projectForm.setValue({
                     Name: result['Data']['Name'],
                     Description: result['Data']['Description'],
                     QuestionnaireTypeId: result['Data']['QuestionnaireTypeId'],
-                    IsScoringAllowed: result['Data']['IsScoringAllowed']
+                    IsScoringAllowed: result['Data']['IsScoringAllowed'],
+                    Modes: result['Data']['Modes']
                 });
             },
             error => {
                 this.toastr.error(error);
             }
         );
+    }
+
+    /**
+     * Check if mode is selected
+     *
+     * @param modeName
+     * @returns {any}
+     */
+    isModeSelected(modeName: string): boolean {
+        const modesValue = this.projectForm.get('Modes').value;
+        if (modesValue.length) {
+            const valueIndex = _.findIndex(this.projectForm.get('Modes').value, (o) => {
+                return o['ModeName'] === modeName;
+            });
+
+            if (valueIndex >= 0) {
+                return modesValue[valueIndex]['Status'];
+            }
+        }
+        return false;
     }
 }
