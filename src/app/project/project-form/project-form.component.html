@@ -1,40 +1,40 @@
-<div>
-    <h1 class="page-title no-top-margin">Project</h1>
-    <hr/>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="portlet light bordered">
-                <div class="portlet-title">
-                    <div class="caption font-green-haze">
-                        General Settings
-                    </div>
-                    <div class="actions">
-                        <a class="btn btn-circle btn-icon-only blue">
-                            <i class="fa fa-floppy-o"></i>
-                        </a>
-
-                        <a class="btn btn-circle btn-icon-only red" (click)="modal.showDeleteProjectModal()">
-                            <i class="icon-trash"></i>
-                        </a>
-                    </div>
+<div class="page-bar">
+    <h1 class="page-title page-breadcrumb">Project</h1>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-green-haze">
+                    General Settings
                 </div>
-                <div class="portlet-body form">
-                    <form (ngSubmit)="onSubmit(projectForm.value)" [formGroup]="projectForm">
-                        <div class="form-body">
-                            <div class="form-group form-md-line-input form-md-floating-label">
-                                <input formControlName="Name"
-                                       type="text"
-                                       id="projectName"
-                                       class="form-control"
-                                       [class.edited]="projectForm.get('Name').value"
-                                >
-                                <label for="projectName">Name<span class="text-danger"> *</span></label>
-                                <span *ngIf="projectForm.get('Name').hasError('required') && projectForm.get('Name').touched"
-                                       class="text-danger">
+                <div class="actions" *ngIf="projectId">
+                    <a class="btn btn-circle btn-icon-only blue">
+                        <i class="fa fa-floppy-o"></i>
+                    </a>
+
+                    <a class="btn btn-circle btn-icon-only red" (click)="modal.showDeleteProjectModal()">
+                        <i class="icon-trash"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <form (ngSubmit)="onSubmit(projectForm.value)" [formGroup]="projectForm">
+                    <div class="form-body">
+                        <div class="form-group form-md-line-input form-md-floating-label">
+                            <input formControlName="Name"
+                                   type="text"
+                                   id="projectName"
+                                   class="form-control"
+                                   [class.edited]="projectForm.get('Name').value"
+                            >
+                            <label for="projectName">Name<span class="text-danger"> *</span></label>
+                            <span *ngIf="projectForm.get('Name').hasError('required') && projectForm.get('Name').touched"
+                                  class="text-danger">
                                     Name is required
                                 </span>
-                            </div>
-                            <div class="form-group form-md-line-input form-md-floating-label">
+                        </div>
+                        <div class="form-group form-md-line-input form-md-floating-label">
                                 <textarea class="form-control"
                                           [class.edited]="projectForm.get('Description').value"
                                           rows="2"
@@ -42,59 +42,59 @@
                                           formControlName="Description"
                                 >
                                 </textarea>
-                                <label for="description">Description</label>
-                            </div>
-                            <div class="form-group form-md-line-input form-md-floating-label">
-                                <select class="form-control edited" formControlName="QuestionnaireTypeId"
-                                        id="projectType" (change)="getDependentFields($event.target.value)">
-                                    <option *ngFor="let type of types" [value]="type['ID']">{{type['DisplayName']}}
-                                    </option>
-                                </select>
-                                <label for="projectType">Type<span class="text-danger"> *</span></label>
+                            <label for="description">Description</label>
+                        </div>
+                        <div class="form-group form-md-line-input form-md-floating-label">
+                            <select class="form-control edited" formControlName="QuestionnaireTypeId"
+                                    id="projectType" (change)="getDependentFields($event.target.value)">
+                                <option *ngFor="let type of types" [value]="type['ID']">{{type['DisplayName']}}
+                                </option>
+                            </select>
+                            <label for="projectType">Type<span class="text-danger"> *</span></label>
 
-                            </div>
-                            <p><i>Note: Once the project is created, the <strong>type of modes</strong> can't be
-                                changed.</i></p>
-                            <div class="form-group" *ngIf="modes.length > 0">
-                                <label>Modes<span class="text-danger"> *</span></label>
-                                <div class="mt-checkbox-inline">
-                                    <label class="mt-checkbox" *ngFor="let mode of modes; let i = index">
-                                        <input type="checkbox"
-                                               formControlName="Modes"
-                                               [checked]="isModeSelected(mode['Name'])"
-                                               value="{{mode['Name']}}"
-                                               required (change)="selectModeCheckbox($event.target.value)"
-                                        >{{mode['Name']}}
-                                        <span></span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-group" *ngIf="scoreSettingAvailable">
-                                <label class=""><strong>Score Setting</strong> </label>
-                                <div class="pull-right">
-                                    <bSwitch [switch-base-class]="'bootstrap-switch'"
-                                             formControlName="IsScoringAllowed"
-                                    ></bSwitch>
-                                </div>
-                                <div class="clearfix"></div>
+                        </div>
+                        <p><i>Note: Once the project is created, the <strong>type of modes</strong> can't be
+                            changed.</i></p>
+                        <div class="form-group" *ngIf="modes.length > 0">
+                            <label>Modes<span class="text-danger"> *</span></label>
+                            <div class="mt-checkbox-inline">
+                                <label class="mt-checkbox" *ngFor="let mode of modes; let i = index">
+                                    <input type="checkbox"
+                                           formControlName="Modes"
+                                           [checked]="isModeSelected(mode['Name'])"
+                                           value="{{mode['Name']}}"
+                                           required (change)="selectModeCheckbox($event.target.value)"
+                                    >{{mode['Name']}}
+                                    <span></span>
+                                </label>
                             </div>
                         </div>
-                        <div class="form-actions right1">
-                            <button type="submit" class="btn blue pull-right" [disabled]="!projectForm.valid">
-                                {{projectId ? 'Update' : 'Create'}}
-                            </button>
+                        <div class="form-group" *ngIf="scoreSettingAvailable">
+                            <label class=""><strong>Score Setting</strong> </label>
+                            <div class="pull-right">
+                                <bSwitch [switch-base-class]="'bootstrap-switch'"
+                                         formControlName="IsScoringAllowed"
+                                ></bSwitch>
+                            </div>
+                            <div class="clearfix"></div>
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="round-button  center-block has-success">
-                <div class="round-button-circle"><a [routerLink]="['/project']" class="round-button"><i
-                        class="fa fa-plus" aria-hidden="true"></i></a></div>
-                <span class="help-block" style="margin:10px 0;"><b>Add new widget</b></span>
+                    </div>
+                    <div class="form-actions right1">
+                        <button type="submit" class="btn blue pull-right" [disabled]="!projectForm.valid">
+                            {{projectId ? 'Update' : 'Create'}}
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+    <div class="col-sm-6">
+        <div class="round-button  center-block has-success">
+            <div class="round-button-circle"><a [routerLink]="['/project']" class="round-button"><i
+                    class="fa fa-plus" aria-hidden="true"></i></a></div>
+            <span class="help-block" style="margin:10px 0;"><b>Add new widget</b></span>
+        </div>
+    </div>
 </div>
+
 <cfm-delete-project #modal [projectId]="projectId" (reloadProjects)="reloadProjects()"></cfm-delete-project>

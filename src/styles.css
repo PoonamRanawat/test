@@ -568,6 +568,6 @@ nav.quick-nav-new .quick-nav-bg-new {
     padding: 4px 0 5px 1px !important;
 }
 
-.no-top-margin {
-    margin-top: 0 !important;
+.page-content-white .page-content .page-bar {
+    margin-bottom: 15px;
 }
