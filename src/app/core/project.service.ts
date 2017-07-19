@@ -55,19 +55,6 @@ export class ProjectService {
      *
      * @param projectId
      */
-    getProject(projectId: number) {
-        const projectIndex = _.findIndex(this.projects, (o) => {
-            return o['id'] === projectId;
-        });
-
-        return this.projects[projectIndex];
-    }
-
-    /**
-     * Get project details
-     *
-     * @param projectId
-     */
     getProjectData(projectId: number) {
         return this.apiService.getMethod(`questionnaire?id=${projectId}`);
     }
