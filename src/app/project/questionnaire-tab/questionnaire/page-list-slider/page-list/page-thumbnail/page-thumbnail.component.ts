@@ -19,7 +19,7 @@ export class PageThumbnailComponent implements OnInit {
     /**
      * creates a copy of selected page
      */
-    private copyPage() {
+    copyPage() {
         console.log('Copy the Page' + this.pageId);
     }
 

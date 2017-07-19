@@ -6,7 +6,8 @@ import {Component, OnInit} from '@angular/core';
     styles: []
 })
 export class AnswerSettingsComponent implements OnInit {
-    private answerSettingsCollapse;
+    answerSettingsCollapse = false;
+
     constructor() {
     }
 

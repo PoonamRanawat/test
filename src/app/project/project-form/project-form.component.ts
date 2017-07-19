@@ -1,41 +1,48 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {NgForm} from '@angular/forms';
-import {ProjectSettings} from '../projectSettings';
 import {ConfigService} from '../../core/config.service';
 import * as _ from 'lodash';
 import {ProjectService} from '../../core/project.service';
 import {ActivatedRoute} from '@angular/router';
+import {ToastsManager} from 'ng2-toastr/ng2-toastr';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
     selector: 'cfm-project-form',
-    templateUrl: './project-form.component.html',
-    styles: [],
-    providers: [ProjectSettings]
+    templateUrl: './project-form.component.html'
 })
 
 export class ProjectFormComponent implements OnInit, OnDestroy {
-    name: string;
-    description: string;
-    projectSettings: ProjectSettings;
+    projectForm: FormGroup;
     projectId: number;
-    types = [];
+    types: any;
     modes = [];
-    scoreSettingAvailable: boolean;
+    scoreSettingAvailable: any;
     private sub: any;
-    private modeData = ['Online'];
+    private modesSelected = [];
 
-    constructor(ps: ProjectSettings,
-                private configService: ConfigService,
+    constructor(private configService: ConfigService,
                 private projectService: ProjectService,
-                private route: ActivatedRoute) {
-        this.projectSettings = ps;
+                private route: ActivatedRoute,
+                public toastr: ToastsManager,
+                private formBuilder: FormBuilder) {
+        this.projectForm = formBuilder.group({
+            'Name': [null, Validators.required],
+            'Description': [null],
+            'QuestionnaireTypeId': [null, Validators.required],
+            'IsScoringAllowed': [false],
+            'Modes': [[], Validators.required]
+        });
     }
 
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
             this.projectId = +params['id'];
-            // console.log(this.projectService.getProject(this.projectId));
+            if (this.projectId) {
+                this.getProjectDetails();
+            }
+
         });
+
         this.types = this.configService.getConfigProperty()['QuestionnaireTypes'];
     }
 
@@ -46,10 +53,59 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
     /**
      * Add new project
      *
-     * @param form
+     * @param data
      */
-    onSubmit(form: NgForm): void {
-        console.log(form.value);
+    onSubmit(data): void {
+        data['Modes'] = this.prepareModeData();
+        if (this.projectId) {
+            data['Id'] = this.projectId;
+            this.projectService.updateProject(data).subscribe(
+                result => {
+                    this.toastr.success('Updated successfully');
+                    this.reloadProjects();
+                },
+                error => {
+                    this.toastr.error(error.ErrorMessage);
+                }
+            )
+        } else {
+            this.projectService.createProject(data).subscribe(
+                result => {
+                    this.toastr.success('Created successfully');
+                    this.reloadProjects();
+                },
+                error => {
+                    this.toastr.error(error.ErrorMessage);
+                }
+            )
+        }
+    }
+
+    /**
+     * Reload the new projects
+     */
+    reloadProjects() {
+        this.projectService.setProjects();
+        this.projectService.reloadProjects(true);
+    }
+
+    /**
+     * Prepare mode data for API
+     *
+     * @returns {Array}
+     */
+    prepareModeData() {
+        let modeData = [];
+        if (this.modes && this.modesSelected) {
+            for (let i = 0; i < this.modes.length; i++) {
+                modeData.push({
+                    'ModeName': this.modes[i]['Name'],
+                    'Status': (this.modesSelected.indexOf(this.modes[i]['Name']) !== -1)
+                });
+            }
+        }
+
+        return modeData;
     }
 
     /**
@@ -67,11 +123,53 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
     }
 
     /**
-     * Push modes into modedata properties
+     * Push modes into mode data properties
      *
      * @param value
      */
     selectModeCheckbox(value: string): void {
-        (this.modeData.indexOf(value) === -1) ? this.modeData.push(value) : this.modeData.splice(this.modeData.indexOf(value), 1);
+        (this.modesSelected.indexOf(value) === -1) ? this.modesSelected.push(value) :
+            this.modesSelected.splice(this.modesSelected.indexOf(value), 1);
+    }
+
+    /**
+     * Get project details
+     */
+    getProjectDetails() {
+        this.projectService.getProjectData(this.projectId).subscribe(
+            result => {
+                this.getDependentFields(result['Data']['QuestionnaireTypeId']);
+                this.projectForm.setValue({
+                    Name: result['Data']['Name'],
+                    Description: result['Data']['Description'],
+                    QuestionnaireTypeId: result['Data']['QuestionnaireTypeId'],
+                    IsScoringAllowed: result['Data']['IsScoringAllowed'],
+                    Modes: result['Data']['Modes']
+                });
+            },
+            error => {
+                this.toastr.error(error);
+            }
+        );
+    }
+
+    /**
+     * Check if mode is selected
+     *
+     * @param modeName
+     * @returns {any}
+     */
+    isModeSelected(modeName: string): boolean {
+        const modesValue = this.projectForm.get('Modes').value;
+        if (modesValue.length) {
+            const valueIndex = _.findIndex(this.projectForm.get('Modes').value, (o) => {
+                return o['ModeName'] === modeName;
+            });
+
+            if (valueIndex >= 0) {
+                return modesValue[valueIndex]['Status'];
+            }
+        }
+        return false;
     }
 }

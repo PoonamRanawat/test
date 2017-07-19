@@ -6,6 +6,7 @@ import {AddPage} from './add-page';
 import {ConfigService} from '../../core/config.service';
 import {ProjectService} from '../../core/project.service'
 import * as _ from 'lodash';
+import {ToastsManager} from 'ng2-toastr';
 
 @Component({
     selector: 'cfm-add-page',
@@ -24,15 +25,23 @@ export class AddPageComponent implements OnInit {
 
     constructor(private route: ActivatedRoute,
                 private configService: ConfigService,
-                private projectService: ProjectService) {
+                private projectService: ProjectService,
+                public toastr: ToastsManager) {
     }
 
     ngOnInit() {
         this.route.params.subscribe((params: any) => {
             this.projectId = +params['id'];
         });
-        this.modeType = this.projectService.getProject(this.projectId)['type'];
-        this.pageTypes = this.configService.getConfigPropertyByModeId(this.modeType)['PageTypes'];
+
+        this.projectService.getProjectData(this.projectId).subscribe(
+            result => {
+                this.modeType = result['Data']['QuestionnaireTypeId'];
+                this.pageTypes = this.configService.getConfigPropertyByModeId(this.modeType)['PageTypes'];
+            }, error => {
+                this.toastr.error(error);
+            }
+        );
     }
 
     /**

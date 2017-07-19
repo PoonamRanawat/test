@@ -1,10 +1,8 @@
 import {Component, ViewContainerRef, OnInit} from '@angular/core';
-import {Router, NavigationStart, NavigationEnd, NavigationError, NavigationCancel, RoutesRecognized} from '@angular/router';
+import {Router, NavigationStart} from '@angular/router';
 import {MenuService} from './core/menu.service';
 import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 import {Menu} from './core/menu';
-import {ConfigService} from './core/config.service';
-import {ProjectService} from './core/project.service';
 
 @Component({
     selector: 'cfm-root',
@@ -12,14 +10,10 @@ import {ProjectService} from './core/project.service';
 })
 export class AppComponent implements OnInit {
     flag: boolean;
-    projects = [];
-    projectMenuItems = [];
 
     constructor(public toastr: ToastsManager,
                 vcr: ViewContainerRef,
                 private menuService: MenuService,
-                private configService: ConfigService,
-                private projectService: ProjectService,
                 private router: Router) {
         this.toastr.setRootViewContainerRef(vcr);
         // Opening the side menu on page change.
@@ -32,8 +26,6 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         // @todo: Change this with menu API. Right now it is hardcoded values.
-        this.getProjects();
-
         this.menuService.add('languages', {
             position: 1,
             Name: 'English',
@@ -96,25 +88,6 @@ export class AppComponent implements OnInit {
             }, Children: null, IconClass: null, IconSource: null, showInMenu: true, Route: ''
         });
 
-        //Sidebar menu
-        this.menuService.add('left', {
-            position: 1, Name: 'Home', Exec: (selected: Menu) => {
-            }, Children: null, IconClass: 'icon-home', IconSource: null, showInMenu: true, Route: '/'
-        });
-
-
-        this.menuService.add('left', {
-            position: 1,
-            Name: 'Data collection',
-            Exec: (selected: Menu) => {
-            },
-            Children: this.projectMenuItems,
-            IconClass: 'icon-puzzle',
-            IconSource: null,
-            showInMenu: true,
-            Route: ''
-        });
-
         this.menuService.add('quick', {
             position: 1, Name: 'Quick Menu 1', Exec: (selected: Menu) => {
             }, Children: null, IconClass: 'icon-magnifier', IconSource: null, showInMenu: true, Route: '/dashboard'
@@ -123,7 +96,6 @@ export class AppComponent implements OnInit {
             position: 1, Name: 'Quick Menu 2', Exec: (selected: Menu) => {
             }, Children: null, IconClass: 'icon-magnifier', IconSource: null, showInMenu: true, Route: '/dashboard'
         });
-
     }
 
     /**
@@ -135,51 +107,4 @@ export class AppComponent implements OnInit {
         this.menuService.setToggleClass(value);
         this.flag = this.menuService.getToggleClass();
     }
-
-    /**
-     * Get projects
-     */
-    getProjects() {
-        this.projectService.getProjects().subscribe(
-            result => {
-                this.projects = result['Data'];
-                this.prepareProjectMenuItems();
-            },
-            error => {
-                console.log(error);
-            }
-        );
-    }
-
-    /**
-     * Prepare project menu items
-     */
-    prepareProjectMenuItems() {
-        if(this.projects.length > 0) {
-            for (let i = 0; i < this.projects.length; i++) {
-                this.projectMenuItems.push({
-                    position: 1,
-                    Name: this.projects[i]['Name'],
-                    Exec: (selected: Menu) => {
-                    },
-                    Children: [{
-                        position: 1,
-                        Name: 'Questionnaire',
-                        Exec: (selected: Menu) => {
-                        },
-                        Children: null,
-                        IconClass: 'null',
-                        IconSource: null,
-                        showInMenu: true,
-                        Route: `/project/${this.projects[i]['Id']}/questionnaire`
-                    }],
-                    IconClass: 'null',
-                    IconSource: null,
-                    showInMenu: true,
-                    Route: `/project/${this.projects[i]['Id']}`
-                });
-            }
-        }
-    }
-
 }
