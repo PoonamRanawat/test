@@ -40,7 +40,7 @@ export class DeleteProjectComponent implements OnInit {
     deleteProject(): void {
         this.projectService.deleteProject(this.projectId).subscribe(
             result => {
-                this.toastr.success('Project deleted successfully');
+                this.toastr.success(result['Message']);
                 this.reloadProjects.next();
                 this.hideDeleteProjectModal();
                 this.router.navigateByUrl('/');

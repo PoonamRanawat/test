@@ -61,7 +61,7 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
             data['Id'] = this.projectId;
             this.projectService.updateProject(data).subscribe(
                 result => {
-                    this.toastr.success('Updated successfully');
+                    this.toastr.success(result['Message']);
                     this.reloadProjects();
                 },
                 error => {
@@ -71,7 +71,7 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
         } else {
             this.projectService.createProject(data).subscribe(
                 result => {
-                    this.toastr.success('Created successfully');
+                    this.toastr.success(result['Message']);
                     this.reloadProjects();
                 },
                 error => {
