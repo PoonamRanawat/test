@@ -92,7 +92,7 @@ export class SideBarComponent implements OnInit {
                     showInMenu: true,
                     Route: `/project/${this.projects[i]['QuestionnaireId']}/questionnaire`
                 }],
-                IconClass: 'null',
+                IconClass: 'icon-puzzle',
                 IconSource: null,
                 showInMenu: true,
                 Route: `/project/${this.projects[i]['QuestionnaireId']}`

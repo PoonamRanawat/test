@@ -628,5 +628,8 @@ nav.quick-nav {
 
 .page-header.navbar .top-menu .navbar-nav > li.dropdown-notification ul.new-dropdown .dropdown-menu-list > li a .details .label-icon {
     border-radius: 0;
+}
 
+.slimScrollDiv .dropdown-menu-list {
+    height: 250px;
 }
