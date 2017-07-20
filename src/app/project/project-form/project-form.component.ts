@@ -67,7 +67,7 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
                     this.reloadProjects();
                 },
                 error => {
-                    this.toastr.error(error.ErrorMessage);
+                    this.toastr.error(JSON.parse(error._body).Message);
                 }
             )
         } else {
@@ -97,7 +97,11 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
      * @returns {Array}
      */
     prepareModeData() {
+        if (this.projectId && !this.modesSelected) {
+            return this.projectForm.get('Modes').value;
+        }
         let modeData = [];
+
         if (this.modes && this.modesSelected) {
             for (let i = 0; i < this.modes.length; i++) {
                 modeData.push({
@@ -133,7 +137,7 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
         (this.modesSelected.indexOf(value) === -1) ? this.modesSelected.push(value) :
             this.modesSelected.splice(this.modesSelected.indexOf(value), 1);
 
-        if(this.modesSelected.length === 0) {
+        if (this.modesSelected.length === 0) {
             this.projectForm.get('Modes').setValue('');
         }
     }
