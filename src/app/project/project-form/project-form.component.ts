@@ -39,6 +39,8 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
             this.projectId = +params['id'];
             if (this.projectId) {
                 this.getProjectDetails();
+                //Disable the project type field in edit mode
+                this.projectForm.get('QuestionnaireTypeId').disable();
             }
 
         });
@@ -65,6 +67,7 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
                     this.reloadProjects();
                 },
                 error => {
+                    console.log(error);
                     this.toastr.error(error.ErrorMessage);
                 }
             )
@@ -75,7 +78,7 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
                     this.reloadProjects();
                 },
                 error => {
-                    this.toastr.error(error.ErrorMessage);
+                    this.toastr.error(JSON.parse(error._body).Message);
                 }
             )
         }
@@ -138,6 +141,7 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
     getProjectDetails() {
         this.projectService.getProjectData(this.projectId).subscribe(
             result => {
+                console.log(result['Data']);
                 this.getDependentFields(result['Data']['QuestionnaireTypeId']);
                 this.projectForm.setValue({
                     Name: result['Data']['Name'],
