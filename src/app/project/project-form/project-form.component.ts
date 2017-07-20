@@ -67,7 +67,6 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
                     this.reloadProjects();
                 },
                 error => {
-                    console.log(error);
                     this.toastr.error(error.ErrorMessage);
                 }
             )
@@ -133,6 +132,10 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
     selectModeCheckbox(value: string): void {
         (this.modesSelected.indexOf(value) === -1) ? this.modesSelected.push(value) :
             this.modesSelected.splice(this.modesSelected.indexOf(value), 1);
+
+        if(this.modesSelected.length === 0) {
+            this.projectForm.get('Modes').setValue('');
+        }
     }
 
     /**
