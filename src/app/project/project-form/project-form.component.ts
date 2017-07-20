@@ -129,6 +129,7 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
 
         this.modes = this.types[valueIndex]['Modes'];
         this.scoreSettingAvailable = (!!this.types[valueIndex]['Scoring']);
+        this.projectForm.get('Modes').setValue('');
     }
 
     /**
