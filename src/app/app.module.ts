@@ -15,6 +15,7 @@ import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {SubMenuComponent} from './shared/side-bar/sub-menu/sub-menu.component';
 import {QuickMenuComponent} from './shared/quick-menu/quick-menu.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MomentModule} from 'angular2-moment';
 
 @NgModule({
     declarations: [
@@ -34,7 +35,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
         AppRoutingModule,
         BsDropdownModule.forRoot(),
         ToastModule.forRoot(),
-        ProjectModule
+        ProjectModule,
+        MomentModule
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy}

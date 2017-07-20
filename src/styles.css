@@ -564,13 +564,11 @@ nav.quick-nav-new .quick-nav-bg-new {
     margin-bottom: 15px;
 }
 
-
 .has-error .help-block {
     color: #e73d4a;
 }
 
 .input-group {
-    border: 1px solid #435060;
     padding: 5px;
 }
 
@@ -612,6 +610,23 @@ nav.quick-nav-new .quick-nav-bg-new {
 }
 
 nav.quick-nav {
-    top: 55px;
+    top: 45px;
     margin-top: 0;
+}
+
+.slimScrollDiv {
+    position: relative;
+    overflow-x: scroll;
+    width: auto;
+    height: 250px;
+}
+
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-extended ul.new-dropdown {
+    max-width: 335px;
+    width: 337px;
+}
+
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-notification ul.new-dropdown .dropdown-menu-list > li a .details .label-icon {
+    border-radius: 0;
+
 }

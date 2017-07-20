@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {ActivatedRoute} from '@angular/router'
+import {ActivatedRoute} from '@angular/router';
 import {ModalDirective} from 'ngx-bootstrap/modal';
 import {AddPage} from './add-page';
 import {ConfigService} from '../../core/config.service';

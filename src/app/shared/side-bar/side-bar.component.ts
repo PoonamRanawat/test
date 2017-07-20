@@ -70,48 +70,48 @@ export class SideBarComponent implements OnInit {
      * @param updateProjectMenuItems
      */
     prepareProjectMenuItems(updateProjectMenuItems = false): void {
-        if (this.projects.length > 0) {
-            if (updateProjectMenuItems) {
-                this.projectMenuItems = [];
-            }
 
-            for (let i = 0; i < this.projects.length; i++) {
-                this.projectMenuItems.push({
-                    position: 1,
-                    Name: this.projects[i]['Name'],
-                    Exec: (selected: Menu) => {
-                    },
-                    Children: [{
-                        position: 1,
-                        Name: 'Questionnaire',
-                        Exec: (selected: Menu) => {
-                        },
-                        Children: null,
-                        IconClass: 'null',
-                        IconSource: null,
-                        showInMenu: true,
-                        Route: `/project/${this.projects[i]['QuestionnaireId']}/questionnaire`
-                    }],
-                    IconClass: 'null',
-                    IconSource: null,
-                    showInMenu: true,
-                    Route: `/project/${this.projects[i]['QuestionnaireId']}`
-                });
-            }
+        if (updateProjectMenuItems) {
+            this.projectMenuItems = [];
+        }
 
-            const projectMenu = {
+        for (let i = 0; i < this.projects.length; i++) {
+            this.projectMenuItems.push({
                 position: 1,
-                Name: 'Data collection',
+                Name: this.projects[i]['Name'],
                 Exec: (selected: Menu) => {
                 },
-                Children: this.projectMenuItems,
-                IconClass: 'icon-puzzle',
+                Children: [{
+                    position: 1,
+                    Name: 'Questionnaire',
+                    Exec: (selected: Menu) => {
+                    },
+                    Children: null,
+                    IconClass: 'icon-puzzle',
+                    IconSource: null,
+                    showInMenu: true,
+                    Route: `/project/${this.projects[i]['QuestionnaireId']}/questionnaire`
+                }],
+                IconClass: 'null',
                 IconSource: null,
                 showInMenu: true,
-                Route: ''
-            };
-
-            updateProjectMenuItems ? this.menuService.update('left', projectMenu) : this.menuService.add('left', projectMenu);
+                Route: `/project/${this.projects[i]['QuestionnaireId']}`
+            });
         }
+
+        const projectMenu = {
+            position: 1,
+            Name: 'Data collection',
+            Exec: (selected: Menu) => {
+            },
+            Children: this.projectMenuItems,
+            IconClass: 'icon-settings',
+            IconSource: null,
+            showInMenu: true,
+            Route: ''
+        };
+
+        updateProjectMenuItems ? this.menuService.update('left', projectMenu) : this.menuService.add('left', projectMenu);
     }
+
 }
