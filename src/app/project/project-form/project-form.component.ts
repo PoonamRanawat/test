@@ -2,7 +2,7 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
 import {ConfigService} from '../../core/config.service';
 import * as _ from 'lodash';
 import {ProjectService} from '../../core/project.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
@@ -24,7 +24,8 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
                 private projectService: ProjectService,
                 private route: ActivatedRoute,
                 public toastr: ToastsManager,
-                private formBuilder: FormBuilder) {
+                private formBuilder: FormBuilder,
+                private router: Router) {
         this.projectForm = formBuilder.group({
             'Name': [null, Validators.required],
             'Description': [null],
@@ -75,6 +76,7 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
                 result => {
                     this.toastr.success(result['Message']);
                     this.reloadProjects();
+                    this.router.navigateByUrl(`/project/${result['Data']['Id']}`);
                 },
                 error => {
                     this.toastr.error(JSON.parse(error._body).Message);
