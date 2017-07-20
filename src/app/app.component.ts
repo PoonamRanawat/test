@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
             IconClass: null,
             IconSource: './assets/global/img/flags/us.png',
             showInMenu: true,
-            Route: ''
+            Route: '',
         });
         this.menuService.add('languages', {
             position: 1,
@@ -69,23 +69,6 @@ export class AppComponent implements OnInit {
             IconSource: './assets/global/img/flags/ru.png',
             showInMenu: true,
             Route: ''
-        });
-
-        this.menuService.add('alerts', {
-            position: 1, Name: 'Alert 1', Exec: (selected: Menu) => {
-            }, Children: null, IconClass: null, IconSource: null, showInMenu: true, Route: ''
-        });
-        this.menuService.add('alerts', {
-            position: 1, Name: 'Alert 2', Exec: (selected: Menu) => {
-            }, Children: null, IconClass: null, IconSource: null, showInMenu: true, Route: ''
-        });
-        this.menuService.add('alerts', {
-            position: 1, Name: 'Alert 3', Exec: (selected: Menu) => {
-            }, Children: null, IconClass: null, IconSource: null, showInMenu: true, Route: ''
-        });
-        this.menuService.add('alerts', {
-            position: 1, Name: 'Alert 4', Exec: (selected: Menu) => {
-            }, Children: null, IconClass: null, IconSource: null, showInMenu: true, Route: ''
         });
 
         this.menuService.add('quick', {

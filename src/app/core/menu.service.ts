@@ -1,6 +1,7 @@
 // @todo: This file is having hardcoded values, replace it later when we have API in place.
 import {Injectable} from '@angular/core';
 import {Menu} from './menu';
+import {ApiService} from './api.service';
 
 @Injectable()
 export class MenuService {
@@ -8,7 +9,7 @@ export class MenuService {
     activeMenus: any;
     flag = false;
 
-    constructor() {
+    constructor(private apiService: ApiService) {
         this.menus = {
             alerts: [],
             languages: [],
@@ -36,7 +37,7 @@ export class MenuService {
         if (!this.menus[location]) {
             return null
         }
-        ;
+
         return this.menus[location];
     }
 
@@ -64,6 +65,17 @@ export class MenuService {
         if (this.menus[location]) {
             this.menus[location].splice(position, 0, newConfig);
             newConfig.position = position;
+        }
+    }
+
+    /**
+     * Delete the particular menu
+     *
+     * @param location
+     */
+    delete(location: string) {
+        if (this.menus[location]) {
+            this.menus[location] = [];
         }
     }
 
@@ -125,6 +137,15 @@ export class MenuService {
      */
     getToggleClass(): boolean {
         return this.flag;
+    }
+
+    /**
+     * Get notifications
+     *
+     * @returns {Observable<R|T>}
+     */
+    getNotifications() {
+        return this.apiService.getMethod('notificationhistory');
     }
 
 }

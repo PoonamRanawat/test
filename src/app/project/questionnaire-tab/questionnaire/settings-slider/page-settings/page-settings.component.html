@@ -2,16 +2,15 @@
     <div class="portlet box blue">
         <div class="portlet-title">
             <div class="caption">
-                <a data-toggle="modal">
-                    Page Settings</a>
+                <a data-toggle="modal" (click)="togglePageSetting()">
+                    Page Settings
+                </a>
             </div>
             <div class="tools">
-                <a (click)="togglePageSetting()"
-                   [ngClass]="pageSettingsCollapse ? 'expand round-btn': 'collapse round-btn'"> </a>
+                <a [ngClass]="pageSettingsCollapse ? 'expand round-btn': 'collapse round-btn'"> </a>
             </div>
         </div>
         <div class="portlet-body" *ngIf="pageSettingsCollapse">
-            <div class="caption"><h4>General</h4></div>
         </div>
     </div>
 

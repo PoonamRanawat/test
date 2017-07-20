@@ -2,11 +2,10 @@
     <div class="portlet box blue">
         <div class="portlet-title">
             <div class="caption">
-                <a>Answer Settings</a>
+                <a (click)="toggleAnswerSetting()">Answer Settings</a>
             </div>
             <div class="tools">
-                <a (click)="toggleAnswerSetting()"
-                   [ngClass]="answerSettingsCollapse ? 'expand round-btn': 'collapse round-btn'"> </a>
+                <a [ngClass]="answerSettingsCollapse ? 'expand round-btn': 'collapse round-btn'"> </a>
 
             </div>
         </div>

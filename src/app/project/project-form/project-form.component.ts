@@ -60,6 +60,7 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
      */
     onSubmit(data): void {
         data['Modes'] = this.prepareModeData();
+
         if (this.projectId) {
             data['Id'] = this.projectId;
             this.projectService.updateProject(data).subscribe(
@@ -99,7 +100,7 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
      * @returns {Array}
      */
     prepareModeData() {
-        if (this.projectId && !this.modesSelected) {
+        if (this.projectId && this.modesSelected.length === 0) {
             return this.projectForm.get('Modes').value;
         }
         let modeData = [];
@@ -150,7 +151,6 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
     getProjectDetails() {
         this.projectService.getProjectData(this.projectId).subscribe(
             result => {
-                console.log(result['Data']);
                 this.getDependentFields(result['Data']['QuestionnaireTypeId']);
                 this.projectForm.setValue({
                     Name: result['Data']['Name'],
