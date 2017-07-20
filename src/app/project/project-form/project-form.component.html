@@ -51,6 +51,7 @@
                             <select class="form-control" [class.edited]="projectForm.get('QuestionnaireTypeId').value"
                                     formControlName="QuestionnaireTypeId"
                                     id="projectType" (change)="getDependentFields($event.target.value)">
+                                <option value=""></option>
                                 <option *ngFor="let type of types" [value]="type['ID']">{{type['DisplayName']}}
                                 </option>
                             </select>
