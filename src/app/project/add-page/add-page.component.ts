@@ -7,6 +7,8 @@ import {ConfigService} from '../../core/config.service';
 import {ProjectService} from '../../core/project.service'
 import * as _ from 'lodash';
 import {ToastsManager} from 'ng2-toastr';
+import {PageService} from '../page.service'
+
 
 @Component({
     selector: 'cfm-add-page',
@@ -26,22 +28,15 @@ export class AddPageComponent implements OnInit {
     constructor(private route: ActivatedRoute,
                 private configService: ConfigService,
                 private projectService: ProjectService,
-                public toastr: ToastsManager) {
+                public toastr: ToastsManager,
+                private pageService: PageService,
+    ) {
     }
 
     ngOnInit() {
         this.route.params.subscribe((params: any) => {
             this.projectId = +params['id'];
         });
-
-        this.projectService.getProjectData(this.projectId).subscribe(
-            result => {
-                this.modeType = result['Data']['QuestionnaireTypeId'];
-                this.pageTypes = this.configService.getConfigPropertyByModeId(this.modeType)['PageTypes'];
-            }, error => {
-                this.toastr.error(error);
-            }
-        );
     }
 
     /**
@@ -67,7 +62,23 @@ export class AddPageComponent implements OnInit {
         if (!form.valid) {
             return;
         }
-        console.log(form.value)
+        const createPage = {
+            'Id': 0,
+            'Name': form.value.pagename,
+            'PageTypeId': form.value.pageType,
+            'SubPageTypeId': (form.value.subPage) ? form.value.subPage : null,
+            'QuestionTypeId': (form.value.question) ? form.value.question : null,
+            'QuestionnaireId': this.projectId
+        };
+        this.pageService.createPage(createPage).subscribe(
+            result => {
+                this.toastr.success(result['Message']);
+                this.hideAddPageModal();
+            },
+            error => {
+                this.toastr.error(JSON.parse(error._body).Message);
+            }
+        )
     }
 
     /**

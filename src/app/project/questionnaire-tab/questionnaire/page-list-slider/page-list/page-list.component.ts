@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {ToastsManager} from 'ng2-toastr';
+import {PageService} from '../../../../page.service'
 
 @Component({
   selector: 'cfm-page-list',
@@ -7,18 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageListComponent implements OnInit {
     pageListCollapse = true;
-    // todo: page list items will come from an API call
-    pageList = [
-        { pageId: 1, pageName: 'page1' },
-        { pageId: 2, pageName: 'page2' },
-        { pageId: 3, pageName: 'page3' },
-        { pageId: 4, pageName: 'page4' }
-    ];
-
-    constructor() {
+    private projectId: number;
+    pageList = [];
+    constructor(private route: ActivatedRoute,
+                private pageService: PageService,
+                public toastr: ToastsManager) {
     }
-
     ngOnInit() {
+        this.route.params.subscribe((params: any) => {
+            this.projectId = +params['id'];
+        });
+        this.pageListData(this.projectId);
     }
 
     /**
@@ -29,4 +31,19 @@ export class PageListComponent implements OnInit {
         this.pageListCollapse = !this.pageListCollapse;
     }
 
+    /**
+     * Get page List
+     *
+     * @param id
+     * return object
+     */
+    pageListData(id: number) {
+        this.pageService.getPageList(id).subscribe(
+            result => {
+                this.pageList = result['Data'];
+            }, error => {
+                this.toastr.error(error);
+            }
+        );
+    }
 }
