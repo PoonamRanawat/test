@@ -24,6 +24,7 @@ import {
 } from
     './questionnaire-tab/questionnaire/page-list-slider/page-list/page-thumbnail/delete-page/delete-page.component';
 import {TreeModule} from 'angular-tree-component';
+import {PageService} from './page.service';
 
 @NgModule({
     imports: [
@@ -54,7 +55,8 @@ import {TreeModule} from 'angular-tree-component';
         AnswerSettingsComponent,
         QuestionnaireMainComponent,
         DeletePageComponent
-    ]
+    ],
+    providers: [PageService],
 })
 export class ProjectModule {
 }
