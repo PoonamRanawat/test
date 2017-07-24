@@ -37,15 +37,6 @@ export class AddPageComponent implements OnInit {
         this.route.params.subscribe((params: any) => {
             this.projectId = +params['id'];
         });
-
-        this.projectService.getProjectData(this.projectId).subscribe(
-            result => {
-                this.modeType = result['Data']['QuestionnaireTypeId'];
-                this.pageTypes = this.configService.getConfigPropertyByModeId(this.modeType)['PageTypes'];
-            }, error => {
-                this.toastr.error(error);
-            }
-        );
     }
 
     /**

@@ -20,13 +20,7 @@ export class PageListComponent implements OnInit {
         this.route.params.subscribe((params: any) => {
             this.projectId = +params['id'];
         });
-        this.pageService.getPageList(this.projectId).subscribe(
-            result => {
-                this.pageList = result['Data'];
-            }, error => {
-                this.toastr.error(error);
-            }
-        );
+        this.pageListData(this.projectId);
     }
 
     /**
@@ -37,4 +31,19 @@ export class PageListComponent implements OnInit {
         this.pageListCollapse = !this.pageListCollapse;
     }
 
+    /**
+     * Get page List
+     *
+     * @param id
+     * return object
+     */
+    pageListData(id: number) {
+        this.pageService.getPageList(id).subscribe(
+            result => {
+                this.pageList = result['Data'];
+            }, error => {
+                this.toastr.error(error);
+            }
+        );
+    }
 }
