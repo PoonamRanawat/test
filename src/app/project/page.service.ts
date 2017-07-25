@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {ApiService} from '../core/api.service';
-import {isNumber} from "util";
 
 @Injectable()
 export class PageService {
@@ -29,9 +28,9 @@ export class PageService {
     }
 
     /**
-     * copy a page
+     * Copy a page
+     *
      * @param {number} pageId
-     * @returns {Observable<any | any>}
      */
     copyPage(pageId: number) {
         // todo: type in the API URL
