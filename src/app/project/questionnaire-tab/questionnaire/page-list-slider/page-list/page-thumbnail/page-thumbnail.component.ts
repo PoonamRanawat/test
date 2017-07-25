@@ -1,4 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
+import {PageService} from '../../../../../page.service'
 
 @Component({
     selector: 'cfm-page-thumbnail',
@@ -10,7 +11,7 @@ export class PageThumbnailComponent implements OnInit {
     @Input() pageId: number;
     @Input() pageName: string;
 
-    constructor() {
+    constructor(private pageService: PageService) {
     }
 
     ngOnInit() {
@@ -19,8 +20,9 @@ export class PageThumbnailComponent implements OnInit {
     /**
      * creates a copy of selected page
      */
-    copyPage() {
-        console.log('Copy the Page' + this.pageId);
+    copyPage(pageId: number) {
+        // copy page API will come here and pageId will be passed in.
+        this.pageService.copyPage(pageId);
     }
 
 }
