@@ -13,7 +13,7 @@
         </div>
         <div class="portlet-body" *ngIf="pageListCollapse">
             <div *ngFor="let page of pageList; let i = index">
-                <cfm-page-thumbnail [pageId]="page.pageId" [pageName]="page.Name"></cfm-page-thumbnail>
+                <cfm-page-thumbnail [pageId]="page.Id" [pageName]="page.Name"></cfm-page-thumbnail>
                 <p class="text-center">{{ i + 1}}</p>
             </div>
         </div>

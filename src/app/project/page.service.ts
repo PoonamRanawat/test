@@ -26,4 +26,15 @@ export class PageService {
     getPageList(questionnaireId: number) {
         return this.apiService.getMethod(`page/GetPagesByQuestionnaireId?questionnaireId=${questionnaireId}`);
     }
+
+    /**
+     * Copy a page
+     *
+     * @param {number} pageId
+     */
+    copyPage(pageId: number) {
+        // todo: type in the API URL
+        // return this.apiService.postMethod('', pageId);
+        console.log('Copy API URL will come here page.service.ts ' + pageId);
+    }
 }
